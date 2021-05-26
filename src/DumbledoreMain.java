@@ -13,9 +13,7 @@ public class DumbledoreMain {
         JDA jda = JDABuilder.createDefault("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.B_480wsxsFHinVnqhyrl8WnBbCc").build();
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.playing("a fare dei Test"));
-
         jda.addEventListener(new Commands());
         jda.addEventListener(new GuildMemberJoin());
-
     }
 }
