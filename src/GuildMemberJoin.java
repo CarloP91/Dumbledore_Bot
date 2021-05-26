@@ -37,9 +37,9 @@ public class GuildMemberJoin extends ListenerAdapter {
         Guild guild = event.getGuild(); // Get the guild that the user joined.
         User user = event.getUser();    // Get the user that joined.
         JDA client = event.getJDA();    // Get the already existing JDA instance.
-        Member member = guild.getMemberById(user.getId()); // Convert user to Member
-        System.out.println(user.getId());
-        Role role = guild.getRoleById("847121910096723979"); // Set role to assign
+        Member member = guild.getMemberById(user.getId()); // Convert user to Member.
+        System.out.println("User " + user.getName() + " has joined the guild!");
+        Role role = guild.getRoleById("847121910096723979"); // Set role to assign.
         guild.addRoleToMember(member, role).queue();
 
         List<TextChannel> channels = guild.getTextChannelsByName("generale", false); // Get the list of channels in the guild that matches that name.
