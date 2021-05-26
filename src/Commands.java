@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
                 EmbedBuilder info = new EmbedBuilder();
                 info.setTitle("Dumbledore Bot dice:");
     //          info.addField("Creatore", "Dominy", false);
-                info.setDescription("Check Box");
+                info.setDescription("Check Box [member]");
                 info.setColor(0xffffff);
                 event.getChannel().sendMessage(info.build()).queue();
                 info.clear();

@@ -15,6 +15,7 @@ public class DumbledoreMain {
         jda.getPresence().setActivity(Activity.playing("a fare dei Test"));
 
         jda.addEventListener(new Commands());
+        jda.addEventListener(new GuildMemberJoin());
 
     }
 }
