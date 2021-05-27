@@ -1,11 +1,8 @@
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
 import java.util.Random;
 
 public class GuildMemberJoin extends ListenerAdapter {
@@ -24,17 +21,13 @@ public class GuildMemberJoin extends ListenerAdapter {
         EmbedBuilder join = new EmbedBuilder();
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
+
         event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
 
         // Aggiungi Ruolo
-        Guild guild = event.getGuild(); // Get the guild that the user joined.
-        User user = event.getUser();    // Get the user that joined.
-        JDA client = event.getJDA();    // Get the already existing JDA instance.
-        Member member = event.getMember(); // Convert user to Member.
-        System.out.println("User " + user.getName() + " has joined the guild!");
-        Role role = guild.getRoleById("847121910096723979"); // Set role to assign.
-        guild.addRoleToMember(member, role).queue();
-        System.out.println(member);
+
+        event.getGuild().addRoleToMember(event.getMember().getAsMention(), (Role) event.getGuild().getRoleById("847121910096723979")).complete();
+
     }
 
     /*@Override
@@ -60,8 +53,19 @@ public class GuildMemberJoin extends ListenerAdapter {
         int number = rand.nextInt(messages.length);
         event.getChannel().sendMessage(messages[number]).queue();
     }
-        // Send message in every channel once user joins the guild
+
+    @Override
+    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+        Guild guild = event.getGuild(); // Get the guild that the user joined.
+        User user = event.getUser();    // Get the user that joined.
+        JDA client = event.getJDA();    // Get the already existing JDA instance.
+        Member member = guild.getMemberById(user.getId()); // Convert user to Member.
+        System.out.println("User " + user.getName() + " has joined the guild!");
+        Role role = guild.getRoleById("847121910096723979"); // Set role to assign.
+        guild.addRoleToMember(member, role).queue();
+
         List<TextChannel> channels = guild.getTextChannelsByName("generale", false); // Get the list of channels in the guild that matches that name.
+
         for (TextChannel channel : channels) { // Loops through the channels and sends a message to each one.
             channel.sendMessage("New member joined: " + user).queue();
         }
