@@ -1,16 +1,16 @@
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.util.Random;
+
 public class GuildMemberJoin extends ListenerAdapter {
 
+    @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event){
 
-        String message = event.getGuild().getName() + "si è unito al server.. Mi spiace per lui.." + "(" + event.getGuild().getMembers() + "users)"
-                + "\n ID: " + event.getGuild().getId() + ", Proprietario: " + event.getGuild().getOwner().getAsMention();
-
-
-
-        /* String[] messages = {
+        String[] messages = {
                 "Benvenuto [member], sei nel canale sbagliato!",
                 "Ciao [member]!"
         };
@@ -22,8 +22,11 @@ public class GuildMemberJoin extends ListenerAdapter {
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
 
-        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue(); è questo che non funge*/
+        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
 
+        // Aggiungi Ruolo
+
+        event.getGuild().addRoleToMember(event.getMember().getAsMention(), (Role) event.getGuild().getRoleById("847121910096723979")).complete();
 
     }
 
