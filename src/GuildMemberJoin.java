@@ -1,13 +1,16 @@
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import java.util.Random;
 
 public class GuildMemberJoin extends ListenerAdapter {
 
     public void onGuildMemberJoin(GuildMemberJoinEvent event){
 
-        String[] messages = {
+        String message = event.getGuild().getName() + "si è unito al server.. Mi spiace per lui.." + "(" + event.getGuild().getMembers() + "users)"
+                + "\n ID: " + event.getGuild().getId() + ", Proprietario: " + event.getGuild().getOwner().getAsMention();
+
+
+
+        /* String[] messages = {
                 "Benvenuto [member], sei nel canale sbagliato!",
                 "Ciao [member]!"
         };
@@ -19,7 +22,7 @@ public class GuildMemberJoin extends ListenerAdapter {
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
 
-        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
+        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue(); è questo che non funge*/
 
 
     }
