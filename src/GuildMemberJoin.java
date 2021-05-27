@@ -1,14 +1,30 @@
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import java.util.List;
 import java.util.Random;
 
 public class GuildMemberJoin extends ListenerAdapter {
 
-    @Override
+    public void onGuildMemberJoin(GuildMemberJoinEvent event){
+
+        String[] messages = {
+                "Benvenuto [member], sei nel canale sbagliato!",
+                "Ciao [member]!"
+        };
+
+        Random rand = new Random();
+        int number = rand.nextInt(messages.length);
+
+        EmbedBuilder join = new EmbedBuilder();
+        join.setColor(0x66d8ff);
+        join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
+
+        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
+
+
+    }
+
+    /*@Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if(event.getAuthor().isBot()) {
             return;
@@ -47,5 +63,5 @@ public class GuildMemberJoin extends ListenerAdapter {
         for (TextChannel channel : channels) { // Loops through the channels and sends a message to each one.
             channel.sendMessage("New member joined: " + user).queue();
         }
-    }
+    }*/
 }
