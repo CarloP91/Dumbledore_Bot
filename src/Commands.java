@@ -23,27 +23,21 @@ public class Commands extends ListenerAdapter {
             // event.getChannel().sendMessage("Messaggio di prova").queue();
         }
 
-        if (args[0].equalsIgnoreCase("Lista")) {
+        if (args[0].equalsIgnoreCase("ls")) {
             Guild guild = event.getGuild();
-            Role role = guild.getRoleById("847121910096723979");
+            Role role = guild.getRoleById("739464748948652114");
 
-            try {
-                List<Member> members = guild.findMembers(member -> {
-                    if (member.getRoles().contains(role)){
-                        return true;
-                    }
-                    return false;
-                }).get();
+            System.out.println(role);
 
-                for (Member member : members) {
-                    System.out.println(member);
-                }
+            guild.getMembersWithRoles(role);
+
+
+            System.out.println(guild.getMembersWithRoles(role));
+            System.out.println(guild.findMembersWithRoles(role));
+            System.out.println(guild.role);
+
             }
 
-            catch (UnsupportedOperationException exception) {
-                System.out.println(exception);
-            }
         }
     }
-}
 
