@@ -25,7 +25,7 @@ public class Commands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase("ls")) {
             Guild guild = event.getGuild();
-            Role role = guild.getRoleById("739464748948652114");
+            Role role = guild.getRoleById("847121910096723979");
 
             System.out.println(role);
 
@@ -33,8 +33,7 @@ public class Commands extends ListenerAdapter {
 
 
             System.out.println(guild.getMembersWithRoles(role));
-            System.out.println(guild.findMembersWithRoles(role));
-            System.out.println(guild.role);
+
 
             }
 
