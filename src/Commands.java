@@ -41,8 +41,14 @@ public class Commands extends ListenerAdapter {
                 }
             }
         }
-    }
 
+
+    if (args[0].equalsIgnoreCase("clear_msg")) {
+        Guild guild = event.getGuild();
+        event.getMessage().delete().queue();
+
+    }
+}
     @Override
     public void onVoiceChannelUpdatePosition(VoiceChannelUpdatePositionEvent positionEvent) {
         System.out.println(positionEvent.getChannel());

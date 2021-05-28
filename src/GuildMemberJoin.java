@@ -22,11 +22,17 @@ public class GuildMemberJoin extends ListenerAdapter {
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
         guild.getDefaultChannel().sendMessage(join.build()).queue();
+        guild.getTextChannelById("847034315342086144").sendMessage(join.build()).queue();
 
-        // Aggiunge Ruolo all'utente che ha joinato
+        // Aggiunge Ruolo all'utente che ha joinato (metodo default)
         Member member = event.getMember();
-        Role role = event.getGuild().getRoleById("847121910096723979");
-        guild.addRoleToMember(member, role).complete();
+//        Role role = event.getGuild().getRoleById("847121910096723979");
+//        guild.addRoleToMember(member, role).complete();
+
+        if (member.getId().equals("345186120683749378")) /*Crowley*/ {
+            Role role2 = guild.getRoleById("739464748948652114");
+            guild.addRoleToMember(member, role2).complete();
+        }
     }
 
     /*
