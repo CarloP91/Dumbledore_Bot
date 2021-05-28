@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.Random;
 
 public class GuildMemberJoin extends ListenerAdapter {
-
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event){
 
@@ -28,7 +27,6 @@ public class GuildMemberJoin extends ListenerAdapter {
         Member member = event.getMember();
         Role role = event.getGuild().getRoleById("847121910096723979");
         guild.addRoleToMember(member, role).complete();
-
     }
 
     /*
