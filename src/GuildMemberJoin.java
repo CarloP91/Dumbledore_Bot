@@ -1,4 +1,6 @@
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -16,13 +18,16 @@ public class GuildMemberJoin extends ListenerAdapter {
 
         Random rand = new Random();
         int number = rand.nextInt(messages.length);
+        Guild guild = event.getGuild();
         EmbedBuilder join = new EmbedBuilder();
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
-        event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
+        guild.getDefaultChannel().sendMessage(join.build()).queue();
 
         // Aggiungi Ruolo
-        event.getGuild().addRoleToMember(event.getMember().getAsMention(), (Role) event.getGuild().getRoleById("847121910096723979")).complete();
+        Member member = event.getMember();
+        Role role = event.getGuild().getRoleById("847121910096723979");
+        guild.addRoleToMember(member, role).complete();
 
     }
 
