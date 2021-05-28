@@ -16,20 +16,18 @@ public class GuildMemberJoin extends ListenerAdapter {
 
         Random rand = new Random();
         int number = rand.nextInt(messages.length);
-
         EmbedBuilder join = new EmbedBuilder();
         join.setColor(0x66d8ff);
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
-
         event.getGuild().getDefaultChannel().sendMessage(join.build()).queue();
 
         // Aggiungi Ruolo
-
         event.getGuild().addRoleToMember(event.getMember().getAsMention(), (Role) event.getGuild().getRoleById("847121910096723979")).complete();
 
     }
 
-    /*@Override
+    /*
+    @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if(event.getAuthor().isBot()) {
             return;
