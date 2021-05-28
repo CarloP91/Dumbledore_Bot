@@ -24,7 +24,7 @@ public class GuildMemberJoin extends ListenerAdapter {
         join.setDescription(messages[number].replace("[member]", event.getMember().getAsMention()));
         guild.getDefaultChannel().sendMessage(join.build()).queue();
 
-        // Aggiungi Ruolo
+        // Aggiunge Ruolo all'utente che ha joinato
         Member member = event.getMember();
         Role role = event.getGuild().getRoleById("847121910096723979");
         guild.addRoleToMember(member, role).complete();
