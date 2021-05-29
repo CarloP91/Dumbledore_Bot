@@ -42,12 +42,22 @@ public class Commands extends ListenerAdapter {
             }
         }
 
+        if (args[0].equalsIgnoreCase("who-all-role")) {
+            Guild guild = event.getGuild();
+            List<Member> membersList = guild.getMembers();
 
+                for (Member member : membersList) {
+                    event.getChannel().sendMessage("<@" + member.getUser().getId() + ">").queue();
+                        }
+                    }
+
+
+/* non funziona ancora
     if (args[0].equalsIgnoreCase("clear_msg")) {
         Guild guild = event.getGuild();
         event.getMessage().delete().queue();
 
-    }
+    }*/
 }
     @Override
     public void onVoiceChannelUpdatePosition(VoiceChannelUpdatePositionEvent positionEvent) {
