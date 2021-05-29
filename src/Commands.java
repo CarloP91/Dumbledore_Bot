@@ -42,6 +42,7 @@ public class Commands extends ListenerAdapter {
             }
         }
 
+        // STAMPA TUTTI I MEMBRI DEL DISCORD
         if (args[0].equalsIgnoreCase("who-all-role")) {
             Guild guild = event.getGuild();
             List<Member> membersList = guild.getMembers();
@@ -50,6 +51,16 @@ public class Commands extends ListenerAdapter {
                     event.getChannel().sendMessage("<@" + member.getUser().getId() + ">").queue();
                         }
                     }
+
+        // DA IMPLEMENTARE PER DISCORD AMBULANCE CON DATI EXCEL
+        if (args[0].equalsIgnoreCase("d-ambulance-payment")) {
+            Guild guild = event.getGuild();
+            List<Member> membersList = guild.getMembers();
+
+            for (Member member : membersList) {
+                event.getChannel().sendMessage("<@" + member.getUser().getId() + ">" + " " + "- `[0/7]` - `[0 €]` - `[NO]`").queue();
+            }
+        }
 
 
 /* non funziona ancora
