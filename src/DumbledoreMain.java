@@ -25,6 +25,7 @@ public class DumbledoreMain {
             .addEventListeners(new GuildMemberJoin())
             .addEventListeners(new GuildMemberRemove())
             .addEventListeners(new Commands())
+            .addEventListeners(new GuildMessageReceived())
             .build();
     }
 }
