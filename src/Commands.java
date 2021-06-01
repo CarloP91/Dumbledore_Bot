@@ -1,3 +1,4 @@
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -13,11 +14,12 @@ public class Commands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
 
-/*            EmbedBuilder info = new EmbedBuilder();
+          /*  EmbedBuilder info = new EmbedBuilder();
             info.setTitle("Dumbledore Bot dice:");
             info.addField("Creatore", "Dominy", false);
             info.setDescription("Check Box [member]");
             info.setColor(0xffffff);
+            event.getChannel().sendMessage(info.build()).queue();
             info.clear();*/
             event.getChannel().sendMessage
                     ("Lista Comandi: " +
@@ -25,6 +27,16 @@ public class Commands extends ListenerAdapter {
                             "\r who-all-role; " +
                             "\r d-ambulance-payment")
                     .queue();
+        }
+
+        if (args[0].equalsIgnoreCase("d_Offline")) {
+
+            EmbedBuilder off = new EmbedBuilder();
+            off.setTitle("Dumbledore Bot dice:");
+            off.setDescription("Yes, sir! \n ... \n Il BOT si sta spegnendo.. \uD83E\uDDED️");
+            off.setColor(0xff3300);
+            event.getChannel().sendMessage(off.build()).queue();
+            off.clear();
         }
 
         if (args[0].equalsIgnoreCase("who")) {
