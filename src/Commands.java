@@ -81,6 +81,26 @@ public class Commands extends ListenerAdapter {
             }
         }
 
+        if (args[0].equalsIgnoreCase("d-a-p")) {
+            Guild guild = event.getGuild();
+            List<Role> roleList = guild.getRoles();
+            List<Member> membersList = guild.getMembers();
+            List<Role> memberRolesAmb;
+
+            for (Role r_amb : roleList) { //ma perché funziona solo con animagus??
+                if (event.getMessage().toString().contains("@" + r_amb.getName())) {
+                    for (Member member_amb : membersList) {
+                        memberRolesAmb = member_amb.getRoles();
+                        for (Role m_role : memberRolesAmb) {
+                            if (m_role.equals(event.getGuild().getRoleById("847033003368513558"))) {
+                                event.getChannel().sendMessage("Ruolo: " + "<@&" + r_amb.getId() + ">" + " - Utente: " + "<@" + member_amb.getUser().getId() + ">").queue();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
 /* non funziona ancora
     if (args[0].equalsIgnoreCase("clear_msg")) {
