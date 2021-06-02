@@ -29,6 +29,16 @@ public class Commands extends ListenerAdapter {
                     .queue();
         }
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "rotto")) {
+
+            EmbedBuilder off = new EmbedBuilder();
+            off.setTitle("Dumbledore Bot dice:");
+            off.setDescription("Sono rotto! Sono rotto!️");
+            off.setColor(0xff3300);
+            event.getChannel().sendMessage(off.build()).queue();
+            off.clear();
+        }
+
         if (args[0].equalsIgnoreCase("d_Offline")) {
 
             EmbedBuilder off = new EmbedBuilder();
@@ -87,12 +97,12 @@ public class Commands extends ListenerAdapter {
             List<Member> membersList = guild.getMembers();
             List<Role> memberRolesAmb;
 
-            for (Role r_amb : roleList) { //ma perché funziona solo con animagus??
+            for (Role r_amb : roleList) { //non funziona correttamente il ciclo. Con un else o else if si sminchia tutto.
                 if (event.getMessage().toString().contains("@" + r_amb.getName())) {
                     for (Member member_amb : membersList) {
                         memberRolesAmb = member_amb.getRoles();
                         for (Role m_role : memberRolesAmb) {
-                            if (m_role.equals(event.getGuild().getRoleById("847033003368513558"))) {
+                            if (m_role.equals(r_amb)) {
                                 event.getChannel().sendMessage("Ruolo: " + "<@&" + r_amb.getId() + ">" + " - Utente: " + "<@" + member_amb.getUser().getId() + ">").queue();
                             }
                         }
