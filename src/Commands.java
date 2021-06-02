@@ -9,6 +9,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.List;
 
 public class Commands extends ListenerAdapter {
+    private String AssignedRole;
+
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
@@ -91,24 +93,97 @@ public class Commands extends ListenerAdapter {
             }
         }
 
+/* DEFAULT ASSEGNAZIONE RUOLO
         if (args[0].equalsIgnoreCase("d-a-p")) {
             Guild guild = event.getGuild();
-            List<Role> roleList = guild.getRoles();
-            List<Member> membersList = guild.getMembers();
+            List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
+            List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
+            List<Role> memberRolesAmb;
+            AssignedRole = "Ruolo Test";
+
+            for (Role role_m :roleList) {
+                if (role_m.getName().equals(AssignedRole))
+                event.getChannel().sendMessage(role_m.getName()).queue();
+            }
+
+        }
+*/
+        if (args[0].equalsIgnoreCase("d-pay-amb")) {
+            Guild guild = event.getGuild();
+            List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
+            List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
             List<Role> memberRolesAmb;
 
-            for (Role r_amb : roleList) { //non funziona correttamente il ciclo. Con un else o else if si sminchia tutto.
-                if (event.getMessage().toString().contains("@" + r_amb.getName())) {
-                    for (Member member_amb : membersList) {
-                        memberRolesAmb = member_amb.getRoles();
-                        for (Role m_role : memberRolesAmb) {
-                            if (m_role.equals(r_amb)) {
-                                event.getChannel().sendMessage("Ruolo: " + "<@&" + r_amb.getId() + ">" + " - Utente: " + "<@" + member_amb.getUser().getId() + ">").queue();
-                            }
-                        }
-                    }
+
+            for (Role role_m :roleList) { //TEST PER DISCORD
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Ruolo Test";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
+
                 }
+
             }
+
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Direttore";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
+
+                }
+
+            }
+
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Vice Direttore";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
+
+                }
+
+            }
+
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Primario";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
+
+                }
+
+            }
+
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Dottore";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 500.000€").queue();
+
+                }
+
+            }
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "Paramedico";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 300.000€").queue();
+
+                }
+
+            }
+
+            for (Role role_m :roleList) {
+                if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    AssignedRole = "E.M.S.";
+                    if (role_m.getName().equals(AssignedRole))
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
+
+                }
+
+            }
+
         }
 
 
