@@ -196,7 +196,7 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-        if (args[0].equalsIgnoreCase("try")) {
+        if (args[0].equalsIgnoreCase("add_react_on_req")) {
             String ActCh = "847831596178341908";
             if (event.getChannel().getId().equals(ActCh)) {
                 event.getMessage().addReaction("❌").queue();
@@ -205,6 +205,14 @@ public class Commands extends ListenerAdapter {
 
         }
 
+        if (args[0].equalsIgnoreCase("try")){
+            String Ciccina = "383035474807095296";
+            if (event.getMessage().getMember().getId().equals(Ciccina)) {
+                System.out.println(event.getMessage().getMember());
+                event.getMessage().addReaction("\uD83D\uDC96").queue();
+            }
+
+        }
 
     /*if (args[0].equalsIgnoreCase("clear_msg")) {
 
