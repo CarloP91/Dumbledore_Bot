@@ -7,9 +7,11 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Commands extends ListenerAdapter {
     private String AssignedRole;
+    private String IDNewTry;
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -108,17 +110,15 @@ public class Commands extends ListenerAdapter {
 
         }
 */
-        if (args[0].equalsIgnoreCase("d-pay-amb")) {
+        if (args[0].equalsIgnoreCase("faf")) {
             Guild guild = event.getGuild();
             List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
             List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
-            List<Role> memberRolesAmb;
-
 
             for (Role role_m :roleList) { //TEST PER DISCORD
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Ruolo Test";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "847121910096723979";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
 
                 }
@@ -127,8 +127,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Direttore";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "839071738654359572";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
 
                 }
@@ -137,8 +137,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Vice Direttore";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "839071683976495155";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
 
                 }
@@ -147,8 +147,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Primario";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "840159576905089044";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
 
                 }
@@ -157,8 +157,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Dottore";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "839071597327024129";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 500.000€").queue();
 
                 }
@@ -166,8 +166,8 @@ public class Commands extends ListenerAdapter {
             }
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "Paramedico";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "839069751073832980";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 300.000€").queue();
 
                 }
@@ -176,8 +176,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "E.M.S.";
-                    if (role_m.getName().equals(AssignedRole))
+                    AssignedRole = "844289989831557120";
+                    if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
 
                 }
@@ -185,12 +185,32 @@ public class Commands extends ListenerAdapter {
             }
 
         }
+        if (args[0].equalsIgnoreCase("m_tryit")) {
+            List<Member> membersList = event.getGuild().getMembers();
+            for (Member m_amb : membersList) {
+                IDNewTry = "660208405172191250";
+                if (m_amb.getId().equals(IDNewTry)) {
+                    System.out.println(m_amb.getId());
+                    event.getChannel().sendMessage(m_amb.getId()).queue();
+                }
+            }
+        }
+
+        if (args[0].equalsIgnoreCase("try")) {
+            String ActCh = "847831596178341908";
+            if (event.getChannel().getId().equals(ActCh)) {
+                event.getMessage().addReaction("❌").queue();
+                event.getMessage().addReaction("✅").queue();
+            }
+
+        }
 
 
-/* non funziona ancora
-    if (args[0].equalsIgnoreCase("clear_msg")) {
-        Guild guild = event.getGuild();
-        event.getMessage().delete().queue();
+    /*if (args[0].equalsIgnoreCase("clear_msg")) {
+
+        //cancella il messaggio che scrive dopo 10 sec. LoL
+        event.getChannel().sendMessage("Tentato Delete").queue(m -> m.delete().queueAfter(10, TimeUnit.SECONDS));
+
 
     }*/
 }
