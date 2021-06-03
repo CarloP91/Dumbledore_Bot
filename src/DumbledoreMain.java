@@ -17,7 +17,7 @@ public class DumbledoreMain {
         // The resulting JDA instance will not cache any members since createLight disables it.
 
         JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.B_480wsxsFHinVnqhyrl8WnBbCc", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS)
-            .setStatus(OnlineStatus.IDLE)
+            .setStatus(OnlineStatus.ONLINE)
             .setActivity(Activity.playing("a fare dei Test"))
             .setMemberCachePolicy(MemberCachePolicy.ALL)
             .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds

@@ -137,9 +137,9 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839071683976495155";
+                    AssignedRole = "839071683976495155"; //VICE DIRETTORE
                     if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 900.000€").queue();
 
                 }
 
@@ -147,7 +147,7 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "840159576905089044";
+                    AssignedRole = "840159576905089044"; //PRIMARIO
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
 
@@ -157,18 +157,18 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839071597327024129";
+                    AssignedRole = "839071597327024129"; //DOTTORE
                     if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 500.000€").queue();
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 400.000€").queue();
 
                 }
 
             }
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839069751073832980";
+                    AssignedRole = "839069751073832980"; //PARAMEDICO
                     if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 300.000€").queue();
+                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 250.000€").queue();
 
                 }
 
@@ -176,7 +176,7 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "844289989831557120";
+                    AssignedRole = "844289989831557120";//EMS
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
 
