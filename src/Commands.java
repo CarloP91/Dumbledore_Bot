@@ -5,9 +5,9 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.channel.voice.update.VoiceChannelUpdatePositionEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.internal.requests.Route;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Commands extends ListenerAdapter {
     private String AssignedRole;
@@ -78,22 +78,14 @@ public class Commands extends ListenerAdapter {
             Guild guild = event.getGuild();
             List<Member> membersList = guild.getMembers();
 
-                for (Member member : membersList) {
-                    event.getChannel().sendMessage("<@" + member.getUser().getId() + ">").queue();
-                        }
-                    }
+            for (Member member : membersList) {
+                event.getChannel().sendMessage("<@" + member.getUser().getId() + ">").queue();
+            }
+        }
 
 
 //        / - - - - - - - / AMBULANCE / - - - - - - - /
 
-        // DA IMPLEMENTARE PER DISCORD AMBULANCE CON DATI EXCEL
-        if (args[0].equalsIgnoreCase("d-ambulance-payment")) {
-            Guild guild = event.getGuild();
-            List<Member> membersList = guild.getMembers();
-            for (Member member : membersList) {
-                event.getChannel().sendMessage("<@" + member.getUser().getId() + ">" + " " + "- `[0/7]` - `[0 €]` - `[NO]`").queue();
-            }
-        }
 
 /* DEFAULT ASSEGNAZIONE RUOLO
         if (args[0].equalsIgnoreCase("d-a-p")) {
@@ -110,7 +102,7 @@ public class Commands extends ListenerAdapter {
 
         }
 */
-        if (args[0].equalsIgnoreCase("faf")) {
+        if (args[0].equalsIgnoreCase("d-amb-pay")) {
             Guild guild = event.getGuild();
             List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
             List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
@@ -205,14 +197,26 @@ public class Commands extends ListenerAdapter {
 
         }
 
-        if (args[0].equalsIgnoreCase("try")){
-            String Ciccina = "383035474807095296";
-            if (event.getMessage().getMember().getId().equals(Ciccina)) {
-                System.out.println(event.getMessage().getMember());
-                event.getMessage().addReaction("\uD83D\uDC96").queue();
-            }
+        String nameCH = null;
+        if (args[0].equalsIgnoreCase("ChangeCHName")) {
+            if (args.length == 2) {
+                StringBuilder builder = new StringBuilder();
+                for (int x = 1; x < args.length; x++) {
+                    builder.append(args[1]);
+                }
+                nameCH = event.getMessage().getContentRaw();
 
+                System.out.println(Route.Channels.MODIFY_CHANNEL.compile(event.getChannel().getId()));
+                System.out.println(nameCH);
+                System.out.println(event.getMessage());
+                System.out.println(event.getChannel());
+                System.out.println(event.getMessage().getMember());
+                event.getChannel().getManager().setName(String.valueOf(builder)).queue();
+                event.getChannel().sendMessage(event.getAuthor().getAsMention() + " has changed the title to: " + builder).queue();
+
+            }
         }
+
 
     /*if (args[0].equalsIgnoreCase("clear_msg")) {
 
@@ -221,7 +225,7 @@ public class Commands extends ListenerAdapter {
 
 
     }*/
-}
+    }
     @Override
     public void onVoiceChannelUpdatePosition(VoiceChannelUpdatePositionEvent positionEvent) {
         System.out.println(positionEvent.getChannel());
