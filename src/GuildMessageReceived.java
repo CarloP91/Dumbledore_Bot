@@ -19,11 +19,11 @@ public class GuildMessageReceived extends ListenerAdapter {
 
         } else if (event.getGuild().getId().equals(DumbledoreMain.dBbbdb)){
             TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
-            textChannel.sendMessage("<@" + event.getMessage().getAuthor().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
+            textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
 
         } else if (event.getMessage().getContentRaw().contains("Dominy")) {
             TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
-            textChannel.sendMessage("<@" + event.getMessage().getAuthor().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
+            textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
         } else {
             System.out.println("Sono nell'else del MessageReceived per: " + event.getGuild() + " " + event.getMessage().getContentRaw() + " in " + event.getChannel().getName());
             System.out.println(event.getMember().getRoles());
