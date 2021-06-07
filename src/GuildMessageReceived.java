@@ -14,7 +14,7 @@ public class GuildMessageReceived extends ListenerAdapter {
         //PER OGNI MESSAGGIO SCRITTO in Balbettante bambocciona banda di babbuini
         if (event.getMessage().getMember().getId().equals(DumbledoreMain.dumbledore)) {
 
-            System.out.println(event.getMessage().getAuthor().getId() + " ha scritto: " + event.getMessage().getContentRaw());
+            System.out.println(event.getMessage().getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw());
 
         } else if (event.getGuild().getId().equals(DumbledoreMain.dBbbdb)){
             TextChannel textChannel = event.getGuild().getTextChannelById("847831596178341908");
