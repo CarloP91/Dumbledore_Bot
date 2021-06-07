@@ -1,6 +1,10 @@
 package serverList;
 
 public class AmbulanceStrangersLife {
+
+    //ID SERVER
+    public static String ambulanceID = "839067511601365033"; //Ambulance Stanger's Life
+
     //STAFF
 
     private String dominy = "383035474807095296"; //PROPRIETARIO SERVER

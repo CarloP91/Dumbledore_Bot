@@ -1,6 +1,7 @@
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import serverList.BBBdB;
 
 public class GuildMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
@@ -17,7 +18,7 @@ public class GuildMessageReceived extends ListenerAdapter {
 
          //   System.out.println(event.getMessage().getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw());
 
-        } else if (event.getGuild().getId().equals(DumbledoreMain.dBbbdb)){
+        } else if (event.getGuild().getId().equals(BBBdB.dBbbdbID)){
             TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
             textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
 

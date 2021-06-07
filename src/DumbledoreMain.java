@@ -12,7 +12,6 @@ public class DumbledoreMain {
 
     public static String prefix = "~";
     public static String dumbledore = "847029930872930334"; // BOT ID
-    public static String dBbbdb = "660202751032033280"; //Balbettante bambocciona banda di babbuini
 
     public static void main(String[] args) throws LoginException {
         // createLight disables unused cache flags
