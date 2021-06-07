@@ -4,6 +4,8 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
+
 import javax.security.auth.login.LoginException;
 
 public class DumbledoreMain {
@@ -18,16 +20,19 @@ public class DumbledoreMain {
         // GUILD_MEMBERS gives you access to guild member join events so you can send welcome messages
         // The resulting JDA instance will not cache any members since createLight disables it.
 
-        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.B_480wsxsFHinVnqhyrl8WnBbCc", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS)
-            .setStatus(OnlineStatus.ONLINE)
-            .setActivity(Activity.playing("a fare dei Test"))
-            .setMemberCachePolicy(MemberCachePolicy.ALL)
-            .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
-            .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
-            .addEventListeners(new GuildMemberJoin())
-            .addEventListeners(new GuildMemberRemove())
-            .addEventListeners(new Commands())
-            .addEventListeners(new GuildMessageReceived())
-            .build();
+        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.B_480wsxsFHinVnqhyrl8WnBbCc", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES)
+                .setStatus(OnlineStatus.ONLINE)
+                .setActivity(Activity.playing("a fare dei Test"))
+                .setMemberCachePolicy(MemberCachePolicy.ALL)
+                .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
+                .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
+                .enableCache(CacheFlag.VOICE_STATE)
+                .addEventListeners(new GuildMemberJoin())
+                .addEventListeners(new GuildMemberRemove())
+                .addEventListeners(new Commands())
+                .addEventListeners(new GuildMessageReceived())
+                .addEventListeners(new GuildVoiceJoin())
+                .addEventListeners(new GuildVoiceMove())
+                .build();
     }
 }

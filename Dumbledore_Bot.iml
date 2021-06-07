@@ -10,10 +10,15 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JDA-4.2.1_265-withDependencies.jar!/" />
+          <root url="file://D:/Users/carlo/Downloads" />
+          <root url="jar://D:/Users/carlo/Downloads/JDA-4.2.1_265-withDependencies.jar!/" />
+          <root url="file://$MODULE_DIR$" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src" />
+        </SOURCES>
+        <jarDirectory url="file://D:/Users/carlo/Downloads" recursive="false" />
       </library>
     </orderEntry>
   </component>

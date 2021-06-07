@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.channel.voice.update.VoiceChannelUpdatePositio
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.requests.Route;
+import serverList.AmbulanceStrangersLife;
 
 import java.util.List;
 
@@ -120,6 +121,8 @@ public class Commands extends ListenerAdapter {
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
                     AssignedRole = "839071738654359572";
+                    AmbulanceStrangersLife direttore = new AmbulanceStrangersLife();
+                    AssignedRole = direttore.getDirettore();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
 
@@ -129,7 +132,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839071683976495155"; //VICE DIRETTORE
+                    AmbulanceStrangersLife vicedirettore = new AmbulanceStrangersLife();
+                    AssignedRole = vicedirettore.getViceDirettore();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 900.000€").queue();
 
@@ -139,7 +143,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "840159576905089044"; //PRIMARIO
+                    AmbulanceStrangersLife primario = new AmbulanceStrangersLife();
+                    AssignedRole = primario.getPrimario();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
 
@@ -149,7 +154,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839071597327024129"; //DOTTORE
+                    AmbulanceStrangersLife dottore = new AmbulanceStrangersLife();
+                    AssignedRole = dottore.getDottore();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 400.000€").queue();
 
@@ -158,7 +164,8 @@ public class Commands extends ListenerAdapter {
             }
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839069751073832980"; //PARAMEDICO
+                    AmbulanceStrangersLife paramedico = new AmbulanceStrangersLife();
+                    AssignedRole = paramedico.getParamedico();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 250.000€").queue();
 
@@ -168,7 +175,8 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "844289989831557120";//EMS
+                    AmbulanceStrangersLife ems = new AmbulanceStrangersLife();
+                    AssignedRole = ems.getEms();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
 
@@ -177,7 +185,7 @@ public class Commands extends ListenerAdapter {
             }
 
         }
-        if (args[0].equalsIgnoreCase("m_tryit")) {
+        if (args[0].equalsIgnoreCase("m_tryit")) { //ATTUALMENTE INUTILE
             List<Member> membersList = event.getGuild().getMembers();
             for (Member m_amb : membersList) {
                 IDNewTry = "660208405172191250";
@@ -197,9 +205,9 @@ public class Commands extends ListenerAdapter {
 
         }
 
-        String nameCH = null;
+        String nameCH;
         if (args[0].equalsIgnoreCase("ChangeCHName")) {
-            if (args.length == 2) {
+            if (args.length >= 2) {
                 StringBuilder builder = new StringBuilder();
                 for (int x = 1; x < args.length; x++) {
                     builder.append(args[1]);
