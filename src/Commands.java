@@ -72,6 +72,8 @@ public class Commands extends ListenerAdapter {
                     }
                 }
             }
+
+            event.getMessage().delete().queue();
         }
 
         // STAMPA TUTTI I MEMBRI DEL DISCORD
