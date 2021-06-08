@@ -32,7 +32,7 @@ public class GuildMessageReceived extends ListenerAdapter {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
             } else {
-                System.out.println("Sono nell'else del MessageReceived per: " + event.getGuild() + " " + event.getMessage().getContentRaw() + " in " + event.getChannel().getName());
+                System.out.println("Sono nell'else del MessageReceived per: " + event.getGuild().getName() + " " + event.getMessage().getContentRaw() + " in " + event.getChannel().getName());
                 System.out.println(event.getMember().getRoles());
             }
         }
