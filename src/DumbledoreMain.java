@@ -19,7 +19,7 @@ public class DumbledoreMain {
         // GUILD_MEMBERS gives you access to guild member join events so you can send welcome messages
         // The resulting JDA instance will not cache any members since createLight disables it.
 
-        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.B_480wsxsFHinVnqhyrl8WnBbCc", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES)
+        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES)
                 .setStatus(OnlineStatus.ONLINE)
                 .setActivity(Activity.playing("a fare dei Test"))
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
