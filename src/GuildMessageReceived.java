@@ -8,8 +8,9 @@ public class GuildMessageReceived extends ListenerAdapter {
 
         String Ciccina = "720912809206218776";
 
+        //CONTROLLO PER 2 BOT SENZA ID
         if (event.getChannel().getId().equals("839615144107048961")) {
-            System.out.println("è il bot di K che rompe e quindi non faccio nulla");
+           // System.out.println("è il bot di K che rompe e quindi non faccio nulla");
         } else {
 
             if (event.getMessage().getMember().getId().equals(Ciccina)) {
@@ -32,7 +33,7 @@ public class GuildMessageReceived extends ListenerAdapter {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
             } else {
-                System.out.println("Sono nell'else del MessageReceived per: " + event.getGuild().getName() + " " + event.getMessage().getContentRaw() + " in " + event.getChannel().getName());
+                System.out.println("Sono nell'else del MessageReceived per: " + event.getGuild().getName() + " " + event.getMember().getEffectiveName() + " " + event.getMessage().getContentRaw() + " in " + event.getChannel().getName());
                 System.out.println(event.getMember().getRoles());
             }
         }

@@ -105,7 +105,7 @@ public class Commands extends ListenerAdapter {
 
         }
 */
-        if (args[0].equalsIgnoreCase("d-amb-pay")) {
+        if (args[0].equalsIgnoreCase("payamb")) {
             Guild guild = event.getGuild();
             List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
             List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
