@@ -198,6 +198,20 @@ public class Commands extends ListenerAdapter {
             }
         }
 
+        //RIMUOVERE RUOLO
+        if (args[0].equalsIgnoreCase("modruolo") && args[1].equalsIgnoreCase("Animagus")
+                && args[2].equalsIgnoreCase("to") &&  args[3].equalsIgnoreCase("RuoloTest")) {
+
+            for (event.getGuild().getRoles().lis) {
+
+            }
+
+            System.out.println(event.getGuild().getRoles());
+            System.out.println(event.getGuild().getMembers());
+            event.getChannel().sendMessage("sto funzionando").queue();
+        }
+
+
         if (args[0].equalsIgnoreCase("add_react_on_req")) {
             String ActCh = "847831596178341908";
             if (event.getChannel().getId().equals(ActCh)) {
