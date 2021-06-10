@@ -30,7 +30,7 @@ public class Commands extends ListenerAdapter {
                     ("Lista Comandi: " +
                             "\r who @ruolo;" +
                             "\r who-all-role; " +
-                            "\r d-ambulance-payment")
+                            "\r d-payamb")
                     .queue();
         }
 
@@ -105,10 +105,9 @@ public class Commands extends ListenerAdapter {
 
         }
 */
-        if (args[0].equalsIgnoreCase("payamb")) {
+        if (args[0].equalsIgnoreCase( DumbledoreMain.prefix + "payamb")) {
             Guild guild = event.getGuild();
             List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
-            List<Member> membersList = guild.getMembers(); //lista di tutti i membri del discord
 
             for (Role role_m :roleList) { //TEST PER DISCORD
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
@@ -122,7 +121,6 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "839071738654359572";
                     AmbulanceStrangersLife direttore = new AmbulanceStrangersLife();
                     AssignedRole = direttore.getDirettore();
                     if (role_m.getId().equals(AssignedRole))
@@ -134,14 +132,19 @@ public class Commands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
+                    System.out.println(role_m.getName());
+                    System.out.println(event.getMessage());
                     AmbulanceStrangersLife vicedirettore = new AmbulanceStrangersLife();
+                    System.out.println(vicedirettore.getViceDirettore());
                     AssignedRole = vicedirettore.getViceDirettore();
+                    System.out.println(AssignedRole);
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 900.000€").queue();
 
                 }
 
             }
+
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
@@ -186,25 +189,14 @@ public class Commands extends ListenerAdapter {
 
             }
 
-        }
-        if (args[0].equalsIgnoreCase("m_tryit")) { //ATTUALMENTE INUTILE
-            List<Member> membersList = event.getGuild().getMembers();
-            for (Member m_amb : membersList) {
-                IDNewTry = "660208405172191250";
-                if (m_amb.getId().equals(IDNewTry)) {
-                    System.out.println(m_amb.getId());
-                    event.getChannel().sendMessage(m_amb.getId()).queue();
-                }
-            }
+            event.getMessage().delete().queue();
+
         }
 
         //RIMUOVERE RUOLO
         if (args[0].equalsIgnoreCase("modruolo") && args[1].equalsIgnoreCase("Animagus")
                 && args[2].equalsIgnoreCase("to") &&  args[3].equalsIgnoreCase("RuoloTest")) {
 
-            for (event.getGuild().getRoles().lis) {
-
-            }
 
             System.out.println(event.getGuild().getRoles());
             System.out.println(event.getGuild().getMembers());

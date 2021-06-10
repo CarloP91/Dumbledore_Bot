@@ -1,3 +1,4 @@
+import commands.AmbulanceCommands;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -10,7 +11,7 @@ import javax.security.auth.login.LoginException;
 
 public class DumbledoreMain {
 
-    public static String prefix = "~";
+    public static String prefix = "d-";
     public static String dumbledore = "847029930872930334"; // BOT ID
 
     public static void main(String[] args) throws LoginException {
@@ -29,6 +30,7 @@ public class DumbledoreMain {
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new GuildMemberRemove())
                 .addEventListeners(new Commands())
+                .addEventListeners(new AmbulanceCommands())
                 .addEventListeners(new GuildMessageReceived())
                 .addEventListeners(new GuildVoiceJoin())
                 .addEventListeners(new GuildVoiceLeave())
