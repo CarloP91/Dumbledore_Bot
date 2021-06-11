@@ -1,3 +1,4 @@
+import db.DbCredentials;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
@@ -8,11 +9,18 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.requests.Route;
 import serverList.AmbulanceStrangersLife;
 
+import java.sql.*;
 import java.util.List;
 
 public class Commands extends ListenerAdapter {
     private String AssignedRole;
     private String IDNewTry;
+
+    DbCredentials credentials = new DbCredentials();
+
+    String username = credentials.getUsername();
+    String password = credentials.getPassword();
+    String url = credentials.getUrl();
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -212,6 +220,48 @@ public class Commands extends ListenerAdapter {
             }
 
         }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "testa")) {
+
+
+            try {
+                Connection connection = DriverManager.getConnection(url, username, password);
+
+                // SELECT FROM DB MYSQL
+                String sql = "SELECT * FROM `tab1`";
+                Statement statement = connection.createStatement();
+                ResultSet result = statement.executeQuery(sql);
+
+                int count = 0;
+
+                while (result.next()) {
+                    String row1 = result.getString(1);
+                    String row2 = result.getString("te2");
+                    count++;
+                    event.getChannel().sendMessage("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2).queue();
+                    System.out.println("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2);
+                }
+
+/*					INSERT INTO DB MYSQL
+					String sql = "INSERT INTO `tab1` (te1, te2) VALUES (?, ?)";
+					PreparedStatement statement = connection.prepareStatement(sql);
+					statement.setString(1, "150");
+					statement.setString(2, "300");
+					int rows = statement.executeUpdate();
+					if (rows > 0) {
+						System.out.println("Inserito");
+					}
+
+					statement.close();*/
+                connection.close();
+                System.out.println("Funge");
+            }
+            catch (SQLException e) {
+                System.out.println("Non funge");
+                e.printStackTrace();
+            }
+        }
+
 
         String nameCH;
         if (args[0].equalsIgnoreCase("ChangeCHName")) {
