@@ -5,13 +5,12 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import serverList.AmbulanceStrangersLife;
-
 import java.util.List;
 
 public class AmbulanceCommands extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        String[] args = event.getMessage().getContentRaw().split("\\s+");
 
+        String[] args = event.getMessage().getContentRaw().split("\\s+");
         // AMBULANCE COMMANDS
 
         if (args[0].equalsIgnoreCase( "orario-riunione")) {
