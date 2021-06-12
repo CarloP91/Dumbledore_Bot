@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Dumbledore_Bot" target="1.5" />
+      <module name="Dumbledore_Bot" target="" />
     </bytecodeTargetLevel>
   </component>
 </project>
