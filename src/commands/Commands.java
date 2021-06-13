@@ -87,7 +87,7 @@ public class Commands extends ListenerAdapter {
                     }
                 }
             }
-            event.getChannel().sendMessage("//------// FINE REPORT //------// \n").queue();
+            event.getChannel().sendMessage("**//------// FINE REPORT //------//** \n").queue();
             event.getMessage().delete().queue();
         }
 

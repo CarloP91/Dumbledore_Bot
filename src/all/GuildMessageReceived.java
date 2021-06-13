@@ -33,11 +33,11 @@ public class GuildMessageReceived extends ListenerAdapter {
 
                 //   System.out.println(event.getMessage().getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw());
 
-            } /*else if (event.getGuild().getId().equals(BBBdB.dBbbdbID)) {
+            } else if (event.getGuild().getId().equals(BBBdB.dBbbdbID)) {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
 
-            }*/ else if (event.getMessage().getContentRaw().contains("383035474807095296")) {
+            } else if (event.getMessage().getContentRaw().contains("383035474807095296")) {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
             } else {
@@ -53,12 +53,9 @@ public class GuildMessageReceived extends ListenerAdapter {
                                 + " "
                                 + event.getMessage().getContentRaw()
                                 + " in " + event.getChannel().getName());
+                      System.out.println(event.getMember().getRoles());
+                      System.out.println(event.getAuthor().getTimeCreated());
 
-                      for (Role role1 : roleList) {
-                        System.out.println(event.getMember().getRoles());
-
-
-                      }
                 }
             }
         }

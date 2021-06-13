@@ -10,7 +10,7 @@ public class GuildMemberRemove extends ListenerAdapter {
 
     @Override
     public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
-
+/*
         String[] messages = {
                 "[member], ha lasciato il Discord!",
                 "Ciao [member], ha lasciato il Discordia!"
@@ -23,5 +23,6 @@ public class GuildMemberRemove extends ListenerAdapter {
         User user = event.getUser(); // Get the user that left
         leave.setDescription(messages[number].replace("[member]", user.getName()));
         event.getGuild().getDefaultChannel().sendMessage(leave.build()).queue();
+*/
     }
 }
