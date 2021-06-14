@@ -22,6 +22,9 @@ public class MainAmbulanceStrangersLife {
     private String ems = "843912462125891614"; //RUOLO EMS
     private String inProva = "843912462125891614"; // RUOLO IN PROVA
 
+    //CHANNEL SPECIFICI
+    public static String chAnnunciID = "851903365587140638";
+
     public String getDirettore() {
         return direttore;
     }
