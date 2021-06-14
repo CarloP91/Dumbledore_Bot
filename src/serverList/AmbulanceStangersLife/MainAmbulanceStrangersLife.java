@@ -1,9 +1,12 @@
-package serverList;
+package serverList.AmbulanceStangersLife;
 
-public class AmbulanceStrangersLife {
+public class MainAmbulanceStrangersLife {
 
     //ID SERVER
     public static String ambulanceID = "839067511601365033"; //Ambulance Stanger's Life
+
+    //ID CHANNEL LOG
+    public static String chLogID = "839615144107048961"; //CHANNEL DOVE STAMPARE IL LOG
 
     //STAFF
 

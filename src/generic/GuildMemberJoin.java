@@ -1,4 +1,4 @@
-package all;
+package generic;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;

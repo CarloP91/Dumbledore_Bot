@@ -1,6 +1,6 @@
 package main;
 
-import all.*;
+import generic.*;
 import commands.*;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
-import javax.swing.text.DefaultFormatterFactory;
 
 public class DumbledoreMain {
 
@@ -40,6 +39,8 @@ public class DumbledoreMain {
                 .addEventListeners(new GuildVoiceJoin())
                 .addEventListeners(new GuildVoiceLeave())
                 .addEventListeners(new GuildVoiceMove())
+                .addEventListeners(new UpdateRole())
+                .addEventListeners(new GuildMessageDeleteEvent())
                 .build();
     }
 }

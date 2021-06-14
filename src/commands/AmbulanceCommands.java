@@ -4,7 +4,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import serverList.AmbulanceStrangersLife;
+import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
 import java.util.List;
 
 public class AmbulanceCommands extends ListenerAdapter {
@@ -36,7 +36,7 @@ public class AmbulanceCommands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AmbulanceStrangersLife direttore = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife direttore = new MainAmbulanceStrangersLife();
                     AssignedRole = direttore.getDirettore();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
@@ -49,7 +49,7 @@ public class AmbulanceCommands extends ListenerAdapter {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
                     System.out.println(role_m.getName());
                     System.out.println(event.getMessage());
-                    AmbulanceStrangersLife vicedirettore = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife vicedirettore = new MainAmbulanceStrangersLife();
                     System.out.println(vicedirettore.getViceDirettore());
                     AssignedRole = vicedirettore.getViceDirettore();
                     System.out.println(AssignedRole);
@@ -63,7 +63,7 @@ public class AmbulanceCommands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AmbulanceStrangersLife primario = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife primario = new MainAmbulanceStrangersLife();
                     AssignedRole = primario.getPrimario();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
@@ -74,7 +74,7 @@ public class AmbulanceCommands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AmbulanceStrangersLife dottore = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife dottore = new MainAmbulanceStrangersLife();
                     AssignedRole = dottore.getDottore();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 400.000€").queue();
@@ -84,7 +84,7 @@ public class AmbulanceCommands extends ListenerAdapter {
             }
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AmbulanceStrangersLife paramedico = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife paramedico = new MainAmbulanceStrangersLife();
                     AssignedRole = paramedico.getParamedico();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 250.000€").queue();
@@ -95,7 +95,7 @@ public class AmbulanceCommands extends ListenerAdapter {
 
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AmbulanceStrangersLife ems = new AmbulanceStrangersLife();
+                    MainAmbulanceStrangersLife ems = new MainAmbulanceStrangersLife();
                     AssignedRole = ems.getEms();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();

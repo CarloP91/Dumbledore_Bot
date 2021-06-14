@@ -1,13 +1,13 @@
-package all;
+package generic;
 
 import main.DumbledoreMain;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import serverList.BBBdB;
+import serverList.BalbettanteBamboccionaBandaDiBabbuini.MainBBBdB;
 
 import java.util.List;
 
@@ -33,9 +33,9 @@ public class GuildMessageReceived extends ListenerAdapter {
 
                 //   System.out.println(event.getMessage().getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw());
 
-            } else if (event.getGuild().getId().equals(BBBdB.dBbbdbID)) {
+            } else if (event.getGuild().getId().equals(MainBBBdB.dBbbdbID)) {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
-                textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
+                textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + "> \n || **ID MESSAGGIO:** " + event.getMessageId() + "||").queue();
 
             } else if (event.getMessage().getContentRaw().contains("383035474807095296")) {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
@@ -58,5 +58,15 @@ public class GuildMessageReceived extends ListenerAdapter {
 
                 }
             }
+        Message msg = event.getMessage();
+        if (msg.getContentRaw().equals("!ping"))
+        {
+            MessageChannel channel = event.getChannel();
+            long time = System.currentTimeMillis();
+            channel.sendMessage("Pong!") /* => RestAction<Message> */
+                    .queue(response /* => Message */ -> {
+                        response.editMessageFormat("Pong: %d ms", System.currentTimeMillis() - time).queue();
+                    });
         }
     }
+        }
