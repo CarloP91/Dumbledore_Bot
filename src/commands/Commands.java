@@ -49,6 +49,31 @@ public class Commands extends ListenerAdapter {
                     .queue();
         }
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
+            Guild guild = event.getGuild();
+            List<Role> roleList = guild.getRoles();
+            List<Member> membersList = guild.getMembers();
+
+            if (args.length > 1 && args.length < 3) {
+                for (Role r1 : roleList) {
+                    if (args[1].contains(r1.getId())) {
+                        for (Member member : membersList) {
+                            List<Role> memberRoles = member.getRoles();
+                            for (Role m_role : memberRoles) {
+                                if (m_role.equals(r1)) {
+                                    event.getChannel().sendMessage("Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
+                                    //  System.out.println(args[0] + args[1]);
+                                    //  System.out.println(event.getGuild().getRoleById(args[1].replace("<@&", "").replace(">", "")));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            event.getChannel().sendMessage("**//------// FINE REPORT //------//** \n").queue();
+            event.getMessage().delete().queue();
+        }
+
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + rotto)) {
             event.getMessage().delete().queue();
             EmbedBuilder off = new EmbedBuilder();
@@ -67,28 +92,6 @@ public class Commands extends ListenerAdapter {
             off.setColor(0xff3300);
             event.getChannel().sendMessage(off.build()).queue();
             off.clear();
-        }
-
-        if (args[0].equalsIgnoreCase("who")) {
-            Guild guild = event.getGuild();
-            List<Role> roleList = guild.getRoles();
-            List<Member> membersList = guild.getMembers();
-            List<Role> memberRoles;
-
-            for (Role r : roleList) {
-                if (event.getMessage().toString().contains("@" + r.getName())) {
-                    for (Member member : membersList) {
-                        memberRoles = member.getRoles();
-                        for (Role m_role : memberRoles) {
-                            if (m_role.equals(r)) {
-                                event.getChannel().sendMessage("Ruolo: " + "<@&" + r.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
-                            }
-                        }
-                    }
-                }
-            }
-            event.getChannel().sendMessage("**//------// FINE REPORT //------//** \n").queue();
-            event.getMessage().delete().queue();
         }
 
         // STAMPA TUTTI I MEMBRI DEL DISCORD
@@ -113,7 +116,7 @@ public class Commands extends ListenerAdapter {
 
 
             for (Role role_m : roleList) {
-                    System.out.println(role_m.getName());
+                System.out.println(role_m.getName());
 //                event.getChannel().sendMessage(role_m.getName()).queue();
 
             }

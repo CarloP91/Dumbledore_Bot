@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import serverList.AmbulanceStangersLife.AmbMessageRecive;
+import serverList.AmbulanceStangersLife.AmbMessageReceived;
 
 import javax.security.auth.login.LoginException;
 
@@ -33,7 +33,6 @@ public class DumbledoreMain {
                 .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
                 .enableCache(CacheFlag.VOICE_STATE)
                 .addEventListeners(new GuildMemberJoin())
-                .addEventListeners(new GuildMemberRemove())
                 .addEventListeners(new Commands())
                 .addEventListeners(new AmbulanceCommands())
                 .addEventListeners(new GuildMessageReceived())
@@ -43,7 +42,7 @@ public class DumbledoreMain {
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new ClasseTest())
-                .addEventListeners(new AmbMessageRecive())
+                .addEventListeners(new AmbMessageReceived())
                 .build();
     }
 }
