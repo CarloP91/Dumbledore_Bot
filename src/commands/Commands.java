@@ -10,8 +10,11 @@ import net.dv8tion.jda.api.events.channel.voice.update.VoiceChannelUpdatePositio
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.requests.Route;
+import utility.Utility;
 
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 public class Commands extends ListenerAdapter {
@@ -24,6 +27,8 @@ public class Commands extends ListenerAdapter {
     String password = credentials.getPassword();
     String url = credentials.getUrl();
 
+    DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
+
     // LISTA COMANDI
 
     String whoAllMembers = "who-all-members";
@@ -32,7 +37,7 @@ public class Commands extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
           /*  EmbedBuilder info = new EmbedBuilder();
             info.setTitle("Dumbledore Bot dice:");
@@ -72,6 +77,26 @@ public class Commands extends ListenerAdapter {
             }
             event.getChannel().sendMessage("**//------// FINE REPORT //------//** \n").queue();
             event.getMessage().delete().queue();
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
+            if (args.length > 1 && args.length < 3) {
+                try {
+                    Member name = event.getMessage().getMentionedMembers().get(0);
+                    //    System.out.println(name);
+
+                    EmbedBuilder embB = new EmbedBuilder()
+                            .setColor(0xF6BE00)
+                            .setAuthor("Info riguardanti: " + name.getUser().getName(), "https://www.google.com", name.getUser().getAvatarUrl())
+                            .setDescription("Entrato nel discord il: " + name.getTimeJoined().format(itafmt))
+                            .addField("Status: ",  name.getOnlineStatus().toString(), true)
+                            .addField("Ruoli", Utility.getRoleAsStringID(name.getRoles()), true);
+
+                    event.getChannel().sendMessage(embB.build()).queue();
+                } catch (IndexOutOfBoundsException exception) {
+                    event.getChannel().sendMessage("Non hai taggato un @nome").queue();
+                }
+            }
         }
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + rotto)) {

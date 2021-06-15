@@ -8,12 +8,14 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.MainBBBdB;
+import utility.Utility;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class GuildMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-
+        DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
         String Ciccina = "720912809206218776";
 
         //CONTROLLO PER 2 BOT SENZA ID
@@ -37,10 +39,10 @@ public class GuildMessageReceived extends ListenerAdapter {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + "> \n || **ID MESSAGGIO:** " + event.getMessageId() + "||").queue();
 
-            } else if (event.getMessage().getContentRaw().contains("383035474807095296")) {
+            } /*else if (event.getMessage().getContentRaw().contains("383035474807095296")) {
                 TextChannel textChannel = event.getGuild().getTextChannelById("851440485721178184");
                 textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">").queue();
-            } else {
+            }*/ else {
 
                 List<Role> roleList = event.getGuild().getRoles();
 
@@ -53,25 +55,16 @@ public class GuildMessageReceived extends ListenerAdapter {
                                 + " "
                                 + event.getMessage().getContentRaw()
                                 + " in " + event.getChannel().getName());
-                      System.out.println(event.getMember().getRoles().toString()
+                      System.out.println(Utility.getRoleAsStringToPrint(event.getMember().getRoles()));
+                     /* System.out.println(event.getMember().getRoles().toString()
                               .replace("[", "")
                               .replace("R:Direttore(839071738654359572)", "Direttore")
                               .replace("R:➖\uD83D\uDCBC STATUS \uD83D\uDCBC➖(839073494707994626)", "-STATUS-")
                               .replace("]", "")
                               .replace("R:MOD DI STRANGER(839072092996501504)", "MOD DI STRANGER")
                               .replace("R:Elicotterista(839117976498208852)", "Elicotterista")
-                              .replace("R:Discord Manager(839114549864300584)", "Discord Manager"));
-                      System.out.println(event.getAuthor().getTimeCreated());
-                     /* event.getChannel().sendMessage(event.getMember().getRoles().toString()
-                              .replace("[", "")
-                              .replace("R:Direttore(839071738654359572)", "<@&839071738654359572>")
-                              .replace("R:➖\uD83D\uDCBC STATUS \uD83D\uDCBC➖(839073494707994626)", "<@&839073494707994626>")
-                              .replace("]", "")
-                              .replace("R:MOD DI STRANGER(839072092996501504)", "<@&839072092996501504>")
-                              .replace("R:Elicotterista(839117976498208852)", "<@&839117976498208852>")
-                              .replace("R:Discord Manager(839114549864300584)", "<@&839114549864300584>")).queue();*/
-
-
+                              .replace("R:Discord Manager(839114549864300584)", "Discord Manager"));*/
+                      System.out.println(event.getAuthor().getTimeCreated().format(itafmt));
                 }
             }
         Message msg = event.getMessage();

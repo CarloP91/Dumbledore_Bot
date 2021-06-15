@@ -12,12 +12,13 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
 
 import javax.security.auth.login.LoginException;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 
 public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledore = "847029930872930334"; // BOT ID
-
     public static void main(String[] args) throws LoginException {
 
         // createLight disables unused cache flags
@@ -25,7 +26,7 @@ public class DumbledoreMain {
         // GUILD_MEMBERS gives you access to guild member join events so you can send welcome messages
         // The resulting JDA instance will not cache any members since createLight disables it.
 
-        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES)
+        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS)
                 .setStatus(OnlineStatus.ONLINE)
                 .setActivity(Activity.playing("a fare dei Test"))
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
