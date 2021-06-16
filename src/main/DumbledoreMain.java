@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
+import serverList.StrangersLife.SsLifeMessageReceived;
 
 import javax.security.auth.login.LoginException;
 import java.text.DateFormat;
@@ -35,7 +36,7 @@ public class DumbledoreMain {
                 .enableCache(CacheFlag.VOICE_STATE)
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new Commands())
-                .addEventListeners(new AmbulanceCommands())
+
                 .addEventListeners(new GuildMessageReceived())
                 .addEventListeners(new GuildVoiceJoin())
                 .addEventListeners(new GuildVoiceLeave())
@@ -43,7 +44,16 @@ public class DumbledoreMain {
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new ClasseTest())
+
+
+                // AMBULANCE STRANGER'S LIFE
+                .addEventListeners(new AmbulanceCommands())
                 .addEventListeners(new AmbMessageReceived())
+
+                // STRANGER'S LIFE
+                .addEventListeners(new SsLifeMessageReceived())
+
+
                 .build();
     }
 }
