@@ -20,5 +20,9 @@ public class MainStrangersLife {
     // STANZE
 
     public static String bandiStaffRoom = "787305705442639942"; //STANZA BANDI STAFF
+    public static String whitelistatiRoom = "779301696160923648"; //STANZA WHITELISTATI
+    public static String rimandatiRoom = "796856907926339584"; //STANZA RIMANDATI
+    public static String richiamiRoom = "778325091313778721"; //STANZA RICHIAMI
+    public static String ChMsglogIDRoom = "854698309474451487"; // STANZA LOG MESSAGGI
 
 }

@@ -10,16 +10,14 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
-import serverList.StrangersLife.SsLifeMessageReceived;
+import serverList.StrangersLife.SLMessageReceived;
 
 import javax.security.auth.login.LoginException;
-import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
 
 public class DumbledoreMain {
 
     public static String prefix = "d-";
-    public static String dumbledore = "847029930872930334"; // BOT ID
+    public static String dumbledoreID = "847029930872930334"; // BOT ID
     public static void main(String[] args) throws LoginException {
 
         // createLight disables unused cache flags
@@ -29,11 +27,13 @@ public class DumbledoreMain {
 
         JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS)
                 .setStatus(OnlineStatus.ONLINE)
-                .setActivity(Activity.playing("d-help"))
+        //        .setActivity(Activity.playing("d-help"))
+                .setActivity(Activity.watching("d-help"))
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
                 .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
                 .enableCache(CacheFlag.VOICE_STATE)
+
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new Commands())
 
@@ -51,7 +51,7 @@ public class DumbledoreMain {
                 .addEventListeners(new AmbMessageReceived())
 
                 // STRANGER'S LIFE
-                .addEventListeners(new SsLifeMessageReceived())
+                .addEventListeners(new SLMessageReceived())
 
 
                 .build();

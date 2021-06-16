@@ -54,6 +54,16 @@ public class Commands extends ListenerAdapter {
                     .queue();
         }
 
+        if (args[0].equalsIgnoreCase( args[0] + "saluta")) {
+            if (args[0].equals("<@" + DumbledoreMain.dumbledoreID + ">")) {
+                System.out.println("Ciao");
+            //    event.getChannel().sendMessage("Buona giornata a tutti").queue();
+            } else {
+                System.out.println("Non saluto un cazzo");
+            }
+
+        }
+
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
             Guild guild = event.getGuild();
             List<Role> roleList = guild.getRoles();

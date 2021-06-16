@@ -33,7 +33,7 @@ public class GuildMessageReceived extends ListenerAdapter {
             }
 
             //PER OGNI MESSAGGIO SCRITTO in Balbettante bambocciona banda di babbuini
-            if (event.getMessage().getMember().getId().equals(DumbledoreMain.dumbledore)) {
+            if (event.getMessage().getMember().getId().equals(DumbledoreMain.dumbledoreID)) {
 
                 //   System.out.println(event.getMessage().getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw());
 
