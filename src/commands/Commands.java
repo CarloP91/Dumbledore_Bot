@@ -47,10 +47,10 @@ public class Commands extends ListenerAdapter {
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();*/
             event.getChannel().sendMessage
-                    ("Lista Comandi: " +
-                            "\r who @ruolo;" +
-                            "\r" + whoAllMembers +
-                            "\r d-payamb")
+                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3"/*"Lista Comandi: " +
+                    "\r who @ruolo;" +
+                    "\r" + whoAllMembers +
+                    "\r d-payamb"*/ )
                     .queue();
         }
 
@@ -90,7 +90,7 @@ public class Commands extends ListenerAdapter {
                             .setAuthor("Info riguardanti: " + name.getUser().getName(), "https://www.google.com", name.getUser().getAvatarUrl())
                             .setDescription("Entrato nel discord il: " + name.getTimeJoined().format(itafmt))
                             .addField("Status: ",  name.getOnlineStatus().toString(), true)
-                            .addField("Ruoli", Utility.getRoleAsStringID(name.getRoles()), true);
+                            .addField("Ruoli", Utility.getRoleAsStringID(name.getRoles()) + ".", true);
 
                     event.getChannel().sendMessage(embB.build()).queue();
                 } catch (IndexOutOfBoundsException exception) {

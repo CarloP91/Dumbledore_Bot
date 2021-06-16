@@ -13,9 +13,12 @@ public class GuildVoiceMove extends ListenerAdapter {
 //        System.out.println(event.getMember().getEffectiveName() + " è entrato in " + event.getChannelJoined());
 //        System.out.println(event.getMember().getEffectiveName() + " è stato spostato da " + event.getOldValue().getName() + " a " + event.getNewValue().getName());
 
-        event.getGuild().getTextChannelById("851440485721178184")
-                .sendMessage("<@" + event.getMember().getId() + ">  è stato spostato da  <#" + event.getOldValue().getId() + "> a <#" + event.getNewValue().getId() + ">").queue();
-
+        if (event.getGuild().getId().equals("660202751032033280")) {
+            event.getGuild().getTextChannelById("851440485721178184")
+                    .sendMessage("<@" + event.getMember().getId() + ">  è stato spostato da  <#" + event.getOldValue().getId() + "> a <#" + event.getNewValue().getId() + ">").queue();
+        } else {
+            
+        }
     }
 
 

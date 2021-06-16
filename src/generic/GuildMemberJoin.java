@@ -11,7 +11,7 @@ import java.util.Random;
 public class GuildMemberJoin extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event){
-
+/*
         String[] messages = {
                 "Benvenuto [member], sei nel canale sbagliato!",
                 "Ciao [member]!"
@@ -31,11 +31,11 @@ public class GuildMemberJoin extends ListenerAdapter {
 //        Role role = event.getGuild().getRoleById("847121910096723979");
 //        guild.addRoleToMember(member, role).complete();
 
-        if (member.getId().equals("345186120683749378")) /*Crowley*/ {
+        if (member.getId().equals("345186120683749378")) *//*Crowley*//* {
             Role role2 = guild.getRoleById("739464748948652114");
             guild.addRoleToMember(member, role2).complete();
         }
-    }
+    }*/
 
     /*
     @Override
@@ -76,6 +76,6 @@ public class GuildMemberJoin extends ListenerAdapter {
 
         for (TextChannel channel : channels) { // Loops through the channels and sends a message to each one.
             channel.sendMessage("New member joined: " + user).queue();
-        }
-    }*/
+        }*/
+    }
 }

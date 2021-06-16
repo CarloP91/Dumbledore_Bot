@@ -21,6 +21,8 @@ public class GuildMessageReceived extends ListenerAdapter {
         //CONTROLLO PER 2 BOT SENZA ID
         if (event.getChannel().getId().equals("839615144107048961")) {
             // System.out.println("è il bot di K che rompe e quindi non faccio nulla");
+        } else if (event.getGuild().getId().equals("572807400902492161")) {
+
         } else {
 
             if (event.getMessage().getMember().getId().equals(Ciccina)) {
@@ -55,7 +57,7 @@ public class GuildMessageReceived extends ListenerAdapter {
                                 + " "
                                 + event.getMessage().getContentRaw()
                                 + " in " + event.getChannel().getName());
-                      System.out.println(Utility.getRoleAsStringToPrint(event.getMember().getRoles()));
+                      System.out.println(Utility.getRoleAsStringToPrint(event.getMember().getRoles()) + ".");
                      /* System.out.println(event.getMember().getRoles().toString()
                               .replace("[", "")
                               .replace("R:Direttore(839071738654359572)", "Direttore")

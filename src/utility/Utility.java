@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Utility {
 
-
     public static String getRoleAsStringID(List rolelist){ //TRASFORMA UNA LISTA DI RUOLI IN ID
         String rolesID;
         if (!rolelist.isEmpty()) {
@@ -14,7 +13,7 @@ public class Utility {
             rolesID = "<@&" + tempRole.getId() + ">";
             for (int i = 1; i < rolelist.size(); i++){
                 tempRole = (Role) rolelist.get(i);
-                rolesID = rolesID + ", <@&" + tempRole.getId() + ">.";
+                rolesID = rolesID + ", <@&" + tempRole.getId() + ">";
             }
         } else {
             rolesID = "Non ha ruoli!";
@@ -29,7 +28,7 @@ public class Utility {
             rolesName = "<@&" + tempRole.getName() + ">";
             for (int i = 1; i < rolelist.size(); i++){
                 tempRole = (Role) rolelist.get(i);
-                rolesName = rolesName + ", <@" + tempRole.getName() + ">.";
+                rolesName = rolesName + ", <@" + tempRole.getName() + ">";
             }
         } else {
             rolesName = "Non ha ruoli!";
@@ -44,11 +43,12 @@ public class Utility {
             rolesNameToPrint =  tempRole.getName();
             for (int i = 1; i < rolelist.size(); i++){
                 tempRole = (Role) rolelist.get(i);
-                rolesNameToPrint = rolesNameToPrint + ", " + tempRole.getName() + ".";
+                rolesNameToPrint = rolesNameToPrint + ", " + tempRole.getName();
             }
         } else {
             rolesNameToPrint = "Non ha ruoli!";
         }
         return rolesNameToPrint;
     }
+
 }
