@@ -96,7 +96,7 @@ public class AmbulanceCommands extends ListenerAdapter {
             for (Role role_m :roleList) {
                 if (event.getMessage().toString().contains("@" + role_m.getName())) {
                     MainAmbulanceStrangersLife ems = new MainAmbulanceStrangersLife();
-                    AssignedRole = ems.getEms();
+                    AssignedRole = ems.getTirocinante();
                     if (role_m.getId().equals(AssignedRole))
                         event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
 

@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Dumbledore_Bot:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Dumbledore_Bot_jar</output-path>
+    <root id="archive" name="Dumbledore_Bot.jar">
+      <element id="module-output" name="Dumbledore_Bot" />
+      <element id="extracted-dir" path="D:/Users/carlo/Downloads/JDA-4.2.1_265-withDependencies.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+    </root>
+  </artifact>
+</component>

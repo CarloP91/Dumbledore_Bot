@@ -1,5 +1,6 @@
 package utility;
 
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 
 import java.util.List;
@@ -49,6 +50,21 @@ public class Utility {
             rolesNameToPrint = "Non ha ruoli!";
         }
         return rolesNameToPrint;
+    }
+
+    public static String getMemberAsStringID(List memberlist){ //TRASFORMA UNA LISTA DI RUOLI IN ID
+        String memberID;
+        if (!memberlist.isEmpty()) {
+            Member tempMember = (Member) memberlist.get(0);
+            memberID = "<@" + tempMember.getId() + ">";
+            for (int i = 1; i < memberlist.size(); i++){
+                tempMember = (Member) memberlist.get(i);
+                memberID = memberID + ", <@" + tempMember.getId() + ">";
+            }
+        } else {
+            memberID = "Non ha membri!";
+        }
+        return memberID;
     }
 
 }

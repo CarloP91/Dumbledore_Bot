@@ -19,7 +19,7 @@ public class MainAmbulanceStrangersLife {
     private String primario = "843912462125891614"; // RUOLO PRIMARIO
     private String dottore = "843912462125891614"; // RUOLO DOTTORE
     private String paramedico = "843912462125891614"; //RUOLO PARAMEDICO
-    private String ems = "843912462125891614"; //RUOLO EMS
+    private String tirocinante = "843912462125891614"; //RUOLO EMS
     private String inProva = "843912462125891614"; // RUOLO IN PROVA
 
     //CHANNEL SPECIFICI
@@ -45,9 +45,7 @@ public class MainAmbulanceStrangersLife {
         return paramedico;
     }
 
-    public String getEms() {
-        return ems;
-    }
+    public String getTirocinante() { return tirocinante;}
 
     public String getInProva() {
         return inProva;

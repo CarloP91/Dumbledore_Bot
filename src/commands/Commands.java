@@ -31,26 +31,26 @@ public class Commands extends ListenerAdapter {
 
     // LISTA COMANDI
 
-    String whoAllMembers = "who-all-members";
-    String rotto = "rotto";
+    String cVersion = DumbledoreMain.botVersion; //COMANDO 1
+    String cWhoAllMembers = "who-all-members";
+    String cRotto = "rotto";
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "version")) {
+            event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
+        }
+
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
-          /*  EmbedBuilder info = new EmbedBuilder();
-            info.setTitle("Dumbledore Bot dice:");
-            info.addField("Creatore", "Dominy", false);
-            info.setDescription("Check Box [member]");
-            info.setColor(0xffffff);
-            event.getChannel().sendMessage(info.build()).queue();
-            info.clear();*/
             event.getChannel().sendMessage
-                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3"/*"Lista Comandi: " +
+                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3" +
+                            "Lista Comandi: " +
                     "\r who @ruolo;" +
-                    "\r" + whoAllMembers +
-                    "\r d-payamb"*/ )
+                    "\r" + cVersion +
+                    "\r" + cWhoAllMembers
+                            )
                     .queue();
         }
 
@@ -109,7 +109,7 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + rotto)) {
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cRotto)) {
             event.getMessage().delete().queue();
             EmbedBuilder off = new EmbedBuilder();
             off.setTitle("Dumbledore Bot dice:");
@@ -130,7 +130,7 @@ public class Commands extends ListenerAdapter {
         }
 
         // STAMPA TUTTI I MEMBRI DEL DISCORD
-        if (args[0].equalsIgnoreCase(whoAllMembers)) {
+        if (args[0].equalsIgnoreCase(cWhoAllMembers)) {
             Guild guild = event.getGuild();
             List<Member> membersList = guild.getMembers();
 

@@ -18,6 +18,9 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
+    public static String botVersion = "1.35";
+
+
     public static void main(String[] args) throws LoginException {
 
         // createLight disables unused cache flags
