@@ -4,7 +4,6 @@ package serverList.StrangersLife;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
 
 
 public class SLMessageReceived extends ListenerAdapter {
@@ -12,7 +11,7 @@ public class SLMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
         String[] args = event.getMessage().getContentRaw().split("\\s+");
-        if (event.getGuild().getId().equals(MainStrangersLife.StrangerLifeID) && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) { // SE E' IL DISCORD DI STRANGER'S LIFE
+        if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID) && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) { // SE E' IL DISCORD DI STRANGER'S LIFE
             if (event.getChannel().getId().equals(MainStrangersLife.bandiStaffRoom)) { // SE NELLA ROOM BANDI STAFF
                 if (event.getMessage().getMember().getId().equals(MainStrangersLife.dominy)) {  // SE IL MESSAGGIO E' SCRITTO DA ID
                     //nu face nu cazzu

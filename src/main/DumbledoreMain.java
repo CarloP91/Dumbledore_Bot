@@ -13,6 +13,7 @@ import serverList.AmbulanceStangersLife.AmbMessageReceived;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverList.LosSantosPoliceDepartment.LSPDMessageReceived;
 import serverList.MercatoNero.MNMessageReceived;
+import serverList.StrangersLife.SLMessageDeleted;
 import serverList.StrangersLife.SLMessageReceived;
 
 import javax.security.auth.login.LoginException;
@@ -49,10 +50,9 @@ public class DumbledoreMain {
                 .addEventListeners(new GuildVoiceMove())
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
-                .addEventListeners(new ClasseTest())
+                .addEventListeners(new GuildMemberRoleRemove())
 
                 // BalbettanteBamboccionaBandaDiBabbuini
-
                 .addEventListeners(new BBBDBMessageReceived())
 
 
@@ -62,6 +62,7 @@ public class DumbledoreMain {
 
                 // STRANGER'S LIFE
                 .addEventListeners(new SLMessageReceived())
+                .addEventListeners(new SLMessageDeleted())
 
                 //LSPD
                 .addEventListeners(new LSPDMessageReceived())

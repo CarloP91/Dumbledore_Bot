@@ -2,7 +2,7 @@ package serverList.StrangersLife;
 
 public class MainStrangersLife {
     // ID SERVER
-    public static String StrangerLifeID = "572807400902492161"; //Stranger's Life
+    public static String strangerLifeID = "572807400902492161"; //Stranger's Life
 
     //ID CHANNEL LOG
     public static String chLogID = ""; //CHANNEL DOVE STAMPARE IL LOG
