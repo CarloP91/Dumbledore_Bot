@@ -34,8 +34,7 @@ public class GenericMessageReceived extends ListenerAdapter {
                 && !guild.getId().equals(MainAmbulanceStrangersLife.ambulanceID)
                 && !guild.getId().equals(MainStrangersLife.strangerLifeID)
                 && !guild.getId().equals(MainMercatoNero.mercatoneroID)
-                && !guild.getId().equals(MainLSPD.lspdID)
-                && !event.getMessage().getAuthor().isBot()) {
+                && !guild.getId().equals(MainLSPD.lspdID)) {
             System.out.println("Messaggio da Discord non registrato: " + event.getGuild().getName() + " ID:" + event.getGuild().getId() + " \n"
             + event.getAuthor().getName() + " " + event.getAuthor().getId());
         }
