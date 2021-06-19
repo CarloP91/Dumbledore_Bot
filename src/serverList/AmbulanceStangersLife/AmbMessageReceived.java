@@ -12,23 +12,19 @@ public class AmbMessageReceived extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
 
         String[] args = event.getMessage().getContentRaw().split("\\s+");
+        MainAmbulanceStrangersLife direttore = new MainAmbulanceStrangersLife();
+        MainAmbulanceStrangersLife vicedirettore = new MainAmbulanceStrangersLife();
 
-        // AGGIUNGE UN CHECK AD OGNI MESSAGGIO NEL CANALE ANNUNCI
-        if (event.getChannel().getId().equals(MainAmbulanceStrangersLife.chAnnunciID)) {
-            event.getMessage().addReaction("\uD83C\uDD97").queue();
-        }
+        if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID) && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) {
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "ambstipendi")) {
-            if (args.length > 1 && args.length < 3) {
-                try {
-                    Role ambrole = event.getMessage().getMentionedRoles().get(0);
-                    System.out.println(ambrole);
+            //CONTROLLO PER 2 BOT SENZA ID
+            if (event.getChannel().getId().equals("839615144107048961")) {
+                System.out.println("è il bot di K che rompe e quindi non faccio nulla");
+            }
 
-                    event.getChannel().sendMessage(Utility.getMemberAsStringID(ambrole.getGuild().getMembers())).queue();
-                  //  System.out.println(Utility.getRoleAsStringID(ambrole.getGuild().getMembers()));
-                } catch (IndexOutOfBoundsException exception) {
-                    System.out.println("Qui non stampo una sega!");
-                }
+            // AGGIUNGE UN CHECK AD OGNI MESSAGGIO NEL CANALE ANNUNCI
+            if (event.getChannel().getId().equals(MainAmbulanceStrangersLife.chAnnunciID)) {
+                event.getMessage().addReaction("\uD83C\uDD97").queue();
             }
         }
     }

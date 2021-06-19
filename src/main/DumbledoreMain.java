@@ -10,6 +10,9 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
+import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
+import serverList.LosSantosPoliceDepartment.LSPDMessageReceived;
+import serverList.MercatoNero.MNMessageReceived;
 import serverList.StrangersLife.SLMessageReceived;
 
 import javax.security.auth.login.LoginException;
@@ -18,7 +21,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.35";
+    public static String botVersion = "1.50";
 
 
     public static void main(String[] args) throws LoginException {
@@ -40,13 +43,17 @@ public class DumbledoreMain {
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new Commands())
 
-                .addEventListeners(new GuildMessageReceived())
+                .addEventListeners(new GenericMessageReceived())
                 .addEventListeners(new GuildVoiceJoin())
                 .addEventListeners(new GuildVoiceLeave())
                 .addEventListeners(new GuildVoiceMove())
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new ClasseTest())
+
+                // BalbettanteBamboccionaBandaDiBabbuini
+
+                .addEventListeners(new BBBDBMessageReceived())
 
 
                 // AMBULANCE STRANGER'S LIFE
@@ -55,6 +62,12 @@ public class DumbledoreMain {
 
                 // STRANGER'S LIFE
                 .addEventListeners(new SLMessageReceived())
+
+                //LSPD
+                .addEventListeners(new LSPDMessageReceived())
+
+                //MERCATO NERO
+                .addEventListeners(new MNMessageReceived())
 
 
                 .build();

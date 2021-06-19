@@ -10,6 +10,7 @@ public class MainBBBdB {
 
     // STAFF
     private String Dominy = "383035474807095296"; //PROPRIETARIO SERVER
+    public static String Ciccina = "720912809206218776"; //CICCINA
 
 
     // RUOLI
