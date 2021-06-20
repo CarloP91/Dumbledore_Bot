@@ -1,4 +1,4 @@
-/*
+
 package generic;
 
 import net.dv8tion.jda.api.audit.ActionType;
@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 public class GuildMemberRoleManager extends ListenerAdapter {
-  @Override
+  /*@Override
   public void onGuildMemberRoleAdd(@NotNull GuildMemberRoleAddEvent event) {
     super.onGuildMemberRoleAdd(event);
 
@@ -28,6 +28,6 @@ public class GuildMemberRoleManager extends ListenerAdapter {
     System.out.println(!entry.getUser().isBot() + "no bot");*//*
 
 
-    }
+    }*/
 }
-*/
+
