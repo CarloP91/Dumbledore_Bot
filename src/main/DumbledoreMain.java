@@ -23,7 +23,8 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.50";
+    public static String botVersion = "1.70";
+    public static String botDiscordID = "856439285879144468";
 
 
     public static void main(String[] args) throws LoginException {
@@ -35,7 +36,7 @@ public class DumbledoreMain {
 
         JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS)
                 .setStatus(OnlineStatus.ONLINE)
-        //        .setActivity(Activity.playing("d-help"))
+                //        .setActivity(Activity.playing("d-help"))
                 .setActivity(Activity.watching("d-help"))
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
