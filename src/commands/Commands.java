@@ -221,15 +221,16 @@ public class Commands extends ListenerAdapter {
                     System.out.println("Non funge");
                     e.printStackTrace();
                 }
+                event.getMessage().delete().queue();
             }
 
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "testa")) {
+/*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "testa")) {
 
               try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", username, password);
 
-    /*                  // SELECT FROM DB MYSQL
+                      // SELECT FROM DB MYSQL
                     String sql = "SELECT * FROM `tab1`";
                     Statement statement = connection.createStatement();
                     ResultSet result = statement.executeQuery(sql);
@@ -242,7 +243,7 @@ public class Commands extends ListenerAdapter {
                         count++;
                         event.getChannel().sendMessage("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2).queue();
                         System.out.println("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2);
-                    }*/
+                    }
 
 					// INSERT INTO DB MYSQL
 
@@ -262,7 +263,7 @@ public class Commands extends ListenerAdapter {
                     System.out.println("Non funge");
                     e.printStackTrace();
                 }
-            }
+            }*/
 
 
             String nameCH;

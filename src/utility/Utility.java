@@ -4,7 +4,9 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import serverList.StrangersLife.MainStrangersLife;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 public class Utility {
@@ -124,4 +126,23 @@ public class Utility {
     }
 
 
+
+    // INSERT INTO DB MYSQL
+
+ /*   String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
+    PreparedStatement statement = connection.prepareStatement(sql);
+					statement.setString(1, MainStrangersLife.strangerLifeID);
+					statement.setString(2, "Stranger's Life");
+    int rows = statement.executeUpdate();
+					if (rows > 0) {
+        System.out.println("Inserito");
+    }
+					statement.close();
+                    connection.close();
+                    System.out.println("Funge");
+} catch (SQLException e) {
+        System.out.println("Non funge");
+        e.printStackTrace();
+        }
+        }*/
 }
