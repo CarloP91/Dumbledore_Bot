@@ -1,5 +1,6 @@
 package generic;
 
+import main.DumbledoreMain;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -36,7 +37,7 @@ public class GenericMessageReceived extends ListenerAdapter {
                 && !guild.getId().equals(MainMercatoNero.mercatoneroID)
                 && !guild.getId().equals(MainLSPD.lspdID)) {
             System.out.println("Messaggio da Discord non registrato: " + event.getGuild().getName() + " ID:" + event.getGuild().getId() + " \n"
-            + event.getAuthor().getName() + " " + event.getAuthor().getId());
+                    + event.getAuthor().getName() + " " + event.getAuthor().getId());
         }
     }
 }

@@ -8,5 +8,6 @@ public class BotExcp {
     public static String circleBot = "497196352866877441";
     public static String rythmBot = "235088799074484224";
     public static String groovyBot = "234395307759108106";
+    public static String mee6 = "159985870458322944";
 
 }

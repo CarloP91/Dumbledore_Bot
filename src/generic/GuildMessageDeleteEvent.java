@@ -27,9 +27,9 @@ public class GuildMessageDeleteEvent extends ListenerAdapter {
        else if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID)) {
            event.getGuild().getTextChannelById(MainAmbulanceStrangersLife.chLogID).sendMessage(  "Il messaggio " + event.getMessageId() + " è stato cancellato in: "  + event.getChannel().getName() + " da " + entry.getUser().getName()).queue();
        }
-       if (!guild.getId().equals(MainStrangersLife.strangerLifeID)){
+       /*if (!guild.getId().equals(MainStrangersLife.strangerLifeID)){
            System.out.println("Discord: " + event.getGuild().getName() + " è stato cancellato un messaggio in" + event.getChannel().getName() + " non segnato in questa pagina! " + entry.getUser().getName() + " " + entry.getUser().getId());
-       }
+       }*/
 
     }
 }
