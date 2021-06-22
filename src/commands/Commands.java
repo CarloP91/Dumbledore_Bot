@@ -27,7 +27,6 @@ public class Commands extends ListenerAdapter {
 
     String username = credentials.getUsername();
     String password = credentials.getPassword();
-    String url = credentials.getUrl();
 
     DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
     int count = 0;
@@ -205,7 +204,7 @@ public class Commands extends ListenerAdapter {
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") && args[1].equalsIgnoreCase("server")) {
                 System.out.println(guild.getId() + " " + guild.getName());
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", username, password);
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
                     String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
                     PreparedStatement statement = connection.prepareStatement(sql);
                     statement.setString(1, guild.getId());
