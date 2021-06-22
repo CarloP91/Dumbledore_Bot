@@ -69,6 +69,11 @@ public class Commands extends ListenerAdapter {
 
         }
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "delete")) { // cancella un messaggio tramite id
+            event.getChannel().deleteMessageById(args[1]).queue();
+            event.getMessage().delete().queue();
+        }
+
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "check")
                 && args[1].equalsIgnoreCase("serverlist")
                 && guild.getId().equals(DumbledoreMain.botDiscordID)) {
@@ -150,6 +155,7 @@ public class Commands extends ListenerAdapter {
                 }
             }
         }
+
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cRotto)) {
             event.getMessage().delete().queue();

@@ -1,5 +1,6 @@
 package generic;
 
+import main.DumbledoreMain;
 import net.dv8tion.jda.api.audit.ActionType;
 import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Guild;
