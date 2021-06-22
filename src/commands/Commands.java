@@ -1,6 +1,7 @@
 package commands;
 
 import db.DbCredentials;
+import jdk.jshell.execution.Util;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -59,57 +60,10 @@ public class Commands extends ListenerAdapter {
                     .queue();
         }
 
-        if (args[0].equalsIgnoreCase(args[0] + "saluta")) {
-            if (args[0].equals("<@" + DumbledoreMain.dumbledoreID + ">")) {
-                System.out.println("Ciao");
-                //    event.getChannel().sendMessage("Buona giornata a tutti").queue();
-            } else {
-                System.out.println("Non saluto un cazzo");
-            }
-
-        }
-
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "delete")) { // cancella un messaggio tramite id
             event.getChannel().deleteMessageById(args[1]).queue();
             event.getMessage().delete().queue();
         }
-
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "check")
-                && args[1].equalsIgnoreCase("serverlist")
-                && guild.getId().equals(DumbledoreMain.botDiscordID)) {
-
-
-            System.out.println("Mostro server list");
-//            System.out.println(event.getJDA().getGuilds());
-
-            List<Guild> serverList = event.getJDA().getGuilds();
-            List<GuildChannel> channelList = event.getGuild().getChannels();
-
-
-
-            System.out.println(Utility.getServerListID(serverList) + " " + Utility.getServerListName(serverList));
-
-            System.out.println(Utility.getChannelListName(channelList));
-
-
-
-           /* for (Guild listaServer : serverList) {
-                count++;
-                System.out.println(count + " " + listaServer.getName());
-
-            }*/
-
-/*            for (GuildChannel chList : channelList) {
-                count++;
-                System.out.println(chList.getName());
-
-            }*/
-
-
-
-            event.getChannel().sendMessage("Comando Funzionante").queue();
-        }
-
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
 
@@ -187,118 +141,67 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-
-            //RIMUOVERE RUOLO
-            if (args[0].equalsIgnoreCase("modruolo") && args[1].equalsIgnoreCase("Animagus")
-                    && args[2].equalsIgnoreCase("to") && args[3].equalsIgnoreCase("RuoloTest")) {
-
-
-                System.out.println(event.getGuild().getRoles());
-                System.out.println(event.getGuild().getMembers());
-                event.getChannel().sendMessage("sto funzionando").queue();
-            }
+        //RIMUOVERE RUOLO
+        if (args[0].equalsIgnoreCase("modruolo") && args[1].equalsIgnoreCase("Animagus")
+                && args[2].equalsIgnoreCase("to") && args[3].equalsIgnoreCase("RuoloTest")) {
 
 
-            if (args[0].equalsIgnoreCase("add_react_on_req")) {
-                String ActCh = "847831596178341908";
-                if (event.getChannel().getId().equals(ActCh)) {
-                    event.getMessage().addReaction("❌").queue();
-                    event.getMessage().addReaction("✅").queue();
-                }
-            }
-
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") && args[1].equalsIgnoreCase("server")) {
-                System.out.println(guild.getId() + " " + guild.getName());
-                try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
-                    String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
-                    PreparedStatement statement = connection.prepareStatement(sql);
-                    statement.setString(1, guild.getId());
-                    statement.setString(2, guild.getName());
-                    int rows = statement.executeUpdate();
-                    if (rows > 0) {
-                        System.out.println("Inserito");
-                    }
-                    statement.close();
-                    connection.close();
-                    System.out.println("Funge");
-                } catch (SQLException e) {
-                    System.out.println("Non funge");
-                    e.printStackTrace();
-                }
-                event.getMessage().delete().queue();
-            }
-
-
-/*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "testa")) {
-
-              try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", username, password);
-
-                      // SELECT FROM DB MYSQL
-                    String sql = "SELECT * FROM `tab1`";
-                    Statement statement = connection.createStatement();
-                    ResultSet result = statement.executeQuery(sql);
-
-                    int count = 0;
-
-                    while (result.next()) {
-                        String row1 = result.getString(1);
-                        String row2 = result.getString("te2");
-                        count++;
-                        event.getChannel().sendMessage("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2).queue();
-                        System.out.println("Stampo " + count + ") Col1:" + row1 + " Col2: " + row2);
-                    }
-
-					// INSERT INTO DB MYSQL
-
-
-                   String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
-					PreparedStatement statement = connection.prepareStatement(sql);
-					statement.setString(1, MainStrangersLife.strangerLifeID);
-					statement.setString(2, "Stranger's Life");
-					int rows = statement.executeUpdate();
-					if (rows > 0) {
-						System.out.println("Inserito");
-					}
-					statement.close();
-                    connection.close();
-                    System.out.println("Funge");
-                } catch (SQLException e) {
-                    System.out.println("Non funge");
-                    e.printStackTrace();
-                }
-            }*/
-
-
-            String nameCH;
-            if (args[0].equalsIgnoreCase("ChangeCHName")) {
-                if (args.length >= 2) {
-                    StringBuilder builder = new StringBuilder();
-                    for (int x = 1; x < args.length; x++) {
-                        builder.append(args[1]);
-                    }
-                    nameCH = event.getMessage().getContentRaw();
-
-                    System.out.println(Route.Channels.MODIFY_CHANNEL.compile(event.getChannel().getId()));
-                    System.out.println(nameCH);
-                    System.out.println(event.getMessage());
-                    System.out.println(event.getChannel());
-                    System.out.println(event.getMessage().getMember());
-                    event.getChannel().getManager().setName(String.valueOf(builder)).queue();
-                    event.getChannel().sendMessage(event.getAuthor().getAsMention() + " has changed the title to: " + builder).queue();
-
-                }
-            }
-
-
-    /*if (args[0].equalsIgnoreCase("clear_msg")) {
-
-        //cancella il messaggio che scrive dopo 10 sec. LoL
-        event.getChannel().sendMessage("Tentato Delete").queue(m -> m.delete().queueAfter(10, TimeUnit.SECONDS));
-
-
-    }*/
-
+            System.out.println(event.getGuild().getRoles());
+            System.out.println(event.getGuild().getMembers());
+            event.getChannel().sendMessage("sto funzionando").queue();
         }
+
+        if (args[0].equalsIgnoreCase("add_react_on_req")) {
+            String ActCh = "847831596178341908";
+            if (event.getChannel().getId().equals(ActCh)) {
+                event.getMessage().addReaction("❌").queue();
+                event.getMessage().addReaction("✅").queue();
+            }
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") && args[1].equalsIgnoreCase("server")) {
+            System.out.println(guild.getId() + " " + guild.getName());
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+                String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, guild.getId());
+                statement.setString(2, guild.getName());
+                int rows = statement.executeUpdate();
+                if (rows > 0) {
+                    System.out.println("Inserito");
+                }
+                statement.close();
+                connection.close();
+                System.out.println("Funge");
+            } catch (SQLException e) {
+                System.out.println("Non funge");
+                e.printStackTrace();
+            }
+            event.getMessage().delete().queue();
+        }
+
+        if (args[0].equalsIgnoreCase("ChangeCHName")) {
+            if (args.length >= 2) {
+                StringBuilder builder = new StringBuilder();
+                for (int x = 1; x < args.length; x++) {
+                    builder.append(args[1]);
+                }
+                String nameCH;
+                nameCH = event.getMessage().getContentRaw();
+
+                System.out.println(Route.Channels.MODIFY_CHANNEL.compile(event.getChannel().getId()));
+                System.out.println(nameCH);
+                System.out.println(event.getMessage());
+                System.out.println(event.getChannel());
+                System.out.println(event.getMessage().getMember());
+                event.getChannel().getManager().setName(String.valueOf(builder)).queue();
+                event.getChannel().sendMessage(event.getAuthor().getAsMention() + " has changed the title to: " + builder).queue();
+
+            }
+        }
+
+
+
     }
+}

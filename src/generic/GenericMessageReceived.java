@@ -1,5 +1,6 @@
 package generic;
 
+import db.DbCredentials;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -7,16 +8,22 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.MainBBBdB;
 import serverList.LosSantosPoliceDepartment.MainLSPD;
-import serverList.MercatoNero.MainMercatoNero;
 import serverList.StrangersLife.MainStrangersLife;
+import utility.Utility;
 
+import java.sql.*;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class GenericMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
 
         Guild guild = event.getGuild();
+
+        DbCredentials credentials = new DbCredentials();
+        String username = credentials.getUsername();
+        String password = credentials.getPassword();
 
         int count = 0;// count++;
 
@@ -31,11 +38,12 @@ public class GenericMessageReceived extends ListenerAdapter {
                     });
         }
 
+
         if (!guild.getId().equals(MainBBBdB.dBbbdbID)
                 && !guild.getId().equals(MainAmbulanceStrangersLife.ambulanceID)
                 && !guild.getId().equals(MainStrangersLife.strangerLifeID)
-                && !guild.getId().equals(MainMercatoNero.mercatoneroID)
                 && !guild.getId().equals(MainLSPD.lspdID)) {
+
             System.out.println("Messaggio da Discord non registrato: " + event.getGuild().getName() + " ID:" + event.getGuild().getId() + " \n"
                     + event.getAuthor().getName() + " " + event.getAuthor().getId());
         }

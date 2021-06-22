@@ -10,9 +10,9 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
+import serverList.AmbulanceStangersLife.AmbulanceCommands;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverList.LosSantosPoliceDepartment.LSPDMessageReceived;
-import serverList.MercatoNero.MNMessageReceived;
 import serverList.StrangersLife.SLGestioneRuoli;
 import serverList.StrangersLife.SLMessageDeleted;
 import serverList.StrangersLife.SLMessageReceived;
@@ -23,7 +23,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.82.dm";
+    public static String botVersion = "1.99.admin";
     public static String botDiscordID = "856439285879144468";
 
 
@@ -44,6 +44,7 @@ public class DumbledoreMain {
                 .enableCache(CacheFlag.VOICE_STATE)
 
                 .addEventListeners(new GuildMemberJoin())
+                .addEventListeners(new AdminCommands())
                 .addEventListeners(new Commands())
 
                 .addEventListeners(new GenericMessageReceived())
@@ -70,8 +71,6 @@ public class DumbledoreMain {
                 //LSPD
                 .addEventListeners(new LSPDMessageReceived())
 
-                //MERCATO NERO
-                .addEventListeners(new MNMessageReceived())
 
 
                 .build();

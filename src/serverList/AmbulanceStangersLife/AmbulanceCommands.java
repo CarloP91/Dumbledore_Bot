@@ -1,4 +1,4 @@
-package commands;
+package serverList.AmbulanceStangersLife;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
