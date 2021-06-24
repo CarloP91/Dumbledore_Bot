@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
 import serverList.AmbulanceStangersLife.AmbulanceCommands;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
+import serverList.LosSantosPoliceDepartment.LSPDDeleted;
 import serverList.LosSantosPoliceDepartment.LSPDMessageReceived;
 import serverList.StrangersLife.SLGestioneRuoli;
 import serverList.StrangersLife.SLMessageDeleted;
@@ -70,6 +71,7 @@ public class DumbledoreMain {
 
                 //LSPD
                 .addEventListeners(new LSPDMessageReceived())
+                .addEventListeners(new LSPDDeleted())
 
 
 

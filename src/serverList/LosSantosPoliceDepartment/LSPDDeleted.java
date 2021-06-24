@@ -1,4 +1,4 @@
-package serverList.StrangersLife;
+package serverList.LosSantosPoliceDepartment;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.audit.ActionType;
@@ -7,10 +7,11 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import serverList.StrangersLife.MainStrangersLife;
 
 import java.awt.*;
 
-public class SLMessageDeleted extends ListenerAdapter {
+public class LSPDDeleted extends ListenerAdapter {
     @Override
     public void onMessageDelete(@NotNull MessageDeleteEvent event) {
         super.onMessageDelete(event);
@@ -24,20 +25,10 @@ public class SLMessageDeleted extends ListenerAdapter {
                 .setDescription("Il messaggio " + event.getMessageId() + " è stato cancellato in: " + event.getChannel().getName());
 
 
-        if (guild.getId().equals(MainStrangersLife.strangerLifeID)) {
+        if (guild.getId().equals(MainLSPD.lspdID)) {
 
-            if (event.getChannel().getId().equals(MainStrangersLife.whitelistatiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage(msgSlRoom.build()).queue();
-            }
-
-            if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage(msgSlRoom.build()).queue();
-            }
-
-            if (event.getChannel().getId().equals(MainStrangersLife.rimandatiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+            {
+                event.getGuild().getTextChannelById("857701176672649226")
                         .sendMessage(msgSlRoom.build()).queue();
             }
 
