@@ -2,10 +2,13 @@ package serverList.StrangersLife;
 
 
 import main.DumbledoreMain;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import utility.BotExcp;
 import utility.Utility;
+
+import java.awt.*;
 
 
 public class SLMessageReceived extends ListenerAdapter {
@@ -13,6 +16,12 @@ public class SLMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
         String[] args = event.getMessage().getContentRaw().split("\\s+");
+
+        EmbedBuilder msgSlRoom = new EmbedBuilder()
+                .setColor(Color.black)
+                .setAuthor("ID MESSAGGIO: " + event.getMessageId())
+                .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
+
         if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.mee6)){ // SE E' IL DISCORD DI STRANGER'S LIFE
@@ -22,17 +31,17 @@ public class SLMessageReceived extends ListenerAdapter {
                 }
                 else { //ALTRIMENTI
                     event.getGuild().getTextChannelById(MainStrangersLife.agendaDominyID) //IN QUESTO TEXT CHANNEL
-                            .sendMessage("<@" + MainStrangersLife.dominy + "> " + "nuovo **bando STAFF** arrivato da: <@" + event.getMessage().getMember().getId() + ">").queue();
+                            .sendMessage(msgSlRoom.build()).queue();
                 }
 
             }
             if (event.getChannel().getId().equals(MainStrangersLife.whitelistatiRoom)) {
                 event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage("|| **ID MESSAGGIO:** " + event.getMessageId() + " || \n" + "<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">").queue();
+                        .sendMessage(msgSlRoom.build()).queue();
             }
             else if (event.getChannel().getId().equals(MainStrangersLife.rimandatiRoom)) {
                 event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage("|| **ID MESSAGGIO:** " + event.getMessageId() + " || \n" + "<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">").queue();
+                        .sendMessage(msgSlRoom.build()).queue();
             }
             /*else if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom)) {
                 event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)

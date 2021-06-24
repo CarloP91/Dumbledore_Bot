@@ -2,6 +2,7 @@ package commands;
 
 import db.DbCredentials;
 import main.DumbledoreMain;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -9,6 +10,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import utility.Utility;
 
+import java.awt.*;
 import java.sql.*;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class AdminCommands extends ListenerAdapter {
 
         int count = 0;
 
+        EmbedBuilder activeCommand = new EmbedBuilder()
+                .setColor(Color.green)
+                .setDescription("Comando Eseguito");
+
+
         //ADMIN COMMAND LIST
 
         // ------------------------------------------------------------------------------------------------- //
@@ -41,7 +48,10 @@ public class AdminCommands extends ListenerAdapter {
                         .sendMessage("Lista di comandi ADMIN: \n"
                                 + "- check serverlist \n"
                                 + "- print serverListID \n"
-                                + "- print serverListName").queue();
+                                + "- print serverListName \n"
+                                + "- print guildchannel ID\n"
+                                + "- reload serverlistID"
+                        ).queue();
 
             }
 
@@ -50,7 +60,7 @@ public class AdminCommands extends ListenerAdapter {
                     && guild.getId().equals(DumbledoreMain.botDiscordID)) {
 
 
-                System.out.println("Mostro server list");
+//                System.out.println("Mostro server list");
 //            System.out.println(event.getJDA().getGuilds());
 
                 List<Guild> serverList = event.getJDA().getGuilds();
@@ -59,6 +69,7 @@ public class AdminCommands extends ListenerAdapter {
 
 
                 event.getChannel().sendMessage(Utility.getServerListNameID(serverList)).queue();
+                event.getChannel().sendMessage(activeCommand.build()).queue();
 
             }
 
@@ -81,14 +92,16 @@ public class AdminCommands extends ListenerAdapter {
                         String row3 = result.getString(3);
                         count++;
                         event.getChannel().sendMessage(row1 + ") Server ID: " + row2).queue();
+
                         //  System.out.println(row1 + ") Server ID: " + row2 + "Server NAME: " + row3);
                     }
 
-                    System.out.println();
+
                 } catch (SQLException e) {
 
                     e.printStackTrace();
                 }
+                event.getChannel().sendMessage(activeCommand.build()).queue();
             } else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                     && args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
                     && args[1].equalsIgnoreCase("serverListName")) {
@@ -110,16 +123,18 @@ public class AdminCommands extends ListenerAdapter {
                         event.getChannel().sendMessage(row1 + ") Server NAME: " + row3).queue();
                         //  System.out.println(row1 + ") Server ID: " + row2 + "Server NAME: " + row3);
                     }
-                    System.out.println();
+
                 } catch (SQLException e) {
 
                     e.printStackTrace();
                 }
 
+                event.getChannel().sendMessage(activeCommand.build()).queue();
+
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
-                && args[1].equalsIgnoreCase("serverlistID")) {
+                    && args[1].equalsIgnoreCase("serverlistID")) {
 
                 List<GuildChannel> channelList = event.getGuild().getChannels();
 
@@ -142,17 +157,34 @@ public class AdminCommands extends ListenerAdapter {
 
                         if ((!Utility.getChannelListName(channelList).contains(row2))) {
                             guild.createTextChannel(row2).queue();
+                            event.getChannel().sendMessage(activeCommand.build()).queue();
                         }
-
                     }
 
-                    System.out.println();
                 } catch (SQLException e) {
 
                     e.printStackTrace();
                 }
 
-            } event.getChannel().sendMessage("Comando Attivato").queue();
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
+                    && args[1].equalsIgnoreCase("guildchannel")) {
+                String idCh = args[2];
+                List<GuildChannel> channelList = event.getGuild().getChannels();
+                List<GuildChannel> guildChannelList = event.getJDA().getGuildById(args[2]).getChannels();
+
+                try {
+                    event.getChannel().sendMessage(Utility.getChannelListName(guildChannelList)).queue();
+                }
+                catch (IndexOutOfBoundsException exception) {
+                    event.getChannel().sendMessage("Non ho abbastanza poteri per controllare").queue();
+                }
+
+
+                event.getChannel().sendMessage(activeCommand.build()).queue();
+            }
         }
+
     }
 }

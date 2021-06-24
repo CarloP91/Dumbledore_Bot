@@ -1,10 +1,13 @@
 package serverList.BalbettanteBamboccionaBandaDiBabbuini;
 
 import main.DumbledoreMain;
+import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class BBBDBMessageReceived extends ListenerAdapter {
 
@@ -16,6 +19,11 @@ public class BBBDBMessageReceived extends ListenerAdapter {
             textChannel.sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw()
                     + " in <#" + event.getChannel().getId() + "> \n || **ID MESSAGGIO:** " + event.getMessageId() + "||").queue();
 
+            List<GuildChannel> channelList = event.getGuild().getChannels();
+
+
+            event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("856515322982825984").sendMessage("<@" + event.getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw()
+                    + " in <#" + event.getChannel().getId() + "> \n || **ID MESSAGGIO:** " + event.getMessageId() + "||").queue();
 
             try {
                 if (event.getGuild().getId().equals(MainBBBdB.dBbbdbID)) {
