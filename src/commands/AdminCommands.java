@@ -56,7 +56,7 @@ public class AdminCommands extends ListenerAdapter {
 
 
 
-                event.getChannel().sendMessage(Utility.getServerListName(serverList)).queue();
+                event.getChannel().sendMessage(Utility.getServerListNameID(serverList)).queue();
 
             }
 

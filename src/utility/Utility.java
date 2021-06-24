@@ -107,6 +107,26 @@ public class Utility {
 
     }
 
+    public static String getServerListNameID(List serverList) {
+        String serverNameID;
+        int count = 1;
+        if (!serverList.isEmpty()) {
+            Guild tempServerList = (Guild) serverList.get(0);
+            serverNameID = count + ") " + tempServerList.getName() + " - " + tempServerList.getId() +"\n";
+            for (int i = 1; i < serverList.size(); i++) {
+                count++;
+                tempServerList = (Guild) serverList.get(i);
+                serverNameID = serverNameID + count + ") " + tempServerList.getName() + " - " + tempServerList.getId() + "\n";
+            }
+
+        } else {
+            serverNameID = "Non ha membri!";
+        }
+
+        return serverNameID;
+
+    }
+
     public static String getChannelListName(List chList) {
         String chName;
         if (!chList.isEmpty()) {

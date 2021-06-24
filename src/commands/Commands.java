@@ -159,7 +159,9 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") && args[1].equalsIgnoreCase("server")) {
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+                && args[1].equalsIgnoreCase("server")) {
+
             System.out.println(guild.getId() + " " + guild.getName());
             try {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
