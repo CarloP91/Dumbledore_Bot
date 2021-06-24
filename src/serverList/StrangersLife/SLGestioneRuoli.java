@@ -1,5 +1,6 @@
 package serverList.StrangersLife;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.audit.ActionType;
 import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRoleAddEvent;
@@ -16,24 +17,46 @@ public class SLGestioneRuoli extends ListenerAdapter {
 
         AuditLogEntry entry = event.getGuild().retrieveAuditLogs().type(ActionType.MEMBER_ROLE_UPDATE).complete().get(0);
 
-        if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)){
+        if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)) {
             if (event.getRoles().get(0).getId().equals("694128369716953159") || event.getRoles().get(0).getId().equals("710139692145705080")) {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage("<@" + entry.getUser().getId() + "> ha aggiunto il ruolo <@&" + event.getRoles().get(0).getId() + "> a <@" + event.getMember().getId() + ">").queue();
+                try {
+                    EmbedBuilder builderRoleADD = new EmbedBuilder()
+                            .setColor(0x4dff4d)
+                            .addField("Staff: ", "<@" + entry.getUser().getId() + ">", true)
+                            .setDescription("Ruolo Aggiunto")
+                            .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
+                            .addField("a: ", "<@" + event.getMember().getId() + ">", true);
+                    event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                            .sendMessage(builderRoleADD.build()).queue();
+                } catch (IndexOutOfBoundsException exception) {
+                    System.out.println("Non funge il builder ADD su " + event.getGuild().getName());
+                }
             }
         }
 
     }
 
-    public void  onGuildMemberRoleRemove(GuildMemberRoleRemoveEvent event) {
+    public void onGuildMemberRoleRemove(GuildMemberRoleRemoveEvent event) {
         AuditLogEntry entry = event.getGuild().retrieveAuditLogs().type(ActionType.MEMBER_ROLE_UPDATE).complete().get(0);
 
-        if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)){
-            if (event.getRoles().get(0).getId().equals("694128369716953159") || event.getRoles().get(0).getId().equals("710139692145705080"))  {
+        if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)) {
+            if (event.getRoles().get(0).getId().equals("694128369716953159") || event.getRoles().get(0).getId().equals("710139692145705080")) {
+                try {
+                    EmbedBuilder builderRoleRemove = new EmbedBuilder()
+                            .setColor(0xff1a1a)
+                            .addField("Staff: ", "<@" + entry.getUser().getId() + ">", true)
+                            .setDescription("Ruolo Rimosso")
+                            .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
+                            .addField("a: ", "<@" + event.getMember().getId() + ">", true);
+                    event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                            .sendMessage(builderRoleRemove.build()).queue();
+                } catch (IndexOutOfBoundsException exception) {
+                    System.out.println("Non funge il builder Remove su " + event.getGuild().getName());
+                }
                 event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
                         .sendMessage("<@" + entry.getUser().getId() + "> ha rimosso il ruolo <@&" + event.getRoles().get(0).getId() + "> a <@" + event.getMember().getId() + ">").queue();
             }
         }
-
     }
 }
+
