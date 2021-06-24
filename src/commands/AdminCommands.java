@@ -25,6 +25,8 @@ public class AdminCommands extends ListenerAdapter {
         String username = credentials.getUsername();
         String password = credentials.getPassword();
 
+        int count = 0;
+
         //ADMIN COMMAND LIST
 
         // ------------------------------------------------------------------------------------------------- //
@@ -73,8 +75,6 @@ public class AdminCommands extends ListenerAdapter {
                     Statement statement = connection.createStatement();
                     ResultSet result = statement.executeQuery(sql);
 
-                    int count = 0;
-
                     while (result.next()) {
                         String row1 = result.getString(1);
                         String row2 = result.getString(2);
@@ -101,7 +101,6 @@ public class AdminCommands extends ListenerAdapter {
                     Statement statement = connection.createStatement();
                     ResultSet result = statement.executeQuery(sql);
 
-                    int count = 0;
 
                     while (result.next()) {
                         String row1 = result.getString(1);
@@ -118,6 +117,42 @@ public class AdminCommands extends ListenerAdapter {
                 }
 
             }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
+                && args[1].equalsIgnoreCase("serverlistID")) {
+
+                List<GuildChannel> channelList = event.getGuild().getChannels();
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+
+                    // SELECT FROM DB MYSQL
+                    String sql = "SELECT * FROM `tab1`";
+
+                    Statement statement = connection.createStatement();
+                    ResultSet result = statement.executeQuery(sql);
+
+
+                    while (result.next()) {
+                        String row1 = result.getString(1);
+                        String row2 = result.getString(2);
+                        String row3 = result.getString(3);
+                        count++;
+
+
+                        if ((!Utility.getChannelListName(channelList).contains(row2))) {
+                            guild.createTextChannel(row2).queue();
+                        }
+
+                    }
+
+                    System.out.println();
+                } catch (SQLException e) {
+
+                    e.printStackTrace();
+                }
+
+            } event.getChannel().sendMessage("Comando Attivato").queue();
         }
     }
 }

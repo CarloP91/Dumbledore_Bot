@@ -138,7 +138,7 @@ public class Utility {
             }
 
         } else {
-            chName = "Non ha membri!";
+            chName = "Non ha canali!";
         }
 
         return chName;
