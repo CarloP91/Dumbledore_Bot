@@ -25,7 +25,7 @@ public class SLGestioneRuoli extends ListenerAdapter {
                             .addField("Staff: ", "<@" + entry.getUser().getId() + ">", true)
                             .setDescription("Ruolo Aggiunto")
                             .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
-                            .addField("a: ", "<@" + event.getMember().getId() + ">", true);
+                            .addField("A: ", "<@" + event.getMember().getId() + ">", true);
                     event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
                             .sendMessage(builderRoleADD.build()).queue();
                 } catch (IndexOutOfBoundsException exception) {
@@ -47,14 +47,12 @@ public class SLGestioneRuoli extends ListenerAdapter {
                             .addField("Staff: ", "<@" + entry.getUser().getId() + ">", true)
                             .setDescription("Ruolo Rimosso")
                             .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
-                            .addField("a: ", "<@" + event.getMember().getId() + ">", true);
+                            .addField("A: ", "<@" + event.getMember().getId() + ">", true);
                     event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
                             .sendMessage(builderRoleRemove.build()).queue();
                 } catch (IndexOutOfBoundsException exception) {
                     System.out.println("Non funge il builder Remove su " + event.getGuild().getName());
                 }
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
-                        .sendMessage("<@" + entry.getUser().getId() + "> ha rimosso il ruolo <@&" + event.getRoles().get(0).getId() + "> a <@" + event.getMember().getId() + ">").queue();
             }
         }
     }
