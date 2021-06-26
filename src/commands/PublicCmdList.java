@@ -4,7 +4,6 @@ import main.DumbledoreMain;
 
 public class PublicCmdList {
 
-
     public static String cmdWhoAllMembers = "who-all-members"; // da disabilitare
     public static String cRotto = "rotto";
     public static String cmdVersione = "version";
