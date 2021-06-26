@@ -77,7 +77,7 @@ public class Commands extends ListenerAdapter {
                             List<Role> memberRoles = member.getRoles();
                             for (Role m_role : memberRoles) {
                                 if (m_role.equals(r1)) {
-                                    event.getChannel().sendMessage("Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
+                                    event.getChannel().sendMessage("   \n" + "Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
                                     //  System.out.println(args[0] + args[1]);
                                     //  System.out.println(event.getGuild().getRoleById(args[1].replace("<@&", "").replace(">", "")));
                                 }

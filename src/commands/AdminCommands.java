@@ -53,15 +53,15 @@ public class AdminCommands extends ListenerAdapter {
                                 + "- reload serverlistID"
                         ).queue();
 
-            }
+            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
+                    && args[1].equalsIgnoreCase("command")
+                    && !event.getAuthor().getId().equalsIgnoreCase("383035474807095296")
+            )
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "check")
                     && args[1].equalsIgnoreCase("serverlist")
                     && guild.getId().equals(DumbledoreMain.botDiscordID)) {
 
-
-//                System.out.println("Mostro server list");
-//            System.out.println(event.getJDA().getGuilds());
 
                 List<Guild> serverList = event.getJDA().getGuilds();
                 List<GuildChannel> channelList = event.getGuild().getChannels();
@@ -93,7 +93,6 @@ public class AdminCommands extends ListenerAdapter {
                         count++;
                         event.getChannel().sendMessage(row1 + ") Server ID: " + row2).queue();
 
-                        //  System.out.println(row1 + ") Server ID: " + row2 + "Server NAME: " + row3);
                     }
 
 
@@ -121,7 +120,6 @@ public class AdminCommands extends ListenerAdapter {
                         String row3 = result.getString(3);
                         count++;
                         event.getChannel().sendMessage(row1 + ") Server NAME: " + row3).queue();
-                        //  System.out.println(row1 + ") Server ID: " + row2 + "Server NAME: " + row3);
                     }
 
                 } catch (SQLException e) {
@@ -184,6 +182,9 @@ public class AdminCommands extends ListenerAdapter {
 
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
+        } else if (guild.getId().equals(DumbledoreMain.botDiscordID)
+                && !event.getAuthor().getId().equals("383035474807095296")) {
+            event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();
         }
 
     }

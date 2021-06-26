@@ -1,10 +1,14 @@
 package serverList.AmbulanceStangersLife;
 
+import main.DumbledoreMain;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
+
+import java.awt.*;
 import java.util.List;
 
 public class AmbulanceCommands extends ListenerAdapter {
@@ -13,98 +17,68 @@ public class AmbulanceCommands extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
         // AMBULANCE COMMANDS
 
-        if (args[0].equalsIgnoreCase( "orario-riunione")) {
-            event.getChannel().sendMessage("Riunione ore 17").queue();
+        Guild guild = event.getGuild();
+        MainAmbulanceStrangersLife ambulanceRole = new MainAmbulanceStrangersLife();
+
+        EmbedBuilder activeCommand = new EmbedBuilder()
+                .setColor(Color.green)
+                .setDescription("Comando Eseguito");
+
+        if (guild.getId().equals(MainAmbulanceStrangersLife.ambulanceID)) {
+
+            if (args[0].equalsIgnoreCase("orario-riunione")) {
+                event.getChannel().sendMessage("Nessuna Riunione in programma").queue();
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "pay")) {
+
+
+                if (args.length > 1 && args.length < 3) {
+
+                    System.out.println(args[0] + " 0");
+                    System.out.println(args[1] + " 1");
+
+                    event.getChannel().sendMessage(activeCommand.build()).queue();
+
+                    if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getDirettore())) {
+                        System.out.println("Funziona la stampa del direttore");
+                    } else if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getViceDirettore())) {
+                        System.out.println("Funziona la stampa del vice direttore");
+                    } else if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getPrimario())) {
+                        System.out.println("Funziona la stampa del primario");
+
+                    } else if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getDottore())) {
+                        System.out.println("Funziona la stampa del dottore");
+                    } else if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getParamedico())) {
+                        System.out.println("Funziona la stampa del paramedico");
+                    } else if (event.getMessage().getMentionedRoles().get(0).getId().contains(ambulanceRole.getTirocinante())) {
+                        System.out.println("Funziona la stampa del tirocinante");
+                    }
+                }
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
+                    && args[1].equalsIgnoreCase("payall")) {
+
+                event.getMessage().delete().queue();
+
+              //  event.getChannel().sendMessage(activeCommand.build()).queue();
+
+                event.getChannel().sendMessage("STIPENDI: \n"
+                        + "<@&" + ambulanceRole.getDirettore() + ">: 0 €; \n"
+                        + "<@&" + ambulanceRole.getViceDirettore() + ">: 1.500.000 €; \n"
+                        + "<@&" + ambulanceRole.getPrimario() + ">: 800.000 €; \n"
+                        + "<@&" + ambulanceRole.getDottore() + ">: 500.000 €; \n"
+                        + "<@&" + ambulanceRole.getParamedico() + ">: 300.000 €; \n"
+                        + "<@&" + ambulanceRole.getTirocinante() + ">: 0 €; \n" ).queue();
+            }
+
+
+
+
         }
 
-        String AssignedRole;
-
-        if (args[0].equalsIgnoreCase( "payamb")) {
-            Guild guild = event.getGuild();
-            List<Role> roleList = guild.getRoles(); //lista di tutti i ruoli del discord
-
-
-            for (Role role_m :roleList) { //TEST PER DISCORD
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    AssignedRole = "847121910096723979";
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
-
-                }
-
-            }
-
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    MainAmbulanceStrangersLife direttore = new MainAmbulanceStrangersLife();
-                    AssignedRole = direttore.getDirettore();
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 0€").queue();
-
-                }
-
-            }
-
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    System.out.println(role_m.getName());
-                    System.out.println(event.getMessage());
-                    MainAmbulanceStrangersLife vicedirettore = new MainAmbulanceStrangersLife();
-                    System.out.println(vicedirettore.getViceDirettore());
-                    AssignedRole = vicedirettore.getViceDirettore();
-                    System.out.println(AssignedRole);
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 900.000€").queue();
-
-                }
-
-            }
-
-
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    MainAmbulanceStrangersLife primario = new MainAmbulanceStrangersLife();
-                    AssignedRole = primario.getPrimario();
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 700.000€").queue();
-
-                }
-
-            }
-
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    MainAmbulanceStrangersLife dottore = new MainAmbulanceStrangersLife();
-                    AssignedRole = dottore.getDottore();
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 400.000€").queue();
-
-                }
-
-            }
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    MainAmbulanceStrangersLife paramedico = new MainAmbulanceStrangersLife();
-                    AssignedRole = paramedico.getParamedico();
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 250.000€").queue();
-
-                }
-
-            }
-
-            for (Role role_m :roleList) {
-                if (event.getMessage().toString().contains("@" + role_m.getName())) {
-                    MainAmbulanceStrangersLife ems = new MainAmbulanceStrangersLife();
-                    AssignedRole = ems.getTirocinante();
-                    if (role_m.getId().equals(AssignedRole))
-                        event.getChannel().sendMessage("Il " + "<@&" + role_m.getId() + ">" + " prenderà di stipendio: 100.000€").queue();
-
-                }
-
-            }
-
-            event.getMessage().delete().queue();
-        }
     }
 }
+
+

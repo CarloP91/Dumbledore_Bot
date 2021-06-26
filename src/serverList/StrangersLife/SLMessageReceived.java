@@ -17,14 +17,15 @@ public class SLMessageReceived extends ListenerAdapter {
 
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        EmbedBuilder msgSlRoom = new EmbedBuilder()
-                .setColor(Color.black)
-                .setAuthor("ID MESSAGGIO: " + event.getMessageId())
-                .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
 
         if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.mee6)){ // SE E' IL DISCORD DI STRANGER'S LIFE
+            EmbedBuilder msgSlRoom = new EmbedBuilder()
+                    .setColor(Color.black)
+                    .setAuthor("ID MESSAGGIO: " + event.getMessageId())
+                    .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
+
             if (event.getChannel().getId().equals(MainStrangersLife.bandiStaffRoom)) { // SE NELLA ROOM BANDI STAFF
                 if (event.getMessage().getMember().getId().equals(MainStrangersLife.dominy)) {  // SE IL MESSAGGIO E' SCRITTO DA ID
                     //nu face nu cazzu

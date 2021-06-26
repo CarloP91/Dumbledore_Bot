@@ -16,11 +16,11 @@ public class MainAmbulanceStrangersLife {
 
     private String direttore = "839071738654359572"; //RUOLO DIRETTORE
     private String viceDirettore = "839071683976495155"; //RUOLO VICE DIRETTORE
-    private String primario = "843912462125891614"; // RUOLO PRIMARIO
-    private String dottore = "843912462125891614"; // RUOLO DOTTORE
-    private String paramedico = "843912462125891614"; //RUOLO PARAMEDICO
-    private String tirocinante = "843912462125891614"; //RUOLO EMS
-    private String inProva = "843912462125891614"; // RUOLO IN PROVA
+    private String primario = "840159576905089044"; // RUOLO PRIMARIO
+    private String dottore = "839071597327024129"; // RUOLO DOTTORE
+    private String paramedico = "839069751073832980"; //RUOLO PARAMEDICO
+    private String tirocinante = "844289989831557120"; //RUOLO TIROCINANTE
+    private String inProva = "839080375619551292"; // RUOLO IN PROVA
 
     //CHANNEL SPECIFICI
     public static String chAnnunciID = "851903365587140638";
@@ -33,9 +33,7 @@ public class MainAmbulanceStrangersLife {
         return viceDirettore;
     }
 
-    public String getPrimario() {
-        return primario;
-    }
+    public String getPrimario() { return primario;}
 
     public String getDottore() {
         return dottore;
