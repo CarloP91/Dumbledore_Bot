@@ -159,13 +159,13 @@ public class PublicCommands extends ListenerAdapter {
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
             event.getChannel().sendMessage
-                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3 \n" +
+                    ("Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n" +
                             "Lista Comandi: \r")
                     .queue();
 
 
             for (int i = 0; i < baseCMD.size(); i++) {
-                event.getChannel().sendMessage("**" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
+                event.getChannel().sendMessage(i + " **" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
             }
 
             event.getChannel().sendMessage(activeCommand.build()).queue();
