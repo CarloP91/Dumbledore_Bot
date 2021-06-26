@@ -153,6 +153,15 @@ public class Utility {
     }
 
 
+   /*     if (args[0].equalsIgnoreCase("d_Offline")) {
+
+        EmbedBuilder off = new EmbedBuilder();
+        off.setTitle("Dumbledore Bot dice:");
+        off.setDescription("Yes, sir! \n ... \n Il BOT si sta spegnendo.. \uD83E\uDDED️");
+        off.setColor(0xff3300);
+        event.getChannel().sendMessage(off.build()).queue();
+        off.clear();
+    }*/
 
     // INSERT INTO DB MYSQL
 

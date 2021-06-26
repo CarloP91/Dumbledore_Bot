@@ -38,7 +38,7 @@ public class DumbledoreMain {
         JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS)
                 .setStatus(OnlineStatus.ONLINE)
                 //        .setActivity(Activity.playing("d-help"))
-                .setActivity(Activity.watching("d-help"))
+                .setActivity(Activity.listening("d-help"))
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
                 .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
@@ -46,7 +46,7 @@ public class DumbledoreMain {
 
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new AdminCommands())
-                .addEventListeners(new Commands())
+                .addEventListeners(new PublicCommands())
 
                 .addEventListeners(new GenericMessageReceived())
                 .addEventListeners(new GuildVoiceJoin())

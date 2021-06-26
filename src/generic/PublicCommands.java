@@ -1,4 +1,4 @@
-package commands;
+package generic;
 
 import db.DbCredentials;
 import main.DumbledoreMain;
@@ -10,18 +10,23 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.requests.Route;
 import utility.Utility;
+import commands.PublicCmdList;
 
+import java.awt.*;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class Commands extends ListenerAdapter {
+public class PublicCommands extends ListenerAdapter {
 
     DbCredentials credentials = new DbCredentials();
 
     String username = credentials.getUsername();
     String password = credentials.getPassword();
+
+    String cVersion = DumbledoreMain.botVersion; //COMANDO 1
 
     DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
     int count = 0;
@@ -29,53 +34,44 @@ public class Commands extends ListenerAdapter {
 
     // LISTA COMANDI
     ArrayList<String> baseCMD = new ArrayList<String>();
+    ArrayList<String> explainCMD = new ArrayList<String>();
 
-    String cVersion = DumbledoreMain.botVersion; //COMANDO 1
-    String cmdWhoAllMembers = "who-all-members";
-    String cRotto = "rotto";
-    String cmdVersione = "version";
-    String cmdHelp = "help";
-    String cmdDeleteMsgByID = "deletemsg";
-    String cmdWho = "who";
-    String cmdInfo = "info";
-    String cmdAdd = "add";
+
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+
+        EmbedBuilder activeCommand = new EmbedBuilder()
+                .setColor(Color.green)
+                .setDescription("Comando Eseguito");
 
 
         Guild guild = event.getGuild();
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        baseCMD.add(cmdHelp);
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
-
-            event.getChannel().sendMessage
-                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3" +
-                            "Lista Comandi: " +
-                            "\n - who @ruolo;" +
-                            "\n - " + cVersion +
-                            "\n -" + cmdWhoAllMembers +
-                            "\n - add server"
-                    )
-                    .queue();
-        }
-
-        baseCMD.add(cmdVersione);
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdVersione)) {
+        baseCMD.add(PublicCmdList.cmdVersione); explainCMD.add("Show the actual BOT version.");
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdVersione)) {
             event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
         }
 
-        baseCMD.add(cmdDeleteMsgByID);
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdDeleteMsgByID)) { // cancella un messaggio tramite id
+        baseCMD.add(PublicCmdList.cmdDeleteMsgByID); explainCMD.add(" msgID: delete a message by ID.");
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdDeleteMsgByID)) { // cancella un messaggio tramite id
             event.getChannel().deleteMessageById(args[1]).queue();
             event.getMessage().delete().queue();
         }
 
-        baseCMD.add(cmdWho);
+        baseCMD.add(PublicCmdList.cmdWho); explainCMD.add(" @role: show all member of mentioned role!");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
 
             List<Role> roleList = guild.getRoles();
+            List<Role> mentRole = event.getMessage().getMentionedRoles();
             List<Member> membersList = guild.getMembers();
+
+            EmbedBuilder whoReq = new EmbedBuilder()
+                    .setDescription("<@" + event.getMessage().getAuthor().getId() + ">" + " HA RICHIESTO: " + Utility.getRoleAsStringID(mentRole) + " \n")
+                    .setColor(Color.green);
+
+
+            event.getChannel().sendMessage(whoReq.build()).queue();
 
             if (args.length > 1 && args.length < 3) {
                 for (Role r1 : roleList) {
@@ -84,20 +80,26 @@ public class Commands extends ListenerAdapter {
                             List<Role> memberRoles = member.getRoles();
                             for (Role m_role : memberRoles) {
                                 if (m_role.equals(r1)) {
-                                    event.getChannel().sendMessage(event.getMessage().getAuthor() + "HA RICHIESTO:   \n" + "Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
-                                    //  System.out.println(args[0] + args[1]);
-                                    //  System.out.println(event.getGuild().getRoleById(args[1].replace("<@&", "").replace(">", "")));
+
+                                    EmbedBuilder whoPrint = new EmbedBuilder()
+                                            .setDescription("Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">");
+
+
+                                    event.getChannel().sendMessage(whoPrint.build()).queue();
                                 }
                             }
                         }
                     }
                 }
             }
-            event.getChannel().sendMessage("**//------// FINE REPORT //------//** \n").queue();
+            EmbedBuilder endReport = new EmbedBuilder()
+                    .setDescription("**//------// FINE REPORT //------//**")
+                    .setColor(Color.green);
+            event.getChannel().sendMessage(endReport.build()).queue();
             event.getMessage().delete().queue();
         }
 
-        baseCMD.add(cmdInfo);
+        baseCMD.add(PublicCmdList.cmdInfo); explainCMD.add(" @member: show the information about mentioned member.");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
             if (args.length > 1 && args.length < 3) {
                 try {
@@ -118,29 +120,19 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-        if (args[0].equalsIgnoreCase("d_Offline")) {
-
-            EmbedBuilder off = new EmbedBuilder();
-            off.setTitle("Dumbledore Bot dice:");
-            off.setDescription("Yes, sir! \n ... \n Il BOT si sta spegnendo.. \uD83E\uDDED️");
-            off.setColor(0xff3300);
-            event.getChannel().sendMessage(off.build()).queue();
-            off.clear();
-        }
-
-        // STAMPA TUTTI I MEMBRI DEL DISCORD
-        baseCMD.add(cmdWhoAllMembers);
-        if (args[0].equalsIgnoreCase(cmdWhoAllMembers)) {
+       /* // STAMPA TUTTI I MEMBRI DEL DISCORD
+        baseCMD.add(PublicCmdList.cmdWhoAllMembers); explainCMD.add("do not use if you have very much member in your guild.");
+        if (args[0].equalsIgnoreCase(PublicCmdList.cmdWhoAllMembers)) {
 
             List<Member> membersList = guild.getMembers();
 
             for (Member member : membersList) {
                 event.getChannel().sendMessage("<@" + member.getUser().getId() + ">").queue();
             }
-        }
+        }*/
 
-        baseCMD.add(cmdAdd);
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdAdd)
+        baseCMD.add(PublicCmdList.cmdAdd); explainCMD.add(" server: add your discord server in BOT DB.");
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdAdd)
                 && args[1].equalsIgnoreCase("server")) {
 
             System.out.println(guild.getId() + " " + guild.getName());
@@ -162,6 +154,23 @@ public class Commands extends ListenerAdapter {
             }
             event.getMessage().delete().queue();
         }
+
+        baseCMD.add(PublicCmdList.cmdHelp);
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
+
+            event.getChannel().sendMessage
+                    ("Sono il bot di Dominy, sono attualmente in sviluppo <3 \n" +
+                            "Lista Comandi: \r")
+                    .queue();
+
+
+            for (int i = 0; i < baseCMD.size(); i++) {
+                event.getChannel().sendMessage("**" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
+            }
+
+            event.getChannel().sendMessage(activeCommand.build()).queue();
+        }
+
     }
 }
 
