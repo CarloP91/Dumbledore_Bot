@@ -182,10 +182,9 @@ public class AdminCommands extends ListenerAdapter {
 
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
-        } else if (guild.getId().equals(DumbledoreMain.botDiscordID)
+        } /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && !event.getAuthor().getId().equals("383035474807095296")) {
-            event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();
+            event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();*/
         }
 
     }
-}

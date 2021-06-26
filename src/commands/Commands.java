@@ -1,28 +1,22 @@
 package commands;
 
 import db.DbCredentials;
-import jdk.jshell.execution.Util;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.events.channel.voice.update.VoiceChannelUpdatePositionEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.internal.requests.Route;
-import serverList.StrangersLife.MainStrangersLife;
 import utility.Utility;
 
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Commands extends ListenerAdapter {
-    private String AssignedRole;
-    private String IDNewTry;
 
     DbCredentials credentials = new DbCredentials();
 
@@ -34,37 +28,50 @@ public class Commands extends ListenerAdapter {
 
 
     // LISTA COMANDI
+    ArrayList<String> baseCMD = new ArrayList<String>();
 
     String cVersion = DumbledoreMain.botVersion; //COMANDO 1
-    String cWhoAllMembers = "who-all-members";
+    String cmdWhoAllMembers = "who-all-members";
     String cRotto = "rotto";
+    String cmdVersione = "version";
+    String cmdHelp = "help";
+    String cmdDeleteMsgByID = "deletemsg";
+    String cmdWho = "who";
+    String cmdInfo = "info";
+    String cmdAdd = "add";
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+
 
         Guild guild = event.getGuild();
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "version")) {
-            event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
-        }
-
+        baseCMD.add(cmdHelp);
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
             event.getChannel().sendMessage
                     ("Sono il bot di Dominy, sono attualmente in sviluppo <3" +
                             "Lista Comandi: " +
-                            "\r who @ruolo;" +
-                            "\r" + cVersion +
-                            "\r" + cWhoAllMembers
+                            "\n - who @ruolo;" +
+                            "\n - " + cVersion +
+                            "\n -" + cmdWhoAllMembers +
+                            "\n - add server"
                     )
                     .queue();
         }
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "delete")) { // cancella un messaggio tramite id
+        baseCMD.add(cmdVersione);
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdVersione)) {
+            event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
+        }
+
+        baseCMD.add(cmdDeleteMsgByID);
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdDeleteMsgByID)) { // cancella un messaggio tramite id
             event.getChannel().deleteMessageById(args[1]).queue();
             event.getMessage().delete().queue();
         }
 
+        baseCMD.add(cmdWho);
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
 
             List<Role> roleList = guild.getRoles();
@@ -77,7 +84,7 @@ public class Commands extends ListenerAdapter {
                             List<Role> memberRoles = member.getRoles();
                             for (Role m_role : memberRoles) {
                                 if (m_role.equals(r1)) {
-                                    event.getChannel().sendMessage("   \n" + "Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
+                                    event.getChannel().sendMessage(event.getMessage().getAuthor() + "HA RICHIESTO:   \n" + "Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">").queue();
                                     //  System.out.println(args[0] + args[1]);
                                     //  System.out.println(event.getGuild().getRoleById(args[1].replace("<@&", "").replace(">", "")));
                                 }
@@ -90,6 +97,7 @@ public class Commands extends ListenerAdapter {
             event.getMessage().delete().queue();
         }
 
+        baseCMD.add(cmdInfo);
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
             if (args.length > 1 && args.length < 3) {
                 try {
@@ -110,17 +118,6 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cRotto)) {
-            event.getMessage().delete().queue();
-            EmbedBuilder off = new EmbedBuilder();
-            off.setTitle("Dumbledore Bot dice:");
-            off.setDescription("Sono rotto! Sono rotto!️");
-            off.setColor(0xff3300);
-            event.getChannel().sendMessage(off.build()).queue();
-            off.clear();
-        }
-
         if (args[0].equalsIgnoreCase("d_Offline")) {
 
             EmbedBuilder off = new EmbedBuilder();
@@ -132,7 +129,8 @@ public class Commands extends ListenerAdapter {
         }
 
         // STAMPA TUTTI I MEMBRI DEL DISCORD
-        if (args[0].equalsIgnoreCase(cWhoAllMembers)) {
+        baseCMD.add(cmdWhoAllMembers);
+        if (args[0].equalsIgnoreCase(cmdWhoAllMembers)) {
 
             List<Member> membersList = guild.getMembers();
 
@@ -141,25 +139,8 @@ public class Commands extends ListenerAdapter {
             }
         }
 
-        //RIMUOVERE RUOLO
-        if (args[0].equalsIgnoreCase("modruolo") && args[1].equalsIgnoreCase("Animagus")
-                && args[2].equalsIgnoreCase("to") && args[3].equalsIgnoreCase("RuoloTest")) {
-
-
-            System.out.println(event.getGuild().getRoles());
-            System.out.println(event.getGuild().getMembers());
-            event.getChannel().sendMessage("sto funzionando").queue();
-        }
-
-        if (args[0].equalsIgnoreCase("add_react_on_req")) {
-            String ActCh = "847831596178341908";
-            if (event.getChannel().getId().equals(ActCh)) {
-                event.getMessage().addReaction("❌").queue();
-                event.getMessage().addReaction("✅").queue();
-            }
-        }
-
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+        baseCMD.add(cmdAdd);
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + cmdAdd)
                 && args[1].equalsIgnoreCase("server")) {
 
             System.out.println(guild.getId() + " " + guild.getName());
@@ -175,35 +156,12 @@ public class Commands extends ListenerAdapter {
                 }
                 statement.close();
                 connection.close();
-                System.out.println("Funge");
             } catch (SQLException e) {
-                System.out.println("Non funge");
+                System.out.println("Non funge cmdADD");
                 e.printStackTrace();
             }
             event.getMessage().delete().queue();
         }
-
-        if (args[0].equalsIgnoreCase("ChangeCHName")) {
-            if (args.length >= 2) {
-                StringBuilder builder = new StringBuilder();
-                for (int x = 1; x < args.length; x++) {
-                    builder.append(args[1]);
-                }
-                String nameCH;
-                nameCH = event.getMessage().getContentRaw();
-
-                System.out.println(Route.Channels.MODIFY_CHANNEL.compile(event.getChannel().getId()));
-                System.out.println(nameCH);
-                System.out.println(event.getMessage());
-                System.out.println(event.getChannel());
-                System.out.println(event.getMessage().getMember());
-                event.getChannel().getManager().setName(String.valueOf(builder)).queue();
-                event.getChannel().sendMessage(event.getAuthor().getAsMention() + " has changed the title to: " + builder).queue();
-
-            }
-        }
-
-
-
     }
 }
+

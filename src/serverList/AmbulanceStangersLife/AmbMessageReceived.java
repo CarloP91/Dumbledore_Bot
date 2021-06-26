@@ -15,11 +15,12 @@ public class AmbMessageReceived extends ListenerAdapter {
         MainAmbulanceStrangersLife direttore = new MainAmbulanceStrangersLife();
         MainAmbulanceStrangersLife vicedirettore = new MainAmbulanceStrangersLife();
 
-        if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID) && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) {
+        if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID)
+                && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) {
 
             //CONTROLLO PER 2 BOT SENZA ID
             if (event.getChannel().getId().equals("839615144107048961")) {
-                System.out.println("è il bot di K che rompe e quindi non faccio nulla");
+//                System.out.println("è il bot di K che rompe e quindi non faccio nulla");
             }
 
             // AGGIUNGE UN CHECK AD OGNI MESSAGGIO NEL CANALE ANNUNCI

@@ -1,5 +1,7 @@
 package utility;
 
+import main.DumbledoreMain;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Member;
@@ -143,6 +145,11 @@ public class Utility {
 
         return chName;
 
+    }
+    {  EmbedBuilder brokenMessage = new EmbedBuilder();
+        brokenMessage.setTitle("Dumbledore Bot dice:");
+        brokenMessage.setDescription("Sono rotto! Sono rotto!️");
+        brokenMessage.setColor(0xff3300);
     }
 
 
