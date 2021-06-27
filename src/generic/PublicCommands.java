@@ -193,6 +193,18 @@ public class PublicCommands extends ListenerAdapter {
             }
         }
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+                && args[1].equalsIgnoreCase("role")) { //ancora non funge correttamente
+
+            String guildID = args[2];
+            String memberID = args[3];
+            String roleID = args[4];
+
+            //    event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID));
+            event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID)).queue();
+          //  System.out.println(event.getJDA().getGuildById(guildID).getRoles());
+        }
+
     }
 }
 

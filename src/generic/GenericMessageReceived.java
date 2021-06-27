@@ -27,6 +27,9 @@ public class GenericMessageReceived extends ListenerAdapter {
 
         int count = 0;// count++;
 
+    /*    event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
+                .getTextChannelById("857557884003287111").sendMessage(guild.getName() + " " + event.getChannel().createInvite().complete().getUrl()).queue();
+*/
 
         Message msg = event.getMessage();
         if (msg.getContentRaw().equals("!ping")) {
