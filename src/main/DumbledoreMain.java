@@ -24,7 +24,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.6-rest";
+    public static String botVersion = "1.99.10-sbuild";
     public static String botDiscordID = "856439285879144468";
 
 

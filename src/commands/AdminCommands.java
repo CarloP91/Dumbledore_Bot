@@ -53,20 +53,14 @@ public class AdminCommands extends ListenerAdapter {
                                 + "- reload serverlistID"
                         ).queue();
 
-            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
-                    && args[1].equalsIgnoreCase("command")
-                    && !event.getAuthor().getId().equalsIgnoreCase("383035474807095296")
-            )
+            }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "check")
-                    && args[1].equalsIgnoreCase("serverlist")
-                    && guild.getId().equals(DumbledoreMain.botDiscordID)) {
+                    && args[1].equalsIgnoreCase("serverlist")) {
 
 
                 List<Guild> serverList = event.getJDA().getGuilds();
                 List<GuildChannel> channelList = event.getGuild().getChannels();
-
-
 
                 event.getChannel().sendMessage(Utility.getServerListNameID(serverList)).queue();
                 event.getChannel().sendMessage(activeCommand.build()).queue();
@@ -182,6 +176,7 @@ public class AdminCommands extends ListenerAdapter {
 
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
+
         } /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && !event.getAuthor().getId().equals("383035474807095296")) {
             event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();*/

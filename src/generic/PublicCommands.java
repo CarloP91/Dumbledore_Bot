@@ -5,6 +5,7 @@ import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -18,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 public class PublicCommands extends ListenerAdapter {
 
@@ -74,6 +76,7 @@ public class PublicCommands extends ListenerAdapter {
             event.getChannel().sendMessage(whoReq.build()).queue();
 
             if (args.length > 1 && args.length < 3) {
+                StringBuilder buildLoop = new StringBuilder();
                 for (Role r1 : roleList) {
                     if (args[1].contains(r1.getId())) {
                         for (Member member : membersList) {
@@ -81,16 +84,17 @@ public class PublicCommands extends ListenerAdapter {
                             for (Role m_role : memberRoles) {
                                 if (m_role.equals(r1)) {
 
-                                    EmbedBuilder whoPrint = new EmbedBuilder()
-                                            .setDescription("Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + ">");
+                                    buildLoop.append("Ruolo: " + "<@&" + r1.getId() + ">" + " - Utente: " + "<@" + member.getUser().getId() + "> \r");
 
-
-                                    event.getChannel().sendMessage(whoPrint.build()).queue();
                                 }
                             }
                         }
                     }
                 }
+                EmbedBuilder whoPrint = new EmbedBuilder()
+                        .setDescription(buildLoop.toString());
+
+                event.getChannel().sendMessage(whoPrint.build()).queue();
             }
             EmbedBuilder endReport = new EmbedBuilder()
                     .setDescription("**//------// FINE REPORT //------//**")
@@ -155,17 +159,17 @@ public class PublicCommands extends ListenerAdapter {
             event.getMessage().delete().queue();
         }
 
-        baseCMD.add(PublicCmdList.cmdHelp);
+        //baseCMD.add(PublicCmdList.cmdHelp);
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
             event.getChannel().sendMessage
-                    ("Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n" +
+                    ("Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n \n" +
                             "Lista Comandi: \r")
                     .queue();
 
 
             for (int i = 0; i < baseCMD.size(); i++) {
-                event.getChannel().sendMessage(i + " **" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
+                event.getChannel().sendMessage(i + 1 + " **" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
             }
 
             event.getChannel().sendMessage(activeCommand.build()).queue();
