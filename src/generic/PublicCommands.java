@@ -175,6 +175,23 @@ public class PublicCommands extends ListenerAdapter {
             event.getChannel().sendMessage(activeCommand.build()).queue();
         }
 
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "testinv")) {
+
+            String idCHInv = guild.getId();
+            String inviteCH = event.getChannel().createInvite().complete().getUrl();
+
+           System.out.println(idCHInv);
+
+            try {
+                event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
+                        .getTextChannelById("660202751032033280").sendMessage("Mando il mex").queue();
+//                event.getChannel().sendMessage().queue();
+
+            } catch (IndexOutOfBoundsException exception) {
+                System.out.println("Problema con comando testinv");
+            }
+        }
+
     }
 }
 
