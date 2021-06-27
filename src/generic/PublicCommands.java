@@ -202,7 +202,7 @@ public class PublicCommands extends ListenerAdapter {
 
             //    event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID));
             event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID)).queue();
-          //  System.out.println(event.getJDA().getGuildById(guildID).getRoles());
+            //  System.out.println(event.getJDA().getGuildById(guildID).getRoles());
         }
 
     }
