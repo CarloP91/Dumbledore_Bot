@@ -49,9 +49,6 @@ public class DumbledoreMain {
                 .addEventListeners(new PublicCommands())
 
                 .addEventListeners(new GenericMessageReceived())
-                .addEventListeners(new GuildVoiceJoin())
-                .addEventListeners(new GuildVoiceLeave())
-                .addEventListeners(new GuildVoiceMove())
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new GuildMemberRoleManager())
