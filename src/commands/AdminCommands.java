@@ -171,7 +171,7 @@ public class AdminCommands extends ListenerAdapter {
                 List<GuildChannel> guildChannelList = event.getJDA().getGuildById(args[2]).getChannels();
 
                 try {
-                    event.getChannel().sendMessage(Utility.getChannelListName(guildChannelList)).queue();
+                    event.getChannel().sendMessage(Utility.getChannelListNameID(guildChannelList)).queue();
                 }
                 catch (IndexOutOfBoundsException exception) {
                     event.getChannel().sendMessage("Non ho abbastanza poteri per controllare").queue();
@@ -198,7 +198,14 @@ public class AdminCommands extends ListenerAdapter {
                 System.out.println(tempml);
             }
 
-        } /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
+        }
+
+/*        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendmsg")) {
+            event.getJDA().getGuildById("858674220628049920")
+                    .getTextChannelById("858679284872249355").sendMessage(args[1]).queue();
+        }*/
+
+            /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && !event.getAuthor().getId().equals("383035474807095296")) {
             event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();*/
         }

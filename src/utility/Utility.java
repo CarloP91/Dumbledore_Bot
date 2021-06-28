@@ -129,14 +129,14 @@ public class Utility {
 
     }
 
-    public static String getChannelListName(List chList) {
+    public static String getChannelListNameID(List chList) {
         String chName;
         if (!chList.isEmpty()) {
             GuildChannel tempchList = (GuildChannel) chList.get(0);
-            chName = tempchList.getName() + "\n";
+            chName = tempchList.getName() + " - " + tempchList.getId() + "\n";
             for (int i = 1; i < chList.size(); i++) {
                 tempchList = (GuildChannel) chList.get(i);
-                chName = chName + tempchList.getName() + "\n";
+                chName = chName + tempchList.getName() + " - " + tempchList.getId() + "\n";
             }
 
         } else {
@@ -146,6 +146,7 @@ public class Utility {
         return chName;
 
     }
+
     {  EmbedBuilder brokenMessage = new EmbedBuilder();
         brokenMessage.setTitle("Dumbledore Bot dice:");
         brokenMessage.setDescription("Sono rotto! Sono rotto!️");

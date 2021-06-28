@@ -180,10 +180,10 @@ public class PublicCommands extends ListenerAdapter {
 
             event.getChannel().sendMessage
                     ("\uD83C\uDDEE\uD83C\uDDF9 Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n"
-                            + "\uD83C\uDDEC\uD83C\uDDE7 I'm Dominy's Bot, and I'm currently in development \uD83D\uDC97 \n \n" +
-
-                            "COMMAND LIST: \r")
+                            + "\uD83C\uDDEC\uD83C\uDDE7 I'm Dominy's Bot, and I'm currently in development \uD83D\uDC97 \r \r")
                     .queue();
+
+            event.getChannel().sendMessage( "COMMAND LIST: \r").queue();
 
             for (int i = 0; i < baseCMD.size(); i++) {
                 buildLoop.append(i + 1 + " **" + baseCMD.get(i) + "** " + explainCMD.get(i) + "\r");
@@ -193,7 +193,8 @@ public class PublicCommands extends ListenerAdapter {
 
             EmbedBuilder helpEb = new EmbedBuilder()
                     .setColor(Color.blue)
-                    .addField("Invite Bot in your Discord Server",  "https://discord.com/api/oauth2/authorize?client_id=847029930872930334&permissions=8&scope=bot", true)
+                    .addField("Online Version",  DumbledoreMain.botVersion, true)
+                    .addField("Invite Bot in your Discord Server",  "[Click Here!](https://discord.com/api/oauth2/authorize?client_id=847029930872930334&permissions=8&scope=bot)", true)
                     .addField("Bug Segnalation", "Use command d-segnalation bug", true);
             //          .addField("Do you want a personal command?", "d-suggest command")
             //.addField("Created by", "Carlo Pennetta", true);
@@ -219,6 +220,7 @@ public class PublicCommands extends ListenerAdapter {
                         .sendMessage(event.getChannel().createInvite().complete().getUrl()).queue();
 //                event.getChannel().sendMessage().queue();
 
+
                 System.out.println(event.getChannel().createInvite().complete().getUrl());
 
             } catch (IndexOutOfBoundsException exception) {
@@ -236,6 +238,20 @@ public class PublicCommands extends ListenerAdapter {
             //    event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID));
             event.getJDA().getGuildById(guildID).addRoleToMember(memberID, guild.getRoleById(roleID)).queue();
             //  System.out.println(event.getJDA().getGuildById(guildID).getRoles());
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "consiglio")) {
+
+            EmbedBuilder consSended = new EmbedBuilder()
+                    .setColor(Color.green)
+                    .setDescription("Il tuo consiglio è stato inviato, grazie \uD83E\uDDE1");
+
+            event.getChannel().sendMessage(consSended.build()).queue();
+
+            event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("859050416876027904")
+                    .sendMessage("- " + event.getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw() + " <@383035474807095296>").queue();
+
+
         }
 
     }
