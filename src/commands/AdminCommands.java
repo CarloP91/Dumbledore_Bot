@@ -39,7 +39,8 @@ public class AdminCommands extends ListenerAdapter {
         // ------------------------------------------------------------------------------------------------- //
 
         if (guild.getId().equals(DumbledoreMain.botDiscordID)
-                && event.getAuthor().getId().equalsIgnoreCase("383035474807095296")) {
+                && event.getAuthor().getId().equalsIgnoreCase("383035474807095296")
+                && event.getChannel().getId().equalsIgnoreCase("856626062779088966")) {
             // SE L'AUTORE DEL MESSAGGIO E' DOMINY
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
@@ -49,8 +50,9 @@ public class AdminCommands extends ListenerAdapter {
                                 + "- check serverlist \n"
                                 + "- print serverListID \n"
                                 + "- print serverListName \n"
-                                + "- print guildchannel ID\n"
-                                + "- reload serverlistID"
+                                + "- print guildchannel (GuID)\n"
+                                + "- ~~reload serverlistID~~ (disabled) \n"
+                                + "- add channel-log (ChID)"
                         ).queue();
 
             }
@@ -125,7 +127,7 @@ public class AdminCommands extends ListenerAdapter {
 
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
+/*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
                     && args[1].equalsIgnoreCase("serverlistID")) {
 
                 List<GuildChannel> channelList = event.getGuild().getChannels();
@@ -158,7 +160,7 @@ public class AdminCommands extends ListenerAdapter {
                     e.printStackTrace();
                 }
 
-            }
+            }*/
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
                     && args[1].equalsIgnoreCase("guildchannel")) {
@@ -175,6 +177,12 @@ public class AdminCommands extends ListenerAdapter {
 
 
                 event.getChannel().sendMessage(activeCommand.build()).queue();
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+                    && args[1].equalsIgnoreCase("channel-log")) {
+                String chName = args[2];
+                event.getGuild().createTextChannel(chName).queue();
             }
 
         } /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)

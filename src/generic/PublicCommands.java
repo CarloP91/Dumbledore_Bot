@@ -46,22 +46,27 @@ public class PublicCommands extends ListenerAdapter {
                 .setColor(Color.green)
                 .setDescription("Comando Eseguito");
 
+        EmbedBuilder disabledCommand = new EmbedBuilder()
+                .setColor(Color.red)
+                .setDescription("Comando non ancora attivo!");
+
+        StringBuilder buildLoop = new StringBuilder();
 
         Guild guild = event.getGuild();
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        baseCMD.add(PublicCmdList.cmdVersione); explainCMD.add("Show the actual BOT version.");
+        baseCMD.add(PublicCmdList.cmdVersione); explainCMD.add(": Show the actual BOT version.");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdVersione)) {
             event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
         }
 
-        baseCMD.add(PublicCmdList.cmdDeleteMsgByID); explainCMD.add(" msgID: delete a message by ID.");
+        baseCMD.add(PublicCmdList.cmdDeleteMsgByID); explainCMD.add("*msgID:* Delete a message by ID (if you have Role Permissions).");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdDeleteMsgByID)) { // cancella un messaggio tramite id
             event.getChannel().deleteMessageById(args[1]).queue();
             event.getMessage().delete().queue();
         }
 
-        baseCMD.add(PublicCmdList.cmdWho); explainCMD.add(" @role: show all member of mentioned role!");
+        baseCMD.add(PublicCmdList.cmdWho); explainCMD.add("*@role:* show all member of mentioned role!");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
 
             List<Role> roleList = guild.getRoles();
@@ -76,7 +81,7 @@ public class PublicCommands extends ListenerAdapter {
             event.getChannel().sendMessage(whoReq.build()).queue();
 
             if (args.length > 1 && args.length < 3) {
-                StringBuilder buildLoop = new StringBuilder();
+
                 for (Role r1 : roleList) {
                     if (args[1].contains(r1.getId())) {
                         for (Member member : membersList) {
@@ -103,7 +108,7 @@ public class PublicCommands extends ListenerAdapter {
             event.getMessage().delete().queue();
         }
 
-        baseCMD.add(PublicCmdList.cmdInfo); explainCMD.add(" @member: show the information about mentioned member.");
+        baseCMD.add(PublicCmdList.cmdInfo); explainCMD.add("*@member:* Show the information about mentioned member.");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
             if (args.length > 1 && args.length < 3) {
                 try {
@@ -135,7 +140,18 @@ public class PublicCommands extends ListenerAdapter {
             }
         }*/
 
-        baseCMD.add(PublicCmdList.cmdAdd); explainCMD.add(" server: add your discord server in BOT DB.");
+        baseCMD.add(PublicCmdList.cmdInvite); explainCMD.add("*link:* Print the Dumbledore's Invite Link");
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "invite")
+                && args[1].equalsIgnoreCase("link")) {
+
+            EmbedBuilder botLink = new EmbedBuilder()
+                    .setColor(Color.blue)
+                    .setDescription("https://discord.com/api/oauth2/authorize?client_id=847029930872930334&permissions=8&scope=bot");
+
+            event.getChannel().sendMessage(botLink.build()).queue();
+        }
+
+        baseCMD.add(PublicCmdList.cmdAdd); explainCMD.add("*server:* Inizialize Dumbledore in your Discord Server.");
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdAdd)
                 && args[1].equalsIgnoreCase("server")) {
 
@@ -163,16 +179,32 @@ public class PublicCommands extends ListenerAdapter {
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
             event.getChannel().sendMessage
-                    ("Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n \n" +
-                            "Lista Comandi: \r")
+                    ("\uD83C\uDDEE\uD83C\uDDF9 Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n"
+                            + "\uD83C\uDDEC\uD83C\uDDE7 I'm Dominy's Bot, and I'm currently in development \uD83D\uDC97 \n \n" +
+
+                            "COMMAND LIST: \r")
                     .queue();
 
-
             for (int i = 0; i < baseCMD.size(); i++) {
-                event.getChannel().sendMessage(i + 1 + " **" + baseCMD.get(i) + "** " + explainCMD.get(i)).queue();
+                buildLoop.append(i + 1 + " **" + baseCMD.get(i) + "** " + explainCMD.get(i) + "\r");
             }
 
+            event.getChannel().sendMessage(buildLoop).queue();
+
+            EmbedBuilder helpEb = new EmbedBuilder()
+                    .setColor(Color.blue)
+                    .addField("Invite Bot in your Discord Server",  "https://discord.com/api/oauth2/authorize?client_id=847029930872930334&permissions=8&scope=bot", true)
+                    .addField("Bug Segnalation", "Use command d-segnalation bug", true);
+            //          .addField("Do you want a personal command?", "d-suggest command")
+            //.addField("Created by", "Carlo Pennetta", true);
+
+            event.getChannel().sendMessage(helpEb.build()).queue();
             event.getChannel().sendMessage(activeCommand.build()).queue();
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "segnalation")
+                && args[1].equalsIgnoreCase("bug")) {
+            event.getChannel().sendMessage(disabledCommand.build()).queue();
         }
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendInvite")) {
@@ -183,7 +215,8 @@ public class PublicCommands extends ListenerAdapter {
 
             try {
                 event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
-                        .getTextChannelById("856515322982825984").sendMessage(event.getChannel().createInvite().complete().getUrl()).queue();
+                        .getTextChannelById("856515322982825984")
+                        .sendMessage(event.getChannel().createInvite().complete().getUrl()).queue();
 //                event.getChannel().sendMessage().queue();
 
                 System.out.println(event.getChannel().createInvite().complete().getUrl());
@@ -193,7 +226,7 @@ public class PublicCommands extends ListenerAdapter {
             }
         }
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") //ancora non funge
                 && args[1].equalsIgnoreCase("role")) { //ancora non funge correttamente
 
             String guildID = args[2];

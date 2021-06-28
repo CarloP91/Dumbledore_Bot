@@ -12,4 +12,5 @@ public class PublicCmdList {
     public static String cmdWho = "who"; // @ruolo
     public static String cmdInfo = "info";
     public static String cmdAdd = "add"; // server
+    public static String cmdInvite = "invite"; //invite link
 }
