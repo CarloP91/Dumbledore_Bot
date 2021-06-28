@@ -5,6 +5,8 @@ import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -40,7 +42,7 @@ public class AdminCommands extends ListenerAdapter {
 
         if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && event.getAuthor().getId().equalsIgnoreCase("383035474807095296")
-                && event.getChannel().getId().equalsIgnoreCase("856626062779088966")) {
+                /*&& event.getChannel().getId().equalsIgnoreCase("856626062779088966")*/) {
             // SE L'AUTORE DEL MESSAGGIO E' DOMINY
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
@@ -183,6 +185,17 @@ public class AdminCommands extends ListenerAdapter {
                     && args[1].equalsIgnoreCase("channel-log")) {
                 String chName = args[2];
                 event.getGuild().createTextChannel(chName).queue();
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "read")
+                    && args[1].equalsIgnoreCase("history-channel")) {
+
+                MessageHistory h = event.getChannel().getHistory();
+                h.retrievePast(30).complete();
+                List<Message> ml = h.getRetrievedHistory();
+                String tempml = ml + "\r";
+
+                System.out.println(tempml);
             }
 
         } /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
