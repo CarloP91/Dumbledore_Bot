@@ -52,6 +52,7 @@ public class DumbledoreMain {
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new GuildMemberRoleManager())
+                .addEventListeners(new VoiceDetector())
 
                 // BalbettanteBamboccionaBandaDiBabbuini
                 .addEventListeners(new BBBDBMessageReceived())

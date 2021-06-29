@@ -3,10 +3,8 @@ package commands;
 import db.DbCredentials;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.GuildChannel;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageHistory;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -14,6 +12,7 @@ import utility.Utility;
 
 import java.awt.*;
 import java.sql.*;
+import java.util.EnumSet;
 import java.util.List;
 
 public class AdminCommands extends ListenerAdapter {
@@ -186,6 +185,39 @@ public class AdminCommands extends ListenerAdapter {
                     && args[1].equalsIgnoreCase("channel-log")) {
                 String chName = args[2];
                 event.getGuild().createTextChannel(chName).queue();
+            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+                    && args[1].equalsIgnoreCase("remote")
+                    && args[2].equalsIgnoreCase("channel-log")) {
+
+                String guildID = args[3];
+
+                event.getJDA().getGuildById(args[3]).createTextChannel("channel-log")
+                        .queue();
+
+                event.getChannel().sendMessage(activeCommand.build()).queue();
+
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "modify")
+                    && args[1].equalsIgnoreCase("channel-permission")) {
+
+
+                String chID = args[2];
+                String guildID = args[3];
+                String memberID = args[4];
+
+                event.getJDA().getGuildById(guildID).getTextChannelById(chID)
+                        .createPermissionOverride(event.getJDA().getGuildById(guildID)
+                                .getMemberById(memberID))
+                        .setAllow(Permission.ALL_PERMISSIONS)
+                        .queue();
+
+
+            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "compile")
+                    && args[1].equalsIgnoreCase("modify")
+                    && args[2].equalsIgnoreCase("channel-permission")) {
+
+                event.getChannel().sendMessage("modify channel-permission (chID) (guildID) (memberID)").queue();
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "read")
@@ -213,6 +245,6 @@ public class AdminCommands extends ListenerAdapter {
             /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && !event.getAuthor().getId().equals("383035474807095296")) {
             event.getChannel().sendMessage("Non sei un admin, non puoi farlo!").queue();*/
-        }
-
     }
+
+}
