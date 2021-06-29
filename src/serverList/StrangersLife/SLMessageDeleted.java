@@ -27,17 +27,17 @@ public class SLMessageDeleted extends ListenerAdapter {
         if (guild.getId().equals(MainStrangersLife.strangerLifeID)) {
 
             if (event.getChannel().getId().equals(MainStrangersLife.whitelistatiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
 
             if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
 
             if (event.getChannel().getId().equals(MainStrangersLife.rimandatiRoom))  {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
 

@@ -6,7 +6,6 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import utility.BotExcp;
-import utility.Utility;
 
 import java.awt.*;
 
@@ -37,11 +36,11 @@ public class SLMessageReceived extends ListenerAdapter {
 
             }
             if (event.getChannel().getId().equals(MainStrangersLife.whitelistatiRoom)) {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
             else if (event.getChannel().getId().equals(MainStrangersLife.rimandatiRoom)) {
-                event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
+                event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
             /*else if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom)) {

@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.MainBBBdB;
+import serverList.StrangersLife.MainStrangersLife;
 
 public class GenericVoiceChannelDetector extends ListenerAdapter {
 
@@ -14,6 +15,7 @@ public class GenericVoiceChannelDetector extends ListenerAdapter {
     @Override
     public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
         super.onGuildVoiceJoin(event);
+
 
     }
 
