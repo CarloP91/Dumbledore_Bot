@@ -42,8 +42,8 @@ public class AdminCommands extends ListenerAdapter {
 
         if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && event.getAuthor().getId().equalsIgnoreCase("383035474807095296")
-                /*&& event.getChannel().getId().equalsIgnoreCase("856626062779088966")*/) {
-            // SE L'AUTORE DEL MESSAGGIO E' DOMINY
+                && event.getChannel().getId().equalsIgnoreCase("856626062779088966")) {
+            // SE L'AUTORE DEL MESSAGGIO E' DOMINY E SE SI E' NEL CANALE DI COMANDI BOT
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
                     && args[1].equalsIgnoreCase("command")) {
@@ -54,7 +54,8 @@ public class AdminCommands extends ListenerAdapter {
                                 + "- print serverListName \n"
                                 + "- print guildchannel (GuID)\n"
                                 + "- ~~reload serverlistID~~ (disabled) \n"
-                                + "- add channel-log (ChID)"
+                                + "- add channel-log (ChID) \n"
+                                + "- sendcmd (GuID) (ChID) (Args) (Args) "
                         ).queue();
 
             }
@@ -200,10 +201,14 @@ public class AdminCommands extends ListenerAdapter {
 
         }
 
-/*        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendmsg")) {
-            event.getJDA().getGuildById("858674220628049920")
-                    .getTextChannelById("858679284872249355").sendMessage(args[1]).queue();
-        }*/
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendcmd")) {
+
+            String guildID = args[1];
+            String chID = args[2];
+
+            event.getJDA().getGuildById(guildID)
+                    .getTextChannelById(chID).sendMessage(args[3] + " " + args[4]).queue();
+        }
 
             /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)
                 && !event.getAuthor().getId().equals("383035474807095296")) {

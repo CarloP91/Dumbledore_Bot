@@ -216,7 +216,7 @@ public class PublicCommands extends ListenerAdapter {
 
             try {
                 event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
-                        .getTextChannelById("856515322982825984")
+                        .getTextChannelById("857557884003287111")
                         .sendMessage(event.getChannel().createInvite().complete().getUrl()).queue();
 //                event.getChannel().sendMessage().queue();
 
