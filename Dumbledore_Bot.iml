@@ -30,15 +30,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JDA-4.2.1_265-withDependencies.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://D:/Users/carlo/Downloads/JDA-4.2.1_265-withDependencies.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -48,7 +39,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/JDA-4.2.1_266-withDependencies.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/JDA-4.3.0_288-withDependencies.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

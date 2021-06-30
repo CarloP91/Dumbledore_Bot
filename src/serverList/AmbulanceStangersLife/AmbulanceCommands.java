@@ -26,17 +26,25 @@ public class AmbulanceCommands extends ListenerAdapter {
 
         if (guild.getId().equals(MainAmbulanceStrangersLife.ambulanceID)) {
 
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "amb")
+                    && args[1].equalsIgnoreCase("command")) {
+
+                event.getChannel().sendMessage("** COMANDI PERSONALIZZATI DISCORD** \r" + guild.getName() + "\r \r"
+                + "- orario-riunione \r"
+                        + "- print payall \r  \r"
+                        + "```Vuoi vedere i comandi pubblici del Bot? Scrivi d-help! \r" +
+                                "Vuoi altri comandi personalizzati? Scrivi d-consiglio e descrivici la funzione del comando.```"
+                        ).queue();
+            }
+
             if (args[0].equalsIgnoreCase("orario-riunione")) {
-                event.getChannel().sendMessage("Nessuna Riunione in programma").queue();
+                event.getChannel().sendMessage("Giovedi, 01/07/2021, ore 17.00 ").queue();
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "pay")) {
 
 
                 if (args.length > 1 && args.length < 3) {
-
-                    System.out.println(args[0] + " 0");
-                    System.out.println(args[1] + " 1");
 
                     event.getChannel().sendMessage(activeCommand.build()).queue();
 

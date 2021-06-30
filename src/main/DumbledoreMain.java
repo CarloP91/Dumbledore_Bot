@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverList.AmbulanceStangersLife.AmbMessageReceived;
+import serverList.AmbulanceStangersLife.AmbRoleManagerScript;
 import serverList.AmbulanceStangersLife.AmbulanceCommands;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverList.LosSantosPoliceDepartment.LSPDDeleted;
@@ -24,7 +25,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.12-mx";
+    public static String botVersion = "1.99.19-amb";
     public static String botDiscordID = "856439285879144468";
 
 
@@ -61,6 +62,7 @@ public class DumbledoreMain {
                 // AMBULANCE STRANGER'S LIFE
                 .addEventListeners(new AmbulanceCommands())
                 .addEventListeners(new AmbMessageReceived())
+                .addEventListeners(new AmbRoleManagerScript())
 
                 // STRANGER'S LIFE
                 .addEventListeners(new SLMessageReceived())

@@ -36,7 +36,7 @@ public class GenericMessageReceived extends ListenerAdapter {
 */
 
         Message msg = event.getMessage();
-        if (msg.getContentRaw().equals("!ping")) {
+        if (msg.getContentRaw().equals("d-ping")) {
             MessageChannel channel = event.getChannel();
             long time = System.currentTimeMillis();
             channel.sendMessage("Pong!") /* => RestAction<Message> */

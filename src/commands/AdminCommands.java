@@ -49,12 +49,15 @@ public class AdminCommands extends ListenerAdapter {
                 event.getChannel()
                         .sendMessage("Lista di comandi ADMIN: \n"
                                 + "- check serverlist \n"
-                                + "- print serverListID \n"
-                                + "- print serverListName \n"
+                                + "- print serverListID (from DB)\n"
+                                + "- print serverListName (from DB)\n"
                                 + "- print guildchannel (GuID)\n"
                                 + "- ~~reload serverlistID~~ (disabled) \n"
                                 + "- add channel-log (ChID) \n"
-                                + "- sendcmd (GuID) (ChID) (Args) (Args) "
+                                + "- add remote channel-log (GuID) \n"
+                                + "- sendcmd (GuID) (ChID) (Args) (Args) \n"
+                                + "- modify channel-permission (chID) (guildID) (memberID)\n"
+                                + "- compile modify channel-permission\n"
                         ).queue();
 
             }
