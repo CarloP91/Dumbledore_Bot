@@ -1,5 +1,6 @@
 package utility;
 
+import db.DbCredentials;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -8,7 +9,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import serverList.StrangersLife.MainStrangersLife;
 
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.List;
 
 public class Utility {
@@ -114,7 +115,7 @@ public class Utility {
         int count = 1;
         if (!serverList.isEmpty()) {
             Guild tempServerList = (Guild) serverList.get(0);
-            serverNameID = count + ") " + tempServerList.getName() + " - " + tempServerList.getId() +"\n";
+            serverNameID = count + ") " + tempServerList.getName() + " - " + tempServerList.getId() + "\n";
             for (int i = 1; i < serverList.size(); i++) {
                 count++;
                 tempServerList = (Guild) serverList.get(i);
@@ -147,11 +148,13 @@ public class Utility {
 
     }
 
-    {  EmbedBuilder brokenMessage = new EmbedBuilder();
+    {
+        EmbedBuilder brokenMessage = new EmbedBuilder();
         brokenMessage.setTitle("Dumbledore Bot dice:");
         brokenMessage.setDescription("Sono rotto! Sono rotto!️");
         brokenMessage.setColor(0xff3300);
     }
+
 
 
    /*     if (args[0].equalsIgnoreCase("d_Offline")) {

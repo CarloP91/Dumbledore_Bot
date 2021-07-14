@@ -168,7 +168,18 @@ public class PublicCommands extends ListenerAdapter {
                 }
                 statement.close();
                 connection.close();
+
+                guild.createTextChannel("bot-channel-log").queue();
+                System.out.println("channel-log creato");
+
+                event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
+                        .sendMessage("Creato channel-log nel discord: " + guild.getName() + " ID: "
+                        + guild.getId() + ". **Attendo per inizializzarlo!**").queue();
             } catch (SQLException e) {
+
+                event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
+                        .sendMessage("Il comando d-add server non ha funzionato nel discord: " + guild.getName() + " ID: "
+                                + guild.getId() + ". **CONTROLLA NON SIA GIA' INSERITO!**").queue();
                 System.out.println("Non funge cmdADD");
                 e.printStackTrace();
             }
