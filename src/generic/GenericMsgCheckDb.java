@@ -36,22 +36,19 @@
                 Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
 
                 // SELECT FROM DB MYSQL
-                String sql = "SELECT * FROM `tab1` WHERE `server_id` =" + guild.getId();
+                String sql = "SELECT * FROM `tab1`";
 
                 Statement statement = connection.createStatement();
                 ResultSet result = statement.executeQuery(sql);
 
                 while (result.next()) {
-         //           String row1 = result.getString(1);
+                    //           String row1 = result.getString(1);
                     String row2 = result.getString(2);
-         //           String row3 = result.getString(3);
+                    //           String row3 = result.getString(3);
                     count++;
 
-
-                    if (row2.contains(guild.getId())) {
-                        System.out.println("Messaggio ricevuto da Discord Registrato" );
-                    } else {
-                        System.out.println("Messaggio ricevuto da Discord NON Registrato");
+                    if (guild.getId().contentEquals(row2)) {
+                        /*System.out.println("Messaggio ricevuto da Discord Registrato");*/
                     }
                 }
 
