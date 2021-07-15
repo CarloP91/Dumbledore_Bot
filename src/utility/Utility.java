@@ -1,15 +1,11 @@
 package utility;
 
-import db.DbCredentials;
-import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
-import serverList.StrangersLife.MainStrangersLife;
 
-import java.sql.*;
 import java.util.List;
 
 public class Utility {

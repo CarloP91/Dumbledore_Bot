@@ -1,15 +1,12 @@
-package serverList.AmbulanceStangersLife;
+package serverPersonalScript.AmbulanceStangersLife;
 
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
 
 import java.awt.*;
-import java.util.List;
 
 public class AmbulanceCommands extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {

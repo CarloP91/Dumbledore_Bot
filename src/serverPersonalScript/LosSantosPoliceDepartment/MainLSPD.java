@@ -1,4 +1,4 @@
-package serverList.LosSantosPoliceDepartment;
+package serverPersonalScript.LosSantosPoliceDepartment;
 
 public class MainLSPD {
 

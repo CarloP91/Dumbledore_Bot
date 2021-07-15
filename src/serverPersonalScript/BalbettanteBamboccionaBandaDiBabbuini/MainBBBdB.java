@@ -1,4 +1,4 @@
-package serverList.BalbettanteBamboccionaBandaDiBabbuini;
+package serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini;
 
 public class MainBBBdB {
 

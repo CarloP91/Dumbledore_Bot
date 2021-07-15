@@ -16,5 +16,6 @@ public class PublicCmdList {
     public static String cmdInfo = "info";
     public static String cmdAdd = "add"; // server
     public static String cmdInvite = "invite"; //invite link
+    public static String cmdInit = "init"; //inizialize bot-channel-log
 
 }

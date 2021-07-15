@@ -1,4 +1,4 @@
-package serverList.AmbulanceStangersLife;
+package serverPersonalScript.AmbulanceStangersLife;
 
 public class MainAmbulanceStrangersLife {
 

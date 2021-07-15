@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import serverList.StrangersLife.MainStrangersLife;
+import serverPersonalScript.StrangersLife.MainStrangersLife;
 
 import java.awt.*;
 

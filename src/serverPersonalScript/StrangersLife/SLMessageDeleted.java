@@ -1,4 +1,4 @@
-package serverList.StrangersLife;
+package serverPersonalScript.StrangersLife;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.audit.ActionType;

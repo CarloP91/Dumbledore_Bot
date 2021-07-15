@@ -58,7 +58,14 @@ public class AdminCommands extends ListenerAdapter {
                                 + "- sendcmd (GuID) (ChID) (Args) (Args) \n"
                                 + "- modify channel-permission (chID) (guildID) (memberID)\n"
                                 + "- compile modify channel-permission\n"
+                                + "- manutention\n"
+                                + "- search channel (guID)"
                         ).queue();
+
+            }
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "search")
+                    && args[1].equalsIgnoreCase("channel")) {
+                System.out.println(event.getJDA().getGuildById(args[2]).getTextChannelsByName("bot-channel-log", true));
 
             }
 
@@ -76,7 +83,7 @@ public class AdminCommands extends ListenerAdapter {
 
             if (guild.getId().equals(DumbledoreMain.botDiscordID)
                     && args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
-                    && args[1].equalsIgnoreCase("serverListID")) {
+                    && args[1].equalsIgnoreCase("serverList")) {
 
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
@@ -91,8 +98,11 @@ public class AdminCommands extends ListenerAdapter {
                         String row1 = result.getString(1);
                         String row2 = result.getString(2);
                         String row3 = result.getString(3);
+                        String row4 = result.getString(4);
+                        String row5 = result.getString(5);
+
                         count++;
-                        event.getChannel().sendMessage(row1 + ") Server ID: " + row2).queue();
+                        event.getChannel().sendMessage(row1 + ") " + row3 + " " + row2 + " init: " + row5).queue();
 
                     }
 
@@ -102,34 +112,6 @@ public class AdminCommands extends ListenerAdapter {
                     e.printStackTrace();
                 }
                 event.getChannel().sendMessage(activeCommand.build()).queue();
-            } else if (guild.getId().equals(DumbledoreMain.botDiscordID)
-                    && args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
-                    && args[1].equalsIgnoreCase("serverListName")) {
-                try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
-
-                    // SELECT FROM DB MYSQL
-                    String sql = "SELECT * FROM `tab1`";
-
-                    Statement statement = connection.createStatement();
-                    ResultSet result = statement.executeQuery(sql);
-
-
-                    while (result.next()) {
-                        String row1 = result.getString(1);
-                        String row2 = result.getString(2);
-                        String row3 = result.getString(3);
-                        count++;
-                        event.getChannel().sendMessage(row1 + ") Server NAME: " + row3).queue();
-                    }
-
-                } catch (SQLException e) {
-
-                    e.printStackTrace();
-                }
-
-                event.getChannel().sendMessage(activeCommand.build()).queue();
-
             }
 
 /*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
@@ -243,6 +225,45 @@ public class AdminCommands extends ListenerAdapter {
 
             event.getJDA().getGuildById(guildID)
                     .getTextChannelById(chID).sendMessage(args[3] + " " + args[4]).queue();
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "manutention")) {
+
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+
+                // SELECT FROM DB MYSQL
+                String sql = "SELECT * FROM `tab1` WHERE `init` = 'yes'";
+
+                Statement statement = connection.createStatement();
+                ResultSet result = statement.executeQuery(sql);
+
+                while (result.next()) {
+                    //           String row1 = result.getString(1);
+                    String row2 = result.getString(2);
+                    String row3 = result.getString(3);
+                    String row4 = result.getString(4); //bot_channel_log
+                    String row5 = result.getString(5); //init
+                    count++;
+
+                    EmbedBuilder manutention = new EmbedBuilder().setColor(0xff0000)
+                            .setTitle("UNDER MAINTENANCE")
+                            .setThumbnail("https://i.postimg.cc/Xq5VZPMx/Cattura.png")
+                            .addBlankField(true)
+                            .addField("Message from Developer", "The Bot is under maintenance, this means that there could be " +
+                                    "slowdowns or it could go down. If your server has the \"full kit\" service, your server will not have any problems." +
+                                    "\r Thanks for understanding.", true);
+
+                    event.getJDA().getGuildById(row2).getTextChannelById(row4).sendMessage(manutention.build()).queue();
+
+                }
+
+
+            } catch (SQLException e) {
+
+                e.printStackTrace();
+            }
+
         }
 
             /*else if (guild.getId().equals(DumbledoreMain.botDiscordID)

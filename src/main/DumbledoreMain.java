@@ -9,13 +9,13 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import serverList.AmbulanceStangersLife.AmbMessageReceived;
-import serverList.AmbulanceStangersLife.AmbRoleManagerScript;
-import serverList.AmbulanceStangersLife.AmbulanceCommands;
-import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
-import serverList.StrangersLife.SLGestioneRuoli;
-import serverList.StrangersLife.SLMessageDeleted;
-import serverList.StrangersLife.SLMessageReceived;
+import serverPersonalScript.AmbulanceStangersLife.AmbMessageReceived;
+import serverPersonalScript.AmbulanceStangersLife.AmbRoleManagerScript;
+import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
+import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
+import serverPersonalScript.StrangersLife.SLGestioneRuoli;
+import serverPersonalScript.StrangersLife.SLMessageDeleted;
+import serverPersonalScript.StrangersLife.SLMessageReceived;
 
 import javax.security.auth.login.LoginException;
 
@@ -23,7 +23,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.30-db";
+    public static String botVersion = "1.99.33-db";
     public static String botDiscordID = "856439285879144468";
 
 

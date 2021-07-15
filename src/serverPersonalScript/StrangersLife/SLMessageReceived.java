@@ -1,4 +1,4 @@
-package serverList.StrangersLife;
+package serverPersonalScript.StrangersLife;
 
 
 import main.DumbledoreMain;

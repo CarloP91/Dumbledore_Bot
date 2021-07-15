@@ -1,4 +1,4 @@
-package serverList.AmbulanceStangersLife;
+package serverPersonalScript.AmbulanceStangersLife;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.audit.ActionType;
@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberRoleAddEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRoleRemoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import serverList.StrangersLife.MainStrangersLife;
 
 public class AmbRoleManagerScript extends ListenerAdapter {
     @Override

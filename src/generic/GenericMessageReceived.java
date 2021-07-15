@@ -6,17 +6,10 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import serverList.AmbulanceStangersLife.MainAmbulanceStrangersLife;
-import serverList.BalbettanteBamboccionaBandaDiBabbuini.MainBBBdB;
-import serverList.LosSantosPoliceDepartment.MainLSPD;
-import serverList.StrangersLife.MainStrangersLife;
 import utility.BotExcp;
-import utility.Utility;
 
 import java.awt.*;
-import java.sql.*;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class GenericMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {

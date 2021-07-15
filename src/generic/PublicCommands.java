@@ -190,6 +190,34 @@
                 event.getMessage().delete().queue();
             }
 
+            baseCMD.add(PublicCmdList.cmdInit); explainCMD.add("*(chID):* Inizialize bot-channel-log Channel");
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "init")) {
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+                    String sql = "UPDATE `tab1` SET `bot_log_channel` = " + args[1] + ", `init` = 'yes', WHERE `server_id` = " + event.getGuild().getId();
+                    PreparedStatement statement = connection.prepareStatement(sql);
+
+                    statement.close();
+                    connection.close();
+
+
+                    event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
+                            .sendMessage("bot-channel log di " + guild.getName() + " ID: "
+                                    + guild.getId() + ". **INIZIALIZZATO** su chID" + args[1]).queue();
+                } catch (SQLException e) {
+
+                    /*event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
+                            .sendMessage("Il comando d-add server non ha funzionato nel discord: " + guild.getName() + " ID: "
+                                    + guild.getId() + ". **CONTROLLA NON SIA GIA' INSERITO!**").queue();*/
+                    System.out.println("Non funge cmdInit");
+                    e.printStackTrace();
+                }
+
+
+                System.out.println(args[1]);
+            }
+
             //baseCMD.add(PublicCmdList.cmdHelp);
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
 
