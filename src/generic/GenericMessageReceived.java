@@ -46,17 +46,6 @@ public class GenericMessageReceived extends ListenerAdapter {
         }
 
 
-        if (!guild.getId().equals(MainBBBdB.dBbbdbID)
-                && !guild.getId().equals(MainAmbulanceStrangersLife.ambulanceID)
-                && !guild.getId().equals(MainStrangersLife.strangerLifeID)
-                && !guild.getId().equals(MainLSPD.lspdID)
-               && !guild.getId().equals(DumbledoreMain.botDiscordID)
-                && !guild.getId().equals("858674220628049920")) {
-
-            System.out.println("Messaggio da Discord non registrato: " + event.getGuild().getName() + " ID:" + event.getGuild().getId() + " \n"
-                    + event.getAuthor().getName() + " " + event.getAuthor().getId() + " " + event.getMessage().getContentRaw());
-        }
-
         if (guild.getId().equals("858674220628049920")
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
@@ -67,9 +56,6 @@ public class GenericMessageReceived extends ListenerAdapter {
                     .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
 
 
-
-            event.getGuild().getTextChannelById("859378215122239508")
-                    .sendMessage(msgSlRoom.build()).queue();
 
             event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("859384555893948476")
                         .sendMessage(msgSlRoom.build()).queue();

@@ -18,11 +18,6 @@ public class AmbMessageReceived extends ListenerAdapter {
         if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID)
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)) {
 
-            //CONTROLLO PER 2 BOT SENZA ID
-            if (event.getChannel().getId().equals("839615144107048961")) {
-//                System.out.println("è il bot di K che rompe e quindi non faccio nulla");
-            }
-
             // AGGIUNGE UN CHECK AD OGNI MESSAGGIO NEL CANALE ANNUNCI
             if (event.getChannel().getId().equals(MainAmbulanceStrangersLife.chAnnunciID)) {
                 event.getMessage().addReaction("\uD83C\uDD97").queue();

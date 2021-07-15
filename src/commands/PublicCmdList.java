@@ -1,6 +1,9 @@
 package commands;
 
 import main.DumbledoreMain;
+import net.dv8tion.jda.api.entities.GuildChannel;
+
+import java.util.List;
 
 public class PublicCmdList {
 
@@ -13,4 +16,5 @@ public class PublicCmdList {
     public static String cmdInfo = "info";
     public static String cmdAdd = "add"; // server
     public static String cmdInvite = "invite"; //invite link
+
 }

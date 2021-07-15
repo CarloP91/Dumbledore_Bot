@@ -13,8 +13,6 @@ import serverList.AmbulanceStangersLife.AmbMessageReceived;
 import serverList.AmbulanceStangersLife.AmbRoleManagerScript;
 import serverList.AmbulanceStangersLife.AmbulanceCommands;
 import serverList.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
-import serverList.LosSantosPoliceDepartment.LSPDDeleted;
-import serverList.LosSantosPoliceDepartment.LSPDMessageReceived;
 import serverList.StrangersLife.SLGestioneRuoli;
 import serverList.StrangersLife.SLMessageDeleted;
 import serverList.StrangersLife.SLMessageReceived;
@@ -25,7 +23,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.19-amb";
+    public static String botVersion = "1.99.30-db";
     public static String botDiscordID = "856439285879144468";
 
 
@@ -51,10 +49,10 @@ public class DumbledoreMain {
 
                 .addEventListeners(new GenericMessageReceived())
                 .addEventListeners(new UpdateRole())
-                .addEventListeners(new GuildMessageDeleteEvent())
                 .addEventListeners(new GuildMemberRoleManager())
                 .addEventListeners(new VoiceDetector())
                 .addEventListeners(new GenericMsgCheckDb())
+                .addEventListeners(new GenericDeleteCheckDb())
 
                 // BalbettanteBamboccionaBandaDiBabbuini
                 .addEventListeners(new BBBDBMessageReceived())
@@ -70,9 +68,6 @@ public class DumbledoreMain {
                 .addEventListeners(new SLMessageDeleted())
                 .addEventListeners(new SLGestioneRuoli())
 
-                //LSPD
-                .addEventListeners(new LSPDMessageReceived())
-                .addEventListeners(new LSPDDeleted())
 
 
 
