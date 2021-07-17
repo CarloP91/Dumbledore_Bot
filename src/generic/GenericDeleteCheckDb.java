@@ -55,9 +55,6 @@ public class GenericDeleteCheckDb extends ListenerAdapter {
                         && !event.getChannel().getId().equals(row4)) {
                     event.getGuild().getTextChannelById(row4)
                             .sendMessage(delMsg.build()).queue();
-                } else if (row4 == null){
-                    System.out.println("messaggio cancellato in Discord senza ch-log " + event.getGuild().getName() + " " + event.getGuild().getId());
-
                 }
 
             }
