@@ -17,6 +17,8 @@ public class MainDatabaseInfo {
     public static String govPortoDarma = "865272216446435349";
     public static String govDenunce = "865493793489813534";
     public static String govRicercati = "865493853859610634";
+    public static String govAlboAvvocati = "865251696838049802";
+    public static String govPuntiDroga = "865544646058442793";
 
     // STANZE CONDIVISE LSPD
 
@@ -28,6 +30,8 @@ public class MainDatabaseInfo {
     public static String lspdPortoDarma = "860193243164442634";
     public static String lspdDenunce = "860192902784745512";
     public static String lspdRicercati = "860192975614771220";
+    public static String lspdAlboAvvocati = "862648530330320907";
+    public static String lspdPuntiDroga = "860190104857608193";
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -39,5 +43,7 @@ public class MainDatabaseInfo {
     public static String sceriffiPortoDarma = "";
     public static String sceriffiDenunce = "";
     public static String sceriffiRicercati = "";
+    public static String sceriffiAlboAvvocati = "";
+    public static String sceriffiPuntiDroga = "";
 
 }

@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import utility.BotExcp;
 
-import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.lspdRicercati;
+import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
 
 public class ComunicationDatabase extends ListenerAdapter {
 
@@ -84,6 +84,25 @@ public class ComunicationDatabase extends ListenerAdapter {
             } else if (event.getChannel().getId().equals(lspdRicercati)) {
                 event.getJDA().getGuildById(MainDatabaseInfo.governoID).getTextChannelById(MainDatabaseInfo.govRicercati).sendMessage(formMsg.build()).queue();
 //            event.getJDA().getGuildById(MainDatabaseInfo.sceriffiID).getTextChannelById(MainDatabaseInfo.sceriffiRicercati).sendMessage(formMsg.build()).queue();
+            }
+
+            //ALBO AVVOCATI
+            if (event.getChannel().getId().equals(MainDatabaseInfo.govAlboAvvocati)) {
+                event.getJDA().getGuildById(MainDatabaseInfo.lspdID).getTextChannelById(lspdAlboAvvocati).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(MainDatabaseInfo.sceriffiID).getTextChannelById(sceriffiAlboAvvocati).sendMessage(formMsg.build()).queue();
+            } else if (event.getChannel().getId().equals(lspdAlboAvvocati)) {
+                event.getJDA().getGuildById(governoID).getTextChannelById(govAlboAvvocati).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(MainDatabaseInfo.sceriffiID).getTextChannelById(sceriffiAlboAvvocati).sendMessage(formMsg.build()).queue();
+            }
+
+            //PUNTI DROGA
+            if (event.getChannel().getId().equals(govPuntiDroga)) {
+                event.getJDA().getGuildById(lspdID).getTextChannelById(lspdPuntiDroga).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiPuntiDroga).sendMessage(formMsg.build()).queue();
+            } else if (event.getChannel().getId().equals(lspdPuntiDroga)) {
+                event.getJDA().getGuildById(governoID).getTextChannelById(govPuntiDroga).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiPuntiDroga).sendMessage(formMsg.build()).queue();
+
             }
 
             //NEXT ONE
