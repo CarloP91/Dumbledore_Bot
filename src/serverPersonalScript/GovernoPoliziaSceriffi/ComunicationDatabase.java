@@ -105,6 +105,12 @@ public class ComunicationDatabase extends ListenerAdapter {
 
             }
 
+            //MASK
+            if (event.getChannel().getId().equals(govMask)) {
+                event.getJDA().getGuildById(lspdID).getTextChannelById(lspdMask).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiMask).sendMessage(formMsg.build()).queue();
+            }
+
             //NEXT ONE
         }
     }

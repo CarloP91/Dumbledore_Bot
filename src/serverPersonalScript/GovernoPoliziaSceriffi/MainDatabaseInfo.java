@@ -19,6 +19,7 @@ public class MainDatabaseInfo {
     public static String govRicercati = "865493853859610634";
     public static String govAlboAvvocati = "865251696838049802";
     public static String govPuntiDroga = "865544646058442793";
+    public static String govMask = "866612877918339072";
 
     // STANZE CONDIVISE LSPD
 
@@ -32,6 +33,7 @@ public class MainDatabaseInfo {
     public static String lspdRicercati = "860192975614771220";
     public static String lspdAlboAvvocati = "862648530330320907";
     public static String lspdPuntiDroga = "860190104857608193";
+    public static String lspdMask = "862648689658167326";
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -45,5 +47,6 @@ public class MainDatabaseInfo {
     public static String sceriffiRicercati = "";
     public static String sceriffiAlboAvvocati = "";
     public static String sceriffiPuntiDroga = "";
+    public static String sceriffiMask = "";
 
 }
