@@ -4,7 +4,7 @@ public class MainDatabaseInfo {
 
     public static String governoID = "865247529314680852";
     public static String lspdID = "860181453756301313"; // ID DEL SERVER
-    public static String sceriffiID = "";
+    public static String sceriffiID = "865697610042703882";
 
 
     // STANZE CONDIVISE GOVERNO
@@ -41,17 +41,17 @@ public class MainDatabaseInfo {
 
     // STANZE CONDIVISE SCERIFFI
 
-    public static String sceriffiDocumenti = "";
-    public static String sceriffiFedinePenali = "";
-    public static String sceriffiPuliziaFedine = "";
-    public static String sceriffiModAnagrafica = "";
-    public static String sceriffiMulteNonPagate = "";
-    public static String sceriffiPortoDarma = "";
-    public static String sceriffiDenunce = "";
-    public static String sceriffiRicercati = "";
+    public static String sceriffiDocumenti = "866776055855054848";
+    public static String sceriffiFedinePenali = "866773430664822824";
+    public static String sceriffiPuliziaFedine = "866773646364901406";
+    public static String sceriffiModAnagrafica = "866774083693707335";
+    public static String sceriffiMulteNonPagate = "866774363456798720";
+    public static String sceriffiPortoDarma = "866774528607649802";
+    public static String sceriffiDenunce = "866774694765920316";
+    public static String sceriffiRicercati = "866774915905224755";
     public static String sceriffiAlboAvvocati = "";
-    public static String sceriffiPuntiDroga = "";
-    public static String sceriffiMask = "";
+    public static String sceriffiPuntiDroga = "866774802228052016";
+    public static String sceriffiMask = "866775077536923688";
     public static String sceriffiPatchRegolamento = "";
     public static String sceriffiAnnunciCondivisi = "";
 
