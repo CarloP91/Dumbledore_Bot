@@ -49,7 +49,7 @@ public class MainDatabaseInfo {
     public static String sceriffiPortoDarma = "866774528607649802";
     public static String sceriffiDenunce = "866774694765920316";
     public static String sceriffiRicercati = "866774915905224755";
-    public static String sceriffiAlboAvvocati = "";
+    public static String sceriffiAlboAvvocati = "866789037645627412";
     public static String sceriffiPuntiDroga = "866774802228052016";
     public static String sceriffiMask = "866775077536923688";
     public static String sceriffiPatchRegolamento = "";

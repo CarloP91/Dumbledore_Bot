@@ -18,7 +18,7 @@ public class AmbRoleManagerScript extends ListenerAdapter {
         AuditLogEntry entry = event.getGuild().retrieveAuditLogs().type(ActionType.MEMBER_ROLE_UPDATE).complete().get(0);
 
 
-        if (event.getGuild().getId().equals(governoID)) {
+        if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID)) {
             try {
                 EmbedBuilder builderRoleADD = new EmbedBuilder()
                         .setColor(0x4dff4d)
@@ -39,7 +39,7 @@ public class AmbRoleManagerScript extends ListenerAdapter {
         super.onGuildMemberRoleRemove(event);
         AuditLogEntry entry = event.getGuild().retrieveAuditLogs().type(ActionType.MEMBER_ROLE_UPDATE).complete().get(0);
 
-        if (event.getGuild().getId().equals(governoID)) {
+        if (event.getGuild().getId().equals(MainAmbulanceStrangersLife.ambulanceID)) {
             try {
                 EmbedBuilder builderRoleRemove = new EmbedBuilder()
                         .setColor(0xff1a1a)
