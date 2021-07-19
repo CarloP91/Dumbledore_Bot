@@ -14,6 +14,7 @@ import serverPersonalScript.AmbulanceStangersLife.AmbRoleManagerScript;
 import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
 import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverPersonalScript.GovernoPoliziaSceriffi.ComunicationDatabase;
+import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
 import serverPersonalScript.StrangersLife.SLGestioneRuoli;
 import serverPersonalScript.StrangersLife.SLMessageDeleted;
 import serverPersonalScript.StrangersLife.SLMessageReceived;
@@ -71,6 +72,7 @@ public class DumbledoreMain {
 
                 //GOVERNO-POLIZIA-SCERIFFI
                 .addEventListeners(new ComunicationDatabase())
+                .addEventListeners(new GovernRoleManagerScript())
 
 
 

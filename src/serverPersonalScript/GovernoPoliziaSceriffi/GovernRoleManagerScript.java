@@ -1,4 +1,4 @@
-package serverPersonalScript.AmbulanceStangersLife;
+package serverPersonalScript.GovernoPoliziaSceriffi;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.audit.ActionType;
@@ -7,10 +7,11 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberRoleAddEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRoleRemoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import serverPersonalScript.AmbulanceStangersLife.MainAmbulanceStrangersLife;
 
 import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.governoID;
 
-public class AmbRoleManagerScript extends ListenerAdapter {
+public class GovernRoleManagerScript extends ListenerAdapter {
     @Override
     public void onGuildMemberRoleAdd(@NotNull GuildMemberRoleAddEvent event) {
         super.onGuildMemberRoleAdd(event);
@@ -26,7 +27,7 @@ public class AmbRoleManagerScript extends ListenerAdapter {
                         .setDescription("Ruolo Aggiunto")
                         .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
                         .addField("A: ", "<@" + event.getMember().getId() + ">", true);
-                event.getGuild().getTextChannelById(MainAmbulanceStrangersLife.chLogID)
+                event.getGuild().getTextChannelById("865254645052342273") //botchannel log
                         .sendMessage(builderRoleADD.build()).queue();
             } catch (IndexOutOfBoundsException exception) {
                 System.out.println("Non funge il builder ADD su " + event.getGuild().getName());
@@ -47,7 +48,7 @@ public class AmbRoleManagerScript extends ListenerAdapter {
                         .setDescription("Ruolo Rimosso")
                         .addField("Ruolo: ", "<@&" + event.getRoles().get(0).getId() + ">", true)
                         .addField("A: ", "<@" + event.getMember().getId() + ">", true);
-                event.getGuild().getTextChannelById(MainAmbulanceStrangersLife.chLogID)
+                event.getGuild().getTextChannelById("865254645052342273")
                         .sendMessage(builderRoleRemove.build()).queue();
             } catch (IndexOutOfBoundsException exception) {
                 System.out.println("Non funge il builder Remove su " + event.getGuild().getName());
