@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import serverPersonalScript.StrangersLife.MainStrangersLife;
 import utility.BotExcp;
 
 import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
@@ -19,6 +20,16 @@ public class ComunicationDatabase extends ListenerAdapter {
                 .setColor(0x000000)
                 .setTitle(event.getGuild().getName() + " " + event.getChannel().getName())
                 .addField(event.getAuthor().getName(), event.getMessage().getContentRaw(), true);
+
+        EmbedBuilder annunciGovEB = new EmbedBuilder()
+                .setColor(0x00e6e6)
+                .setTitle("ANNUNCIO GOVERNO")
+                .addField("Messaggio:", event.getMessage().getContentRaw(), true);
+
+        EmbedBuilder annunciPolEB = new EmbedBuilder()
+                .setColor(0x0000ff)
+                .setTitle("ANNUNCIO POLIZIA")
+                .addField("Messaggio:", event.getMessage().getContentRaw(), true);
 
         if (!event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
@@ -110,6 +121,33 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdMask).sendMessage(formMsg.build()).queue();
 //                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiMask).sendMessage(formMsg.build()).queue();
             }
+
+            //PATCH REGOLAMENTO
+
+            if (event.getChannel().getId().equals(MainStrangersLife.patcRegolamento)) {
+
+                event.getJDA().getGuildById(governoID).getTextChannelById(govPatchRegolamento).sendMessage(event.getMessage().getContentRaw()).queue();
+                event.getJDA().getGuildById(lspdID).getTextChannelById(lspdPatchRegolamento).sendMessage(event.getMessage().getContentRaw()).queue();
+//                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiPatchRegolamento).sendMessage(event.getMessage().getContentRaw()).queue();
+                /*event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC)
+                        .sendMessage("** Messaggio da: ** <#822117897010413598> \r REGOLAMENTO MODIFICATO \r" +
+                               event.getMessage().getContentRaw()).queue();*/
+            }
+
+            //ANNUNCI CONDIVISI
+
+            if (event.getChannel().getId().equals(govAnnunciCondivisi)) {
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciGovEB.build()).queue();
+            } else if (event.getChannel().getId().equals(lspdAnnunciCondivisi)) {
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciPolEB.build()).queue();
+            } else if (event.getChannel().getId().equals(MainStrangersLife.annunciIC)) {
+                event.getJDA().getGuildById(governoID).getTextChannelById(govAnnunciCondivisi).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(lspdID).getTextChannelById(lspdAnnunciCondivisi).sendMessage(formMsg.build()).queue();
+//                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiAnnunciCondivisi).sendMessage(formMsg.build()).queue();
+            }
+
+
+
 
             //NEXT ONE
         }

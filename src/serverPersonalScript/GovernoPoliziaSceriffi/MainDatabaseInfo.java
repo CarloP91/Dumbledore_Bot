@@ -20,6 +20,8 @@ public class MainDatabaseInfo {
     public static String govAlboAvvocati = "865251696838049802";
     public static String govPuntiDroga = "865544646058442793";
     public static String govMask = "866612877918339072";
+    public static String govPatchRegolamento = "866661641034792960";
+    public static String govAnnunciCondivisi = "865248491767857184";
 
     // STANZE CONDIVISE LSPD
 
@@ -34,6 +36,8 @@ public class MainDatabaseInfo {
     public static String lspdAlboAvvocati = "862648530330320907";
     public static String lspdPuntiDroga = "860190104857608193";
     public static String lspdMask = "862648689658167326";
+    public static String lspdPatchRegolamento = "866660428355862548";
+    public static String lspdAnnunciCondivisi = "866665547264819221";
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -48,5 +52,11 @@ public class MainDatabaseInfo {
     public static String sceriffiAlboAvvocati = "";
     public static String sceriffiPuntiDroga = "";
     public static String sceriffiMask = "";
+    public static String sceriffiPatchRegolamento = "";
+    public static String sceriffiAnnunciCondivisi = "";
+
+    //STANZE CONDIVISE STRANGER'S LIFE
+
+
 
 }
