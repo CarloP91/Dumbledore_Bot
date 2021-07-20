@@ -26,5 +26,6 @@ public class MainStrangersLife {
     public static String logWhitelist = "854698309474451487"; // STANZA LOG MESSAGGI
     public static String patcRegolamento = "822117897010413598"; //STANZA PATCH REGOLAMENTO
     public static String annunciIC = "866719316358463488"; //STANZA ANNUNCI-IC
+    public static String annunciOOC = "866659559396081684"; // STANZA ANNUNCI-OOC
 
 }

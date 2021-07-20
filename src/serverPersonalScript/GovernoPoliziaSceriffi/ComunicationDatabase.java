@@ -31,6 +31,11 @@ public class ComunicationDatabase extends ListenerAdapter {
                 .setTitle("ANNUNCIO POLIZIA")
                 .addField("Messaggio:", event.getMessage().getContentRaw(), true);
 
+        EmbedBuilder annunciSceEB = new EmbedBuilder()
+                .setColor(0xa88724)
+                .setTitle("ANNUNCIO SCERIFFI")
+                .addField("Messaggio:", event.getMessage().getContentRaw(), true);
+
         if (!event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
 
@@ -149,10 +154,13 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciGovEB.build()).queue();
             } else if (event.getChannel().getId().equals(lspdAnnunciCondivisi)) {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciPolEB.build()).queue();
-            } else if (event.getChannel().getId().equals(MainStrangersLife.annunciIC)) {
+            } else if (event.getChannel().getId().equals(sceriffiAnnunciCondivisi)) {
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciSceEB.build()).queue();
+            } else if (event.getChannel().getId().equals(MainStrangersLife.annunciIC)
+                    || event.getChannel().getId().equals(MainStrangersLife.annunciOOC)) {
                 event.getJDA().getGuildById(governoID).getTextChannelById(govAnnunciCondivisi).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdAnnunciCondivisi).sendMessage(formMsg.build()).queue();
-                //                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiAnnunciCondivisi).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiAnnunciCondivisi).sendMessage(formMsg.build()).queue();
             }
 
             //NEXT ONE

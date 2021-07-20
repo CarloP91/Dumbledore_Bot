@@ -2,9 +2,9 @@ package serverPersonalScript.GovernoPoliziaSceriffi;
 
 public class MainDatabaseInfo {
 
-    public static String governoID = "865247529314680852";
+    public static String governoID = "865247529314680852"; // ID DEL SERVER
     public static String lspdID = "860181453756301313"; // ID DEL SERVER
-    public static String sceriffiID = "865697610042703882";
+    public static String sceriffiID = "865697610042703882"; // ID DEL SERVER
 
 
     // STANZE CONDIVISE GOVERNO
@@ -53,7 +53,7 @@ public class MainDatabaseInfo {
     public static String sceriffiPuntiDroga = "866774802228052016";
     public static String sceriffiMask = "866775077536923688";
     public static String sceriffiPatchRegolamento = "";
-    public static String sceriffiAnnunciCondivisi = "";
+    public static String sceriffiAnnunciCondivisi = "866953627020427294";
 
     //STANZE CONDIVISE STRANGER'S LIFE
 
