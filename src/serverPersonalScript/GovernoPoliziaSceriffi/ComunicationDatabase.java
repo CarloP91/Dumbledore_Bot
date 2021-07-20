@@ -152,10 +152,15 @@ public class ComunicationDatabase extends ListenerAdapter {
 
             if (event.getChannel().getId().equals(govAnnunciCondivisi)) {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciGovEB.build()).queue();
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
             } else if (event.getChannel().getId().equals(lspdAnnunciCondivisi)) {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciPolEB.build()).queue();
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
+
             } else if (event.getChannel().getId().equals(sceriffiAnnunciCondivisi)) {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciSceEB.build()).queue();
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
+
             } else if (event.getChannel().getId().equals(MainStrangersLife.annunciIC)
                     || event.getChannel().getId().equals(MainStrangersLife.annunciOOC)) {
                 event.getJDA().getGuildById(governoID).getTextChannelById(govAnnunciCondivisi).sendMessage(formMsg.build()).queue();
