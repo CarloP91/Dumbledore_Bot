@@ -22,6 +22,8 @@ public class MainDatabaseInfo {
     public static String govMask = "866612877918339072";
     public static String govPatchRegolamento = "866661641034792960";
     public static String govAnnunciCondivisi = "865248491767857184";
+    public static String govCertMedici = "867747941807554570";
+    public static String govRapporti = "867881849464553553";
 
     // STANZE CONDIVISE LSPD
 
@@ -38,6 +40,8 @@ public class MainDatabaseInfo {
     public static String lspdMask = "862648689658167326";
     public static String lspdPatchRegolamento = "866660428355862548";
     public static String lspdAnnunciCondivisi = "866665547264819221";
+    public static String lspdCertMedici = "867748009152610395";
+    public static String lspdRapporti = "867881921471315999";
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -54,9 +58,12 @@ public class MainDatabaseInfo {
     public static String sceriffiMask = "866775077536923688";
     public static String sceriffiPatchRegolamento = "";
     public static String sceriffiAnnunciCondivisi = "866953627020427294";
+    public static String sceriffiCertMedici = "867748047295610940";
+    public static String sceriffiRapporti = "867872199796981800";
 
     //STANZE CONDIVISE STRANGER'S LIFE
 
+    public static String wolfsAssaultAnnunciIC = "868031611151745024";
 
 
 }

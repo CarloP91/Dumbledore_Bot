@@ -2,7 +2,7 @@ package db;
 
 public class DbCredentials {
     private String username = "root";
-    private String password = "";
+    private String password = "password";
 
     public String getUsername() {
         return username;

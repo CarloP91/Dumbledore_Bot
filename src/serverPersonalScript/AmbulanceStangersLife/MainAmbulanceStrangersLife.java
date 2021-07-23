@@ -24,6 +24,8 @@ public class MainAmbulanceStrangersLife {
 
     //CHANNEL SPECIFICI
     public static String chAnnunciID = "851903365587140638";
+    public static String certMedici = "867746591607619585";
+    public static String medAutMask = "868041746821550080";
 
     public String getDirettore() {
         return direttore;

@@ -63,6 +63,12 @@ public class AdminCommands extends ListenerAdapter {
                         ).queue();
 
             }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "prova")) {
+                event.getJDA().getGuildById("857905157840961547").createTextChannel("annunci-ic-strangers").queue();
+                System.out.println("creato");
+            }
+
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "search")
                     && args[1].equalsIgnoreCase("channel")) {
                 System.out.println(event.getJDA().getGuildById(args[2]).getTextChannelsByName("bot-channel-log", true));
@@ -264,6 +270,8 @@ public class AdminCommands extends ListenerAdapter {
 
                 e.printStackTrace();
             }
+
+
 
         }
     }
