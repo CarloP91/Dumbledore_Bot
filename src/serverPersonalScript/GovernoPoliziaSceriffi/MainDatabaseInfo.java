@@ -42,6 +42,7 @@ public class MainDatabaseInfo {
     public static String lspdAnnunciCondivisi = "866665547264819221";
     public static String lspdCertMedici = "867748009152610395";
     public static String lspdRapporti = "867881921471315999";
+    public static String lspdTestBalistici = "860193330410684426";
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -64,6 +65,12 @@ public class MainDatabaseInfo {
     //STANZE CONDIVISE STRANGER'S LIFE
 
     public static String wolfsAssaultAnnunciIC = "868031611151745024";
+    public static String armeria60ID = "868136991122927636";
+    public static String armeria60testBall = "868146263651123272";
+    public static String armeria60CertMedici = "868148654463139860";
+    public static String armeria60AnnunciIC = "868149757648986122";
+    public static String conc682 = "838198329334562866";
+    public static String conc682AnnunciIC = "868156773385764885";
 
 
 }
