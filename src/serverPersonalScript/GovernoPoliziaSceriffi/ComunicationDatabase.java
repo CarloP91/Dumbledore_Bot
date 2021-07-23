@@ -54,6 +54,11 @@ public class ComunicationDatabase extends ListenerAdapter {
                 .setTitle("ANNUNCIO CONCESSIONARIO 682")
                 .addField("Messaggio:", event.getMessage().getContentRaw(), true);
 
+        EmbedBuilder embYachtClub = new EmbedBuilder()
+                .setColor(0xffab73)
+                .setTitle("ANNUNCIO YACHT CLUB")
+                .addField("Messaggio:", event.getMessage().getContentRaw(), true);
+
         if (!event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
                 && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
 
@@ -196,6 +201,10 @@ public class ComunicationDatabase extends ListenerAdapter {
 
             } else if (event.getChannel().getId().equals(conc682AnnunciIC)) {
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(embConc682.build()).queue();
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
+
+            } else if (event.getChannel().getId().equals(yacthClubAnnunciIC)) {
+                event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(embYachtClub.build()).queue();
                 event.getJDA().getGuildById(MainStrangersLife.strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
             }
 

@@ -71,6 +71,7 @@ public class MainDatabaseInfo {
     public static String armeria60AnnunciIC = "868149757648986122";
     public static String conc682 = "838198329334562866";
     public static String conc682AnnunciIC = "868156773385764885";
+    public static String yacthClubAnnunciIC = "868161438416515222";
 
 
 }
