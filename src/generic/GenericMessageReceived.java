@@ -11,6 +11,9 @@ import utility.BotExcp;
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
 
+import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
+import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.sceriffiRapporti;
+
 public class GenericMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
@@ -46,15 +49,14 @@ public class GenericMessageReceived extends ListenerAdapter {
             EmbedBuilder msgSlRoom = new EmbedBuilder()
                     .setColor(Color.black)
                     .setAuthor("ID MESSAGGIO: " + event.getMessageId())
-                    .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
-
+                    .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() + ">");
 
 
             event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("859384555893948476")
-                        .sendMessage(msgSlRoom.build()).queue();
+                    .sendMessage(msgSlRoom.build()).queue();
 
 
         }
     }
-}
 
+}

@@ -156,7 +156,7 @@
                     && args[1].equalsIgnoreCase("server")) {
 
                 System.out.println(guild.getId() + " " + guild.getName());
-                try {
+                /*try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
                     String sql = "INSERT INTO `tab1` (server_id, server_name) VALUES (?, ?)";
                     PreparedStatement statement = connection.prepareStatement(sql);
@@ -186,8 +186,11 @@
                                     + guild.getId() + ". **CONTROLLA NON SIA GIA' INSERITO!**").queue();
                     System.out.println("Non funge cmdADD");
                     e.printStackTrace();
-                }
-                event.getMessage().delete().queue();
+                }*/
+
+                event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
+                        .sendMessage("Interazione con il Discord " + guild.getName() + " ID: "
+                                + guild.getId() + ". Fai **d-guildchannel** " + guild.getId()).queue();
             }
 
             baseCMD.add(PublicCmdList.cmdInit); explainCMD.add("*(chID):* Inizialize bot-channel-log Channel");

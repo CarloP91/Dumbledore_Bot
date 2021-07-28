@@ -37,12 +37,6 @@
             int count = 0;// count++;
 
 
-            EmbedBuilder msgSlRoom = new EmbedBuilder()
-                    .setColor(Color.black)
-                    .setAuthor("ID MESSAGGIO: " + event.getMessageId())
-                    .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
-
-
             try {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
 
@@ -64,8 +58,15 @@
 
                     if (row4 != null
                         && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)){
+                        EmbedBuilder msgSlRoom = new EmbedBuilder()
+                                .setColor(Color.black)
+                                .setAuthor("ID MESSAGGIO: " + event.getMessageId())
+                                .setDescription("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">");
+
                         event.getJDA().getGuildById(guild.getId()).getTextChannelById(row4)
                                 .sendMessage(msgSlRoom.build()).queue();
+
+//                        System.out.println(event.getMessage().getMember().getId() + " " + event.getGuild().getName());
                     }
 
                 }
@@ -74,6 +75,7 @@
             } catch (SQLException e) {
 
                 e.printStackTrace();
+                System.out.println(event.getMessage().getMember().getId() + " " + event.getGuild().getName());
             }
 
         }

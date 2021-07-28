@@ -15,6 +15,7 @@ import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
 import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverPersonalScript.GovernoPoliziaSceriffi.ComunicationDatabase;
 import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
+import serverPersonalScript.GovernoPoliziaSceriffi.PersonalGovernoScript;
 import serverPersonalScript.StrangersLife.SLGestioneRuoli;
 import serverPersonalScript.StrangersLife.SLMessageDeleted;
 import serverPersonalScript.StrangersLife.SLMessageReceived;
@@ -36,7 +37,7 @@ public class DumbledoreMain {
         // GUILD_MEMBERS gives you access to guild member join events so you can send welcome messages
         // The resulting JDA instance will not cache any members since createLight disables it.
 
-        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS)
+        JDABuilder.createLight("ODQ3MDI5OTMwODcyOTMwMzM0.YK4IGA.ajDUVYNaJa0ZvZ5ov3zxpRjT6co", GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.DIRECT_MESSAGE_REACTIONS)
                 .setStatus(OnlineStatus.ONLINE)
                 //        .setActivity(Activity.playing("d-help"))
                 .setActivity(Activity.listening("d-help"))
@@ -73,6 +74,7 @@ public class DumbledoreMain {
                 //GOVERNO-POLIZIA-SCERIFFI
                 .addEventListeners(new ComunicationDatabase())
                 .addEventListeners(new GovernRoleManagerScript())
+                .addEventListeners(new PersonalGovernoScript())
 
 
 

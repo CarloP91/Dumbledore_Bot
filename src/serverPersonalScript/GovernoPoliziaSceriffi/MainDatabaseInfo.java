@@ -24,6 +24,14 @@ public class MainDatabaseInfo {
     public static String govAnnunciCondivisi = "865248491767857184";
     public static String govCertMedici = "867747941807554570";
     public static String govRapporti = "867881849464553553";
+    public static String govSerialArma = "869125909175758889";
+    public static String govRichiestaMandato = "869134004585111642";
+    public static String govChatAltiRanghi = "869184923557302352";
+
+    //STANZE GOVERNO SCRIPT
+    public static String govAssegnazioneCaso = "868467391112294440";
+    public static String govCATGestioneGoverno = "865250333650321459";
+    public static String govCATPoliziaFederale = "865540894123229195";
 
     // STANZE CONDIVISE LSPD
 
@@ -43,6 +51,10 @@ public class MainDatabaseInfo {
     public static String lspdCertMedici = "867748009152610395";
     public static String lspdRapporti = "867881921471315999";
     public static String lspdTestBalistici = "860193330410684426";
+    public static String lspdSerialArma = "868817673075720202";
+    public static String lspdRichiestaMandato = "862648232709849098";
+    public static String lspdChatAltiRanghi = "869185135961059378";
+
 
     // STANZE CONDIVISE SCERIFFI
 
@@ -61,17 +73,23 @@ public class MainDatabaseInfo {
     public static String sceriffiAnnunciCondivisi = "866953627020427294";
     public static String sceriffiCertMedici = "867748047295610940";
     public static String sceriffiRapporti = "867872199796981800";
+    public static String sceriffiSerialArma = "869208840799928330";
+    public static String sceriffiRichiestaMandato = "869210995707510844";
+    public static String sceriffiChatAltiRanghi = "869211403846836274";
 
     //STANZE CONDIVISE STRANGER'S LIFE
 
-    public static String wolfsAssaultAnnunciIC = "868031611151745024";
+    public static String wolfsAssaultAnnunciIC = "869329007609532517";
     public static String armeria60ID = "868136991122927636";
     public static String armeria60testBall = "868146263651123272";
     public static String armeria60CertMedici = "868148654463139860";
     public static String armeria60AnnunciIC = "868149757648986122";
+    public static String armeria60SerialArma = "869126722166087720";
     public static String conc682 = "838198329334562866";
     public static String conc682AnnunciIC = "868156773385764885";
     public static String yacthClubAnnunciIC = "868161438416515222";
+    public static String vanillaAnnunciIC = "868538815118209024";
+    public static String armeria200AnnunciIC = "869178800817209394";
 
 
 }
