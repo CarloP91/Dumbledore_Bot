@@ -190,7 +190,7 @@
 
                 event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
                         .sendMessage("Interazione con il Discord " + guild.getName() + " ID: "
-                                + guild.getId() + ". Fai **d-guildchannel** " + guild.getId()).queue();
+                                + guild.getId() + ". Fai **d-print guildchannel** " + guild.getId()).queue();
             }
 
             baseCMD.add(PublicCmdList.cmdInit); explainCMD.add("*(chID):* Inizialize bot-channel-log Channel");

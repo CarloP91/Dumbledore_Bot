@@ -45,6 +45,7 @@ public class PersonalGovernoScript extends ListenerAdapter {
                         .queue(channel -> {
                             event.getChannel().sendMessage("E' stata mandata una notifica e aperto il canale di contatto <#" + channel.getId() +">. Esponi le motivazioni e le prove per aprire il caso").queue();
                             event.getJDA().getGuildById(governoID).getTextChannelById(channel.getId()).sendMessage("<@&866610818631991306>, <@&866611057204396033> e <@&867725245145415681>, è stata richiesta l'apertura di un caso da <@" + event.getUser().getId() + ">.").queue();
+
                         });
 
 //               System.out.println(event.getGuild().getTextChannelsByName(txtCHName, false));
@@ -103,9 +104,7 @@ public class PersonalGovernoScript extends ListenerAdapter {
 
                 System.out.println("non funziono" + exception);
             }
-
         }
-
     }
 
     @Override

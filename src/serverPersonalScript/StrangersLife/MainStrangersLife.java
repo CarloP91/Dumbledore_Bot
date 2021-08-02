@@ -27,5 +27,6 @@ public class MainStrangersLife {
     public static String patcRegolamento = "822117897010413598"; //STANZA PATCH REGOLAMENTO
     public static String annunciIC = "866719316358463488"; //STANZA ANNUNCI-IC
     public static String annunciOOC = "866659559396081684"; // STANZA ANNUNCI-OOC
+    public static String alboAvvocati = "870199805341757470"; //STANZA ALBO AVVOCATI
 
 }

@@ -49,14 +49,15 @@ public class AdminCommands extends ListenerAdapter {
                 event.getChannel()
                         .sendMessage("Lista di comandi ADMIN: \n"
                                 + "- check serverlist \n"
-                                + "- print serverListID (from DB)\n"
-                                + "- print serverListName (from DB)\n"
+                                + "- ~~print serverListID (from DB)~~\n"
+                                + "- ~~print serverListName (from DB)~~\n"
                                 + "- print guildchannel (GuID)\n"
                                 + "- ~~reload serverlistID~~ (disabled) \n"
                                 + "- add channel-log (ChID) \n"
                                 + "- add remote channel-log (GuID) \n"
-                                + "- sendcmd (GuID) (ChID) (Args) (Args) \n"
-                                + "- modify channel-permission (chID) (guildID) (memberID)\n"
+                                + "- remote sendcmd (GuID) (ChID) (Args) (Args) \n"
+                                + "- remote sendmsg (GuID) (ChID) (msg) \n"
+                                + "- modify allchannel-permission (chID) (guildID) (memberID)\n"
                                 + "- compile modify channel-permission\n"
                                 + "- manutention\n"
                                 + "- search channel (guID)"
@@ -162,7 +163,7 @@ public class AdminCommands extends ListenerAdapter {
                 List<GuildChannel> guildChannelList = event.getJDA().getGuildById(args[2]).getChannels();
 
                 try {
-                    event.getChannel().sendMessage(Utility.getChannelListNameID(guildChannelList)).queue();
+                    event.getChannel().sendMessage("```" + Utility.getChannelListNameID(guildChannelList) + "```").queue();
                 }
                 catch (IndexOutOfBoundsException exception) {
                     event.getChannel().sendMessage("Non ho abbastanza poteri per controllare").queue();
@@ -190,7 +191,7 @@ public class AdminCommands extends ListenerAdapter {
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "modify")
-                    && args[1].equalsIgnoreCase("channel-permission")) {
+                    && args[1].equalsIgnoreCase("allchannel-permission")) {
 
 
                 String chID = args[2];
@@ -224,13 +225,27 @@ public class AdminCommands extends ListenerAdapter {
 
         }
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendcmd")) {
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+                && args[1].equalsIgnoreCase("sendcmd")) {
 
-            String guildID = args[1];
-            String chID = args[2];
+            String guildID = args[2];
+            String chID = args[3];
 
             event.getJDA().getGuildById(guildID)
-                    .getTextChannelById(chID).sendMessage(args[3] + " " + args[4]).queue();
+                    .getTextChannelById(chID).sendMessage(args[4] + " " + args[5]).queue();
+        }
+
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+                && args[1].equalsIgnoreCase("sendmsg")) {
+
+            String guildID = args[2];
+            String chID = args[3];
+            String msg = event.getMessage().getContentRaw()
+                    .replace(guildID, "")
+                    .replace(chID, "")
+                    .replace("d-remote sendmsg", "");
+
+            event.getJDA().getGuildById(guildID).getTextChannelById(chID).sendMessage(msg).queue();
         }
 
         if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "manutention")) {
@@ -274,6 +289,8 @@ public class AdminCommands extends ListenerAdapter {
 
 
         }
+
+
     }
 
 }

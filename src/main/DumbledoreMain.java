@@ -13,6 +13,7 @@ import serverPersonalScript.AmbulanceStangersLife.AmbMessageReceived;
 import serverPersonalScript.AmbulanceStangersLife.AmbRoleManagerScript;
 import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
 import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
+import serverPersonalScript.BotTest.Test;
 import serverPersonalScript.GovernoPoliziaSceriffi.ComunicationDatabase;
 import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
 import serverPersonalScript.GovernoPoliziaSceriffi.PersonalGovernoScript;
@@ -26,7 +27,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.36-sc";
+    public static String botVersion = "1.99.55-img-ic";
     public static String botDiscordID = "856439285879144468";
 
 
@@ -49,6 +50,7 @@ public class DumbledoreMain {
                 .addEventListeners(new GuildMemberJoin())
                 .addEventListeners(new AdminCommands())
                 .addEventListeners(new PublicCommands())
+                .addEventListeners(new Test())
 
                 .addEventListeners(new GenericMessageReceived())
                 .addEventListeners(new UpdateRole())
@@ -75,10 +77,6 @@ public class DumbledoreMain {
                 .addEventListeners(new ComunicationDatabase())
                 .addEventListeners(new GovernRoleManagerScript())
                 .addEventListeners(new PersonalGovernoScript())
-
-
-
-
 
                 .build();
     }

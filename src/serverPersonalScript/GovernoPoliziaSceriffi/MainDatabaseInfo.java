@@ -27,11 +27,13 @@ public class MainDatabaseInfo {
     public static String govSerialArma = "869125909175758889";
     public static String govRichiestaMandato = "869134004585111642";
     public static String govChatAltiRanghi = "869184923557302352";
+    public static String govPatenteAerea = "870575952911011860";
 
     //STANZE GOVERNO SCRIPT
     public static String govAssegnazioneCaso = "868467391112294440";
     public static String govCATGestioneGoverno = "865250333650321459";
     public static String govCATPoliziaFederale = "865540894123229195";
+    public static String govMandatiApprovati = "870607829449441320";
 
     // STANZE CONDIVISE LSPD
 
@@ -54,6 +56,8 @@ public class MainDatabaseInfo {
     public static String lspdSerialArma = "868817673075720202";
     public static String lspdRichiestaMandato = "862648232709849098";
     public static String lspdChatAltiRanghi = "869185135961059378";
+    public static String lspdPatenteAerea = "870262508072603678";
+
 
 
     // STANZE CONDIVISE SCERIFFI
@@ -76,6 +80,7 @@ public class MainDatabaseInfo {
     public static String sceriffiSerialArma = "869208840799928330";
     public static String sceriffiRichiestaMandato = "869210995707510844";
     public static String sceriffiChatAltiRanghi = "869211403846836274";
+    public static String sceriffiPatenteAerea = "";
 
     //STANZE CONDIVISE STRANGER'S LIFE
 
@@ -90,6 +95,8 @@ public class MainDatabaseInfo {
     public static String yacthClubAnnunciIC = "868161438416515222";
     public static String vanillaAnnunciIC = "868538815118209024";
     public static String armeria200AnnunciIC = "869178800817209394";
+    public static String grooveAnnunciIC = "869662813717680209";
+    public static String import19AnnunciIC = "857907961447448606";
 
 
 }
