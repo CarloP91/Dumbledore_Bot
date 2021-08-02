@@ -90,6 +90,7 @@ public class MainDatabaseInfo {
     public static String armeria60CertMedici = "868148654463139860";
     public static String armeria60AnnunciIC = "868149757648986122";
     public static String armeria60SerialArma = "869126722166087720";
+    public static String armieria60FedinePenali = "871700103239438347";
     public static String conc682 = "838198329334562866";
     public static String conc682AnnunciIC = "868156773385764885";
     public static String yacthClubAnnunciIC = "868161438416515222";

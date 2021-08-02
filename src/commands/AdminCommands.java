@@ -151,7 +151,7 @@ public class AdminCommands extends ListenerAdapter {
 
                 } catch (SQLException e) {
 
-                    e.printStackTrace();
+
                 }
 
             }*/
@@ -164,8 +164,7 @@ public class AdminCommands extends ListenerAdapter {
 
                 try {
                     event.getChannel().sendMessage("```" + Utility.getChannelListNameID(guildChannelList) + "```").queue();
-                }
-                catch (IndexOutOfBoundsException exception) {
+                } catch (IndexOutOfBoundsException exception) {
                     event.getChannel().sendMessage("Non ho abbastanza poteri per controllare").queue();
                 }
 
@@ -223,74 +222,108 @@ public class AdminCommands extends ListenerAdapter {
                 System.out.println(tempml);
             }
 
-        }
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+                    && args[1].equalsIgnoreCase("sendcmd")) {
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
-                && args[1].equalsIgnoreCase("sendcmd")) {
+                String guildID = args[2];
+                String chID = args[3];
 
-            String guildID = args[2];
-            String chID = args[3];
-
-            event.getJDA().getGuildById(guildID)
-                    .getTextChannelById(chID).sendMessage(args[4] + " " + args[5]).queue();
-        }
-
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
-                && args[1].equalsIgnoreCase("sendmsg")) {
-
-            String guildID = args[2];
-            String chID = args[3];
-            String msg = event.getMessage().getContentRaw()
-                    .replace(guildID, "")
-                    .replace(chID, "")
-                    .replace("d-remote sendmsg", "");
-
-            event.getJDA().getGuildById(guildID).getTextChannelById(chID).sendMessage(msg).queue();
-        }
-
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "manutention")) {
-
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
-
-                // SELECT FROM DB MYSQL
-                String sql = "SELECT * FROM `tab1` WHERE `init` = 'yes'";
-
-                Statement statement = connection.createStatement();
-                ResultSet result = statement.executeQuery(sql);
-
-                while (result.next()) {
-                    String row1 = result.getString(1);
-                    String row2 = result.getString(2);
-                    String row3 = result.getString(3);
-                    String row4 = result.getString(4); //bot_channel_log
-
-                    count++;
-
-                    EmbedBuilder manutention = new EmbedBuilder().setColor(0xff0000)
-                            .setTitle("UNDER MAINTENANCE")
-                            .setThumbnail("https://i.postimg.cc/Xq5VZPMx/Cattura.png")
-                            .addBlankField(true)
-                            .addField("Message from Developer", "The Bot is under maintenance, this means that there could be " +
-                                    "slowdowns or it could go down. If your server has the \"full kit\" service, your server will not have any problems." +
-                                    "\r Thanks for understanding.", true);
-
-
-                    event.getJDA().getGuildById(row2).getTextChannelById(row4).sendMessage(manutention.build()).queue();
-
-                }
-
-
-            } catch (SQLException e) {
-
-                e.printStackTrace();
+                event.getJDA().getGuildById(guildID)
+                        .getTextChannelById(chID).sendMessage(args[4] + " " + args[5]).queue();
             }
 
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+                    && args[1].equalsIgnoreCase("sendmsg")) {
 
+                String guildID = args[2];
+                String chID = args[3];
+                String msg = event.getMessage().getContentRaw()
+                        .replace(guildID, "")
+                        .replace(chID, "")
+                        .replace("d-remote sendmsg", "");
+
+                event.getJDA().getGuildById(guildID).getTextChannelById(chID).sendMessage(msg).queue();
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "manutention")) {
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+
+                    // SELECT FROM DB MYSQL
+                    String sql = "SELECT * FROM `tab1` WHERE `init` = 'yes'";
+
+                    Statement statement = connection.createStatement();
+                    ResultSet result = statement.executeQuery(sql);
+
+                    while (result.next()) {
+                        String row1 = result.getString(1);
+                        String row2 = result.getString(2);
+                        String row3 = result.getString(3);
+                        String row4 = result.getString(4); //bot_channel_log
+
+                        count++;
+
+                        EmbedBuilder manutention = new EmbedBuilder().setColor(0xff0000)
+                                .setTitle("UNDER MAINTENANCE")
+                                .setThumbnail("https://i.postimg.cc/Xq5VZPMx/Cattura.png")
+                                .addBlankField(true)
+                                .addField("Message from Developer", "The Bot is under maintenance, this means that there could be " +
+                                        "slowdowns or it could go down. If your server has the \"full kit\" service, your server will not have any problems." +
+                                        "\r Thanks for understanding.", true);
+
+
+                        event.getJDA().getGuildById(row2).getTextChannelById(row4).sendMessage(manutention.build()).queue();
+
+                    }
+
+
+                } catch (SQLException e) {
+
+                    e.printStackTrace();
+                }
+
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendInvite")) {
+
+                String guildID = args[1];
+                String inviteCH = args[2];
+                String serverInvite;
+
+                try {
+                    event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
+                            .getTextChannelById("857557884003287111")
+                            .sendMessage(event.getJDA().getGuildById(guildID).getTextChannelById(inviteCH).createInvite().complete().getUrl()).queue();
+                    //                event.getChannel().sendMessage().queue();
+
+
+
+
+                    System.out.println(event.getJDA().getGuildById(guildID).getTextChannelById(inviteCH).createInvite().complete().getUrl());
+
+                } catch (IndexOutOfBoundsException exception) {
+                    System.out.println("Problema con comando testinv");
+                }
+            }
+
+            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+                    && args[1].equalsIgnoreCase("role")) { //non funziona per via dei privileggi
+
+                try {
+                    String guildID = args[2];
+                    String memberID = args[3];
+                    String roleID = args[4];
+
+                    event.getJDA().getGuildById(guildID).addRoleToMember(memberID, event.getJDA().getGuildById(guildID).getRoleById(roleID));
+
+                    event.getChannel().sendMessage(activeCommand.build()).queue();
+                } catch (IndexOutOfBoundsException exception){
+                    exception.printStackTrace();
+
+                }
+            }
 
         }
-
-
     }
-
 }

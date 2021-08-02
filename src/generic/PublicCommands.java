@@ -265,25 +265,6 @@
                 event.getChannel().sendMessage(disabledCommand.build()).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendInvite")) {
-
-                String idCHInv = guild.getId();
-                String inviteCH = event.getChannel().createInvite().complete().getUrl();
-                String serverInvite;
-
-                try {
-                    event.getJDA().getGuildById(DumbledoreMain.botDiscordID)
-                            .getTextChannelById("857557884003287111")
-                            .sendMessage(event.getChannel().createInvite().complete().getUrl()).queue();
-    //                event.getChannel().sendMessage().queue();
-
-
-                    System.out.println(event.getChannel().createInvite().complete().getUrl());
-
-                } catch (IndexOutOfBoundsException exception) {
-                    System.out.println("Problema con comando testinv");
-                }
-            }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") //ancora non funge
                     && args[1].equalsIgnoreCase("role")) { //ancora non funge correttamente

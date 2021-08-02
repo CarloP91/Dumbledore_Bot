@@ -50,6 +50,7 @@ public class ComunicationDatabase extends ListenerAdapter {
 
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiFedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
             } else if (event.getChannel().getId().equals(lspdFedinePenali)) {
                 EmbedBuilder formMsg = new EmbedBuilder()
                         .setColor(0x000000)
@@ -58,6 +59,8 @@ public class ComunicationDatabase extends ListenerAdapter {
 
                 event.getJDA().getGuildById(governoID).getTextChannelById(govFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiFedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+
             } else if (event.getChannel().getId().equals(sceriffiFedinePenali)) {
                 EmbedBuilder formMsg = new EmbedBuilder()
                         .setColor(0x000000)
@@ -66,6 +69,8 @@ public class ComunicationDatabase extends ListenerAdapter {
 
                 event.getJDA().getGuildById(governoID).getTextChannelById(govFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdFedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+
             }
 
             //PULIZIA FEDINE
@@ -77,6 +82,7 @@ public class ComunicationDatabase extends ListenerAdapter {
 
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdPuliziaFedine).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiPuliziaFedine).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
             }
 
             //MOD ANAGRAFICA
