@@ -95,9 +95,12 @@ public class MainDatabaseInfo {
     public static String conc682AnnunciIC = "868156773385764885";
     public static String yacthClubAnnunciIC = "868161438416515222";
     public static String vanillaAnnunciIC = "868538815118209024";
+    public static String armeria200ID = "848049937634557982";
     public static String armeria200AnnunciIC = "869178800817209394";
+    public static String armeria200FedinePenali = "871725551881162762";
     public static String grooveAnnunciIC = "869662813717680209";
     public static String import19AnnunciIC = "857907961447448606";
+    public static String grooveCustomIC = "873240458334203935";
 
 
 }

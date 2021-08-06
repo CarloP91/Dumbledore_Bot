@@ -51,6 +51,7 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200FedinePenali).sendMessage(formMsg.build()).queue();
             } else if (event.getChannel().getId().equals(lspdFedinePenali)) {
                 EmbedBuilder formMsg = new EmbedBuilder()
                         .setColor(0x000000)
@@ -60,6 +61,7 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(governoID).getTextChannelById(govFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200FedinePenali).sendMessage(formMsg.build()).queue();
 
             } else if (event.getChannel().getId().equals(sceriffiFedinePenali)) {
                 EmbedBuilder formMsg = new EmbedBuilder()
@@ -70,6 +72,7 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(governoID).getTextChannelById(govFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdFedinePenali).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200FedinePenali).sendMessage(formMsg.build()).queue();
 
             }
 
@@ -83,6 +86,7 @@ public class ComunicationDatabase extends ListenerAdapter {
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdPuliziaFedine).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiPuliziaFedine).sendMessage(formMsg.build()).queue();
                 event.getJDA().getGuildById(armeria60ID).getTextChannelById(armieria60FedinePenali).sendMessage(formMsg.build()).queue();
+                event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200FedinePenali).sendMessage(formMsg.build()).queue();
             }
 
             //MOD ANAGRAFICA
@@ -297,7 +301,7 @@ public class ComunicationDatabase extends ListenerAdapter {
             } else if (event.getChannel().getId().equals(wolfsAssaultAnnunciIC)) {
                 EmbedBuilder annunciWolfsAssault = new EmbedBuilder()
                         .setColor(Color.black)
-                        .setTitle("ANNUNCIO PERLA CLUB \uD83E\uDD20")
+                        .setTitle("ANNUNCIO CONCESSIONARIO 580 \uD83C\uDFCE")
                         .setDescription("**Messaggio:** \n" + event.getMessage().getContentRaw());
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciWolfsAssault.build()).queue();
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
@@ -355,6 +359,14 @@ public class ComunicationDatabase extends ListenerAdapter {
                     .setDescription("**Messaggio:** \n" + event.getMessage().getContentRaw());
 
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(import19Emb.build()).queue();
+                event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
+            } else if (event.getChannel().getId().equals(grooveCustomIC))
+            {EmbedBuilder grooveCustomIC = new EmbedBuilder()
+                    .setColor(0xac39ac)
+                    .setTitle("ANNUNCIO GROOVE CUSTOM \uD83D\uDD27")
+                    .setDescription("**Messaggio:** \n" + event.getMessage().getContentRaw());
+
+                event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(grooveCustomIC.build()).queue();
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
             }
 

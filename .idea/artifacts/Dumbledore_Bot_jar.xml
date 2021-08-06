@@ -3,9 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Dumbledore_Bot_jar</output-path>
     <root id="archive" name="Dumbledore_Bot.jar">
       <element id="module-output" name="Dumbledore_Bot" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/JDA-4.3.0_296-withDependencies.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/Users/carlo/Downloads/JDA-4.2.1_265-withDependencies.jar" path-in-jar="/" />
       <element id="dir-copy" path="$PROJECT_DIR$" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
