@@ -1,3 +1,4 @@
+/*
 package generic;
 
 import db.DbCredentials;
@@ -68,3 +69,4 @@ public class GenericDeleteCheckDb extends ListenerAdapter {
     }
 
 }
+*/

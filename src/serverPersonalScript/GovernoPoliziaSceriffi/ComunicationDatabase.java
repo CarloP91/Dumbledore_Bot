@@ -1,3 +1,4 @@
+
 package serverPersonalScript.GovernoPoliziaSceriffi;
 
 import main.DumbledoreMain;
@@ -25,9 +26,31 @@ public class ComunicationDatabase extends ListenerAdapter {
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
 
+        String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        if (!event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
-                && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
+        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendIC")) {
+            event.getJDA().getGuildById("869328725727137833").getTextChannelById(wolfsAssaultAnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60CertMedici).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60testBall).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(conc682ID).getTextChannelById(conc682AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("855854902185951234").getTextChannelById("868538815118209024").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("865697610042703882").getTextChannelById("866953627020427294").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("872543651962703934").getTextChannelById("873240458334203935").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("857329585057038417").getTextChannelById("868161438416515222").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("857329585057038417").getTextChannelById("868161438416515222").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById("853530009624903700").getTextChannelById("854879006208950272").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+            event.getJDA().getGuildById(lspdID).getTextChannelById(lspdAnnunciCondivisi).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
+        }
+
+    }
+}
+
+/*
+        if (event.getAuthor().isBot()) {
+            //
+        } else {
 
             //DOCUMENTI
             if (event.getChannel().getId().equals(lspdDocumenti)) {
@@ -252,13 +275,13 @@ public class ComunicationDatabase extends ListenerAdapter {
 
             if (event.getChannel().getId().equals(MainStrangersLife.patcRegolamento)) {
 
-                    try {
+                try {
 //                System.out.println(event.getMessage().getAttachments().get(0).getUrl());
-                        event.getJDA().getGuildById(governoID).getTextChannelById(govPatchRegolamento).sendMessage(event.getMessage().getContentRaw() + " \n" + event.getMessage().getAttachments().get(0).getUrl()).queue();
-                        event.getJDA().getGuildById(governoID).getTextChannelById(lspdPatchRegolamento).sendMessage(event.getMessage().getContentRaw() + " \n" + event.getMessage().getAttachments().get(0).getUrl()).queue();
-                    } catch (IndexOutOfBoundsException exception) {
-                        System.out.println(exception);
-                    }
+                    event.getJDA().getGuildById(governoID).getTextChannelById(govPatchRegolamento).sendMessage(event.getMessage().getContentRaw() + " \n" + event.getMessage().getAttachments().get(0).getUrl()).queue();
+                    event.getJDA().getGuildById(governoID).getTextChannelById(lspdPatchRegolamento).sendMessage(event.getMessage().getContentRaw() + " \n" + event.getMessage().getAttachments().get(0).getUrl()).queue();
+                } catch (IndexOutOfBoundsException exception) {
+                    System.out.println(exception);
+                }
             }
 
             //ANNUNCI CONDIVISI
@@ -269,7 +292,7 @@ public class ComunicationDatabase extends ListenerAdapter {
                         .setTitle("ANNUNCIO GOVERNO \uD83E\uDD85")
                         .setDescription("**Messaggio:** \n" + event.getMessage().getContentRaw());
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage(annunciGovEB.build()).queue();
-      //          event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("```" + event.getMessage().getContentRaw() + "```").queue();
+                //          event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("```" + event.getMessage().getContentRaw() + "```").queue();
                 event.getJDA().getGuildById(strangerLifeID).getTextChannelById(MainStrangersLife.annunciIC).sendMessage("<@&694128369716953159>").queue();
             } else if (event.getChannel().getId().equals(lspdAnnunciCondivisi)) {
                 EmbedBuilder annunciPolEB = new EmbedBuilder()
@@ -481,39 +504,39 @@ public class ComunicationDatabase extends ListenerAdapter {
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "\n<@&860187874124103710>").queue();
+                                + "\n <@&860187874124103710>").queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiChatAltiRanghi).sendMessage(
                         ">>> **MESSAGGIO IN ARRIVO DA: **" + event.getGuild().getName() + "\n \n"
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "\n<@&345647188027899906>").queue();
+                                + "\n <@&345647188027899906>").queue();
             } else if (event.getChannel().getId().equals(lspdChatAltiRanghi)) {
                 event.getJDA().getGuildById(governoID).getTextChannelById(govChatAltiRanghi).sendMessage(
                         ">>> **MESSAGGIO IN ARRIVO DA: **" + event.getGuild().getName() + "\n \n"
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "\n<@&866610818631991306>").queue();
+                                + "\n <@&866610818631991306>").queue();
                 event.getJDA().getGuildById(sceriffiID).getTextChannelById(sceriffiChatAltiRanghi).sendMessage(
                         ">>> **MESSAGGIO IN ARRIVO DA: **" + event.getGuild().getName() + "\n \n"
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "\n<@&345647188027899906>").queue();
+                                + "\n <@&345647188027899906>").queue();
             } else if (event.getChannel().getId().equals(sceriffiChatAltiRanghi)) {
                 event.getJDA().getGuildById(lspdID).getTextChannelById(lspdChatAltiRanghi).sendMessage(
                         ">>> **MESSAGGIO IN ARRIVO DA: **" + event.getGuild().getName() + "\n \n"
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "<\n@&860187874124103710>").queue();
+                                + "\n <@&860187874124103710>").queue();
                 event.getJDA().getGuildById(governoID).getTextChannelById(govChatAltiRanghi).sendMessage(
                         ">>> **MESSAGGIO IN ARRIVO DA: **" + event.getGuild().getName() + "\n \n"
                                 + "Messaggio: \n"
                                 + "```" +event.getMessage().getContentRaw() + " ``` \n"
                                 + "Messaggio Scritto da: " + event.getMember().getNickname()
-                                + "<\n@&866610818631991306>").queue();
+                                + "\n <@&866610818631991306>").queue();
             }
 
             //PATENTE AEREA
@@ -529,7 +552,9 @@ public class ComunicationDatabase extends ListenerAdapter {
             }
 
             //NEXT ONE
+
         }
     }
 }
 
+*/

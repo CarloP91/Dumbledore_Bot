@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.GovernoPoliziaSceriffi;
 
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -57,3 +58,4 @@ public class GovernRoleManagerScript extends ListenerAdapter {
 
     }
 }
+*/

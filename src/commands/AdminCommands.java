@@ -3,6 +3,7 @@ package commands;
 import db.DbCredentials;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -66,7 +67,7 @@ public class AdminCommands extends ListenerAdapter {
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "prova")) {
-                event.getJDA().getGuildById("857905157840961547").createTextChannel("annunci-ic-strangers").queue();
+                event.getJDA().getGuildById("857905157840961547").createTextChannel("annunci-ic").queue();
                 System.out.println("creato");
             }
 
@@ -217,9 +218,11 @@ public class AdminCommands extends ListenerAdapter {
                 MessageHistory h = event.getChannel().getHistory();
                 h.retrievePast(30).complete();
                 List<Message> ml = h.getRetrievedHistory();
-                String tempml = ml + "\r";
+                String tempml = ml + "\n";
 
-                System.out.println(tempml);
+                event.getChannel().getHistory().retrievePast(10);
+
+                event.getChannel().sendMessage(tempml).queue();
             }
 
             if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")

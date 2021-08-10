@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.GovernoPoliziaSceriffi;
 
 import main.DumbledoreMain;
@@ -112,6 +113,7 @@ public class PersonalGovernoScript extends ListenerAdapter {
         super.onGuildMessageReceived(event);
         String[] args = event.getMessage().getContentRaw().split("\\s+");
 
+*/
 /*        if (event.getChannel().getId().equals(govAssegnazioneCaso)
                 && event.getAuthor().getId().equals(dumbledoreID)){ //da togliere dopo l'inizializzazione
 
@@ -119,7 +121,8 @@ public class PersonalGovernoScript extends ListenerAdapter {
             event.getMessage().addReaction("\uD83D\uDCD7").complete();
             event.getMessage().addReaction("\uD83D\uDCD8").complete();
 
-        }*/
+        }*//*
+
 
         if (event.getChannel().getId().equals(govAssegnazioneCaso)
                 && args[0].equalsIgnoreCase(prefix + "xyz")){
@@ -132,3 +135,4 @@ public class PersonalGovernoScript extends ListenerAdapter {
         }
     }
 }
+*/

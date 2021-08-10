@@ -1,3 +1,4 @@
+/*
     package generic;
 
     import db.DbCredentials;
@@ -57,7 +58,7 @@
 
 
                     if (row4 != null
-                        && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)){
+                        && !event.getAuthor().isBot()){
                         EmbedBuilder msgSlRoom = new EmbedBuilder()
                                 .setColor(Color.black)
                                 .setAuthor("ID MESSAGGIO: " + event.getMessageId())
@@ -81,3 +82,4 @@
         }
 
     }
+*/

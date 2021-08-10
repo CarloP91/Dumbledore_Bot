@@ -14,12 +14,15 @@ import serverPersonalScript.AmbulanceStangersLife.AmbRoleManagerScript;
 import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
 import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
 import serverPersonalScript.BotTest.Test;
+//import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
+//import serverPersonalScript.GovernoPoliziaSceriffi.PersonalGovernoScript;
 import serverPersonalScript.GovernoPoliziaSceriffi.ComunicationDatabase;
-import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
-import serverPersonalScript.GovernoPoliziaSceriffi.PersonalGovernoScript;
 import serverPersonalScript.StrangersLife.SLGestioneRuoli;
 import serverPersonalScript.StrangersLife.SLMessageDeleted;
 import serverPersonalScript.StrangersLife.SLMessageReceived;
+import serverPersonalScript.RevProj.RevProjGestioneRole;
+import serverPersonalScript.RevProj.RevProjGuildJoined;
+import serverPersonalScript.RevProj.RevProjPersonalCMD;
 
 import javax.security.auth.login.LoginException;
 
@@ -27,7 +30,7 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.55-img-ic";
+    public static String botVersion = "1.99.65-ic";
     public static String botDiscordID = "856439285879144468";
 
 
@@ -56,8 +59,13 @@ public class DumbledoreMain {
                 .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMemberRoleManager())
                 .addEventListeners(new VoiceDetector())
-                .addEventListeners(new GenericMsgCheckDb())
-                .addEventListeners(new GenericDeleteCheckDb())
+       //         .addEventListeners(new GenericMsgCheckDb())
+       //         .addEventListeners(new GenericDeleteCheckDb())
+
+                //REVENGE PROJECT
+                .addEventListeners(new RevProjGuildJoined())
+                .addEventListeners(new RevProjGestioneRole())
+                .addEventListeners(new RevProjPersonalCMD())
 
                 // BalbettanteBamboccionaBandaDiBabbuini
                 .addEventListeners(new BBBDBMessageReceived())
@@ -74,9 +82,9 @@ public class DumbledoreMain {
                 .addEventListeners(new SLGestioneRuoli())
 
                 //GOVERNO-POLIZIA-SCERIFFI
-                .addEventListeners(new ComunicationDatabase())
-                .addEventListeners(new GovernRoleManagerScript())
-                .addEventListeners(new PersonalGovernoScript())
+               .addEventListeners(new ComunicationDatabase())
+    //            .addEventListeners(new GovernRoleManagerScript())
+//                .addEventListeners(new PersonalGovernoScript())
 
                 .build();
     }
