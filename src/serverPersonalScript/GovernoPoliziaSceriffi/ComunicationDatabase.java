@@ -2,23 +2,11 @@
 package serverPersonalScript.GovernoPoliziaSceriffi;
 
 import main.DumbledoreMain;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.MessageBuilder;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import serverPersonalScript.AmbulanceStangersLife.MainAmbulanceStrangersLife;
-import serverPersonalScript.StrangersLife.MainStrangersLife;
-import utility.BotExcp;
 
-import java.awt.*;
-import java.util.function.Consumer;
-
-import static main.DumbledoreMain.botDiscordID;
 import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
-import static serverPersonalScript.StrangersLife.MainStrangersLife.alboAvvocati;
-import static serverPersonalScript.StrangersLife.MainStrangersLife.strangerLifeID;
 
 public class ComunicationDatabase extends ListenerAdapter {
 

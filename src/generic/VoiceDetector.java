@@ -1,3 +1,4 @@
+/*
 package generic;
 
 import main.DumbledoreMain;
@@ -7,7 +8,7 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import serverPersonalScript.StrangersLife.MainStrangersLife;
+
 
 import java.awt.*;
 
@@ -85,11 +86,13 @@ public class VoiceDetector extends ListenerAdapter {
         }
 
 
-        /*if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)) {
+        */
+/*if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)) {
 
             event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                     .sendMessage(" <@" + event.getMember().getId() + "> è uscito dalla stanza <#" + event.getChannelLeft().getId() + ">").queue();
-        }*/
+        }*//*
+
 
 
     @Override
@@ -132,4 +135,4 @@ public class VoiceDetector extends ListenerAdapter {
             }
         }
     }
-}
+}*/

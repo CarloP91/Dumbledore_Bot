@@ -10,14 +10,15 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import utility.Utility;
-
 import java.awt.*;
 import java.sql.*;
 import java.util.EnumSet;
 import java.util.List;
 
+import static main.DumbledoreMain.prefix;
+
 public class AdminCommands extends ListenerAdapter {
-    @Override
+
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
 
@@ -45,7 +46,7 @@ public class AdminCommands extends ListenerAdapter {
                 && event.getChannel().getId().equalsIgnoreCase("856626062779088966")) {
             // SE L'AUTORE DEL MESSAGGIO E' DOMINY E SE SI E' NEL CANALE DI COMANDI BOT
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "admin")
+            if (args[0].equalsIgnoreCase(prefix + "admin")
                     && args[1].equalsIgnoreCase("command")) {
                 event.getChannel()
                         .sendMessage("Lista di comandi ADMIN: \n"
@@ -66,18 +67,18 @@ public class AdminCommands extends ListenerAdapter {
 
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "prova")) {
+            if (args[0].equalsIgnoreCase(prefix + "prova")) {
                 event.getJDA().getGuildById("857905157840961547").createTextChannel("annunci-ic").queue();
                 System.out.println("creato");
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "search")
+            if (args[0].equalsIgnoreCase(prefix + "search")
                     && args[1].equalsIgnoreCase("channel")) {
                 System.out.println(event.getJDA().getGuildById(args[2]).getTextChannelsByName("bot-channel-log", true));
 
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "check")
+            if (args[0].equalsIgnoreCase(prefix + "check")
                     && args[1].equalsIgnoreCase("serverlist")) {
 
 
@@ -90,7 +91,7 @@ public class AdminCommands extends ListenerAdapter {
             }
 
             if (guild.getId().equals(DumbledoreMain.botDiscordID)
-                    && args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
+                    && args[0].equalsIgnoreCase(prefix + "print")
                     && args[1].equalsIgnoreCase("serverList")) {
 
                 try {
@@ -157,7 +158,7 @@ public class AdminCommands extends ListenerAdapter {
 
             }*/
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "print")
+            if (args[0].equalsIgnoreCase(prefix + "print")
                     && args[1].equalsIgnoreCase("guildchannel")) {
                 String idCh = args[2];
                 List<GuildChannel> channelList = event.getGuild().getChannels();
@@ -173,11 +174,11 @@ public class AdminCommands extends ListenerAdapter {
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+            if (args[0].equalsIgnoreCase(prefix + "add")
                     && args[1].equalsIgnoreCase("channel-log")) {
                 String chName = args[2];
                 event.getGuild().createTextChannel(chName).queue();
-            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+            } else if (args[0].equalsIgnoreCase(prefix + "add")
                     && args[1].equalsIgnoreCase("remote")
                     && args[2].equalsIgnoreCase("channel-log")) {
 
@@ -190,7 +191,7 @@ public class AdminCommands extends ListenerAdapter {
 
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "modify")
+            if (args[0].equalsIgnoreCase(prefix + "modify")
                     && args[1].equalsIgnoreCase("allchannel-permission")) {
 
 
@@ -205,14 +206,14 @@ public class AdminCommands extends ListenerAdapter {
                         .queue();
 
 
-            } else if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "compile")
+            } else if (args[0].equalsIgnoreCase(prefix + "compile")
                     && args[1].equalsIgnoreCase("modify")
                     && args[2].equalsIgnoreCase("channel-permission")) {
 
                 event.getChannel().sendMessage("modify channel-permission (chID) (guildID) (memberID)").queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "read")
+            if (args[0].equalsIgnoreCase(prefix + "read")
                     && args[1].equalsIgnoreCase("history-channel")) {
 
                 MessageHistory h = event.getChannel().getHistory();
@@ -225,7 +226,7 @@ public class AdminCommands extends ListenerAdapter {
                 event.getChannel().sendMessage(tempml).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+            if (args[0].equalsIgnoreCase(prefix + "remote")
                     && args[1].equalsIgnoreCase("sendcmd")) {
 
                 String guildID = args[2];
@@ -235,7 +236,7 @@ public class AdminCommands extends ListenerAdapter {
                         .getTextChannelById(chID).sendMessage(args[4] + " " + args[5]).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "remote")
+            if (args[0].equalsIgnoreCase(prefix + "remote")
                     && args[1].equalsIgnoreCase("sendmsg")) {
 
                 String guildID = args[2];
@@ -248,7 +249,7 @@ public class AdminCommands extends ListenerAdapter {
                 event.getJDA().getGuildById(guildID).getTextChannelById(chID).sendMessage(msg).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "manutention")) {
+            if (args[0].equalsIgnoreCase(prefix + "manutention")) {
 
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
@@ -288,7 +289,7 @@ public class AdminCommands extends ListenerAdapter {
 
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendInvite")) {
+            if (args[0].equalsIgnoreCase(prefix + "sendInvite")) {
 
                 String guildID = args[1];
                 String inviteCH = args[2];
@@ -310,7 +311,7 @@ public class AdminCommands extends ListenerAdapter {
                 }
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add")
+            if (args[0].equalsIgnoreCase(prefix + "add")
                     && args[1].equalsIgnoreCase("role")) { //non funziona per via dei privileggi
 
                 try {
@@ -324,8 +325,9 @@ public class AdminCommands extends ListenerAdapter {
                 } catch (IndexOutOfBoundsException exception){
                     exception.printStackTrace();
 
-                }
-            }
+
+        }
+    }
 
         }
     }

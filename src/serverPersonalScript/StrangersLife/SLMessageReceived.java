@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.StrangersLife;
 
 
@@ -5,7 +6,7 @@ import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import utility.BotExcp;
+
 
 import java.awt.*;
 
@@ -19,7 +20,7 @@ public class SLMessageReceived extends ListenerAdapter {
 
         if (event.getGuild().getId().equals(MainStrangersLife.strangerLifeID)
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
-                && !event.getAuthor().getId().equals(BotExcp.mee6)){ // SE E' IL DISCORD DI STRANGER'S LIFE
+                && !event.getAuthor().isBot()){ // SE E' IL DISCORD DI STRANGER'S LIFE
             EmbedBuilder msgSlRoom = new EmbedBuilder()
                     .setColor(Color.black)
                     .setAuthor("ID MESSAGGIO: " + event.getMessageId())
@@ -43,10 +44,12 @@ public class SLMessageReceived extends ListenerAdapter {
                 event.getGuild().getTextChannelById(MainStrangersLife.logWhitelist)
                         .sendMessage(msgSlRoom.build()).queue();
             }
-            /*else if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom)) {
+            */
+/*else if (event.getChannel().getId().equals(MainStrangersLife.richiamiRoom)) {
                 event.getGuild().getTextChannelById(MainStrangersLife.ChMsglogIDRoom)
                         .sendMessage("<@" + event.getMessage().getMember().getId() + "> ha scritto: " + event.getMessage().getContentRaw() + " in <#" + event.getChannel().getId() +">").queue();
-            }*/
+            }*//*
+
         }
     }
-}
+}*/

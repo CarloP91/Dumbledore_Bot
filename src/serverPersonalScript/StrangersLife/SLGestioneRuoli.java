@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.StrangersLife;
 
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -58,3 +59,4 @@ public class SLGestioneRuoli extends ListenerAdapter {
     }
 }
 
+*/

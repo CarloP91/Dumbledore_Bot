@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.StrangersLife;
 
 public class MainStrangersLife {
@@ -30,3 +31,4 @@ public class MainStrangersLife {
     public static String alboAvvocati = "870199805341757470"; //STANZA ALBO AVVOCATI
 
 }
+*/

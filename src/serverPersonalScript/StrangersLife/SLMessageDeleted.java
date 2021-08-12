@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.StrangersLife;
 
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -45,3 +46,4 @@ public class SLMessageDeleted extends ListenerAdapter {
         }
     }
 }
+*/

@@ -1,18 +1,13 @@
 package generic;
 
-import db.DbCredentials;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import utility.BotExcp;
 
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
-
-import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
-import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.sceriffiRapporti;
 
 public class GenericMessageReceived extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
@@ -20,10 +15,10 @@ public class GenericMessageReceived extends ListenerAdapter {
 
         Guild guild = event.getGuild();
 
-
+/*
         DbCredentials credentials = new DbCredentials();
         String username = credentials.getUsername();
-        String password = credentials.getPassword();
+        String password = credentials.getPassword();*/
 
         int count = 0;// count++;
 
@@ -44,7 +39,7 @@ public class GenericMessageReceived extends ListenerAdapter {
 
         if (guild.getId().equals("858674220628049920")
                 && !event.getAuthor().getId().equals(DumbledoreMain.dumbledoreID)
-                && !event.getAuthor().getId().equals(BotExcp.ciroBot)) {
+                && !event.getAuthor().isBot()) {
 
             EmbedBuilder msgSlRoom = new EmbedBuilder()
                     .setColor(Color.black)
