@@ -9,19 +9,11 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
-import serverPersonalScript.AmbulanceStangersLife.AmbMessageReceived;
-
-import serverPersonalScript.AmbulanceStangersLife.AmbulanceCommands;
-import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.BBBDBMessageReceived;
-import serverPersonalScript.BotTest.Test;
-//import serverPersonalScript.GovernoPoliziaSceriffi.GovernRoleManagerScript;
-//import serverPersonalScript.GovernoPoliziaSceriffi.PersonalGovernoScript;
+import serverPersonalScript.AmbulanceStangersLife.*;
+import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.*;
+import serverPersonalScript.BotTest.*;
 import serverPersonalScript.GovernoPoliziaSceriffi.ComunicationDatabase;
-
-
-import serverPersonalScript.RevProj.RevProjGuildJoined;
-import serverPersonalScript.RevProj.RevProjPersScript;
-import serverPersonalScript.RevProj.RevProjPersonalCMD;
+import serverPersonalScript.RevProj.*;
 
 import javax.security.auth.login.LoginException;
 
@@ -63,6 +55,7 @@ public class DumbledoreMain {
                 .addEventListeners(new RevProjPersonalCMD())
                 .addEventListeners(new RevProjPersScript())
                 .addEventListeners(new RevProjGuildJoined())
+                .addEventListeners(new AssistenzaReactionScript())
 
 
                 // BalbettanteBamboccionaBandaDiBabbuini

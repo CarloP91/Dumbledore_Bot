@@ -1,25 +1,25 @@
     package generic;
 
-    import db.DbCredentials;
-    import main.DumbledoreMain;
-    import net.dv8tion.jda.api.EmbedBuilder;
-    import net.dv8tion.jda.api.entities.Guild;
-    import net.dv8tion.jda.api.entities.Member;
-    import net.dv8tion.jda.api.entities.Message;
-    import net.dv8tion.jda.api.entities.Role;
-    import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-    import net.dv8tion.jda.api.hooks.ListenerAdapter;
-    import net.dv8tion.jda.internal.requests.Route;
-    import utility.Utility;
-    import commands.PublicCmdList;
+import commands.*;
+import db.DbCredentials;
+import main.DumbledoreMain;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import utility.Utility;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
-    import java.awt.*;
-    import java.sql.*;
-    import java.time.format.DateTimeFormatter;
-    import java.util.ArrayList;
-    import java.util.List;
-    import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
+import static main.DumbledoreMain.prefix;
 
     public class PublicCommands extends ListenerAdapter {
 
@@ -33,6 +33,7 @@
         DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
         int count = 0;
 
+        public static boolean DominyOnOff = false;
 
         // LISTA COMANDI
         ArrayList<String> baseCMD = new ArrayList<String>();
@@ -290,6 +291,18 @@
                         .sendMessage("- " + event.getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw() + " <@383035474807095296>").queue();
 
 
+            }
+
+            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "dominyOn") && !DominyOnOff) {
+                DominyOnOff = true;
+                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> hai abilitato l'attesa Dominy").queue();
+            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff") && DominyOnOff) {
+                DominyOnOff = false;
+                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> hai disabilitato l'attesa Dominy").queue();
+            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOn") && DominyOnOff) {
+                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> il comando è già attivo.").queue();
+            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff") && !DominyOnOff) {
+                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> il comando è già disattivo.").queue();
             }
 
         }
