@@ -9,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 
 import static generic.FilterWord.filterOn;
-import static generic.PublicCommands.DominyOnOff;
 import static serverPersonalScript.RevProj.MainRevengeProject.revengeProjectID;
 
 public class RevProjPersScript extends ListenerAdapter {
@@ -36,16 +35,6 @@ public class RevProjPersScript extends ListenerAdapter {
                             //
                         }
                     }
-                }
-            }
-
-            if (DominyOnOff == false) {
-             //   System.out.println("CMD Dominy OFF");
-            } else if (DominyOnOff) {
-                if (event.getMessage().getContentRaw().contains("383035474807095296")
-                        && !event.getAuthor().isBot()
-                        && !event.getAuthor().getId().equals("323058900771536898")) {
-                    event.getChannel().sendMessage("Ciao <@" + event.getAuthor().getId() + ">, <@383035474807095296> attualmente è a lavoro, tornerà per le ore 18.00. Salvo il tuo messaggio.").queue();
                 }
             }
 

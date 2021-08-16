@@ -33,8 +33,6 @@ import static main.DumbledoreMain.prefix;
         DateTimeFormatter itafmt = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss");
         int count = 0;
 
-        public static boolean DominyOnOff = false;
-
         // LISTA COMANDI
         ArrayList<String> baseCMD = new ArrayList<String>();
         ArrayList<String> explainCMD = new ArrayList<String>();
@@ -107,6 +105,12 @@ import static main.DumbledoreMain.prefix;
                         .setColor(Color.green);
                 event.getChannel().sendMessage(endReport.build()).queue();
                 event.getMessage().delete().queue();
+            }
+
+            List<Role> roleList = guild.getRoles();
+            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "role"  + event.getMessage().getMentionedRoles())
+                    && !event.getAuthor().isBot()) {
+                event.getChannel().sendMessage(event.getMessage().getContentRaw()).queue();
             }
 
             baseCMD.add(PublicCmdList.cmdInfo); explainCMD.add("*@member:* Show the information about mentioned member");
@@ -291,18 +295,6 @@ import static main.DumbledoreMain.prefix;
                         .sendMessage("- " + event.getAuthor().getName() + " ha scritto: " + event.getMessage().getContentRaw() + " <@383035474807095296>").queue();
 
 
-            }
-
-            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "dominyOn") && !DominyOnOff) {
-                DominyOnOff = true;
-                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> hai abilitato l'attesa Dominy").queue();
-            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff") && DominyOnOff) {
-                DominyOnOff = false;
-                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> hai disabilitato l'attesa Dominy").queue();
-            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOn") && DominyOnOff) {
-                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> il comando è già attivo.").queue();
-            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff") && !DominyOnOff) {
-                event.getChannel().sendMessage("<@" + event.getMember().getUser().getId() + "> il comando è già disattivo.").queue();
             }
 
         }

@@ -1,23 +1,28 @@
 package commands;
 
-import db.DbCredentials;
+import db.*;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.GuildChannel;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import utility.Utility;
+
 import java.awt.*;
 import java.sql.*;
-import java.util.EnumSet;
 import java.util.List;
 
 import static main.DumbledoreMain.prefix;
 
 public class AdminCommands extends ListenerAdapter {
+
+    public static boolean DominyOnOff = false;
+
 
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
@@ -123,40 +128,40 @@ public class AdminCommands extends ListenerAdapter {
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
 
-/*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
-                    && args[1].equalsIgnoreCase("serverlistID")) {
+    /*            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "reload")
+                        && args[1].equalsIgnoreCase("serverlistID")) {
 
-                List<GuildChannel> channelList = event.getGuild().getChannels();
+                    List<GuildChannel> channelList = event.getGuild().getChannels();
 
-                try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
+                    try {
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
 
-                    // SELECT FROM DB MYSQL
-                    String sql = "SELECT * FROM `tab1`";
+                        // SELECT FROM DB MYSQL
+                        String sql = "SELECT * FROM `tab1`";
 
-                    Statement statement = connection.createStatement();
-                    ResultSet result = statement.executeQuery(sql);
-
-
-                    while (result.next()) {
-                        String row1 = result.getString(1);
-                        String row2 = result.getString(2);
-                        String row3 = result.getString(3);
-                        count++;
+                        Statement statement = connection.createStatement();
+                        ResultSet result = statement.executeQuery(sql);
 
 
-                        if ((!Utility.getChannelListName(channelList).contains(row2))) {
-                            guild.createTextChannel(row2).queue();
-                            event.getChannel().sendMessage(activeCommand.build()).queue();
+                        while (result.next()) {
+                            String row1 = result.getString(1);
+                            String row2 = result.getString(2);
+                            String row3 = result.getString(3);
+                            count++;
+
+
+                            if ((!Utility.getChannelListName(channelList).contains(row2))) {
+                                guild.createTextChannel(row2).queue();
+                                event.getChannel().sendMessage(activeCommand.build()).queue();
+                            }
                         }
+
+                    } catch (SQLException e) {
+
+
                     }
 
-                } catch (SQLException e) {
-
-
-                }
-
-            }*/
+                }*/
 
             if (args[0].equalsIgnoreCase(prefix + "print")
                     && args[1].equalsIgnoreCase("guildchannel")) {
@@ -325,10 +330,26 @@ public class AdminCommands extends ListenerAdapter {
                 } catch (IndexOutOfBoundsException exception){
                     exception.printStackTrace();
 
+                }
+            }
 
-        }
-    }
-
+            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOn") && !DominyOnOff) {
+                event.getMessage().delete().queue();
+                DominyOnOff = true;
+                event.getChannel().sendMessage("CMD ON").queue();
+            } else if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff") && DominyOnOff) {
+                event.getMessage().delete().queue();
+                DominyOnOff = false;
+                event.getChannel().sendMessage("CMD OFF").queue();
+            } else if (DominyOnOff && event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOn")) {
+                event.getMessage().delete().queue();
+                DominyOnOff = true;
+                event.getChannel().sendMessage("CMD già attivo!").queue();
+            } else if (!DominyOnOff && event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "DominyOff")) {
+                event.getMessage().delete().queue();
+                DominyOnOff = false;
+                event.getChannel().sendMessage("CMD già disattivo!").queue();
+            }
         }
     }
 }
