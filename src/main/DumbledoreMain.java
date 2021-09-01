@@ -12,10 +12,10 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import serverPersonalScript.AmbulanceStangersLife.*;
 import serverPersonalScript.BalbettanteBamboccionaBandaDiBabbuini.*;
 import serverPersonalScript.BotTest.*;
-import serverPersonalScript.RevProj.AssistenzaReactionScript;
-import serverPersonalScript.RevProj.RevProjGuildJoined;
-import serverPersonalScript.RevProj.RevProjPersScript;
-import serverPersonalScript.RevProj.RevProjPersonalCMD;
+//import serverPersonalScript.RevProj.AssistenzaReactionScript;
+import serverPersonalScript.RevProj.DsCommunication.AnnunciCondivisi;
+import serverPersonalScript.RevProj.DsCommunication.DatabaseCondivisoRP;
+import serverPersonalScript.RevProj.*;
 
 import javax.security.auth.login.LoginException;
 
@@ -23,8 +23,9 @@ public class DumbledoreMain {
 
     public static String prefix = "d-";
     public static String dumbledoreID = "847029930872930334"; // BOT ID
-    public static String botVersion = "1.99.84-ass";
+    public static String botVersion = "1.99.98-rpcnew ";
     public static String botDiscordID = "856439285879144468";
+    public static String dominyID = "383035474807095296";
 
 
     public static void main(String[] args) throws LoginException {
@@ -44,7 +45,7 @@ public class DumbledoreMain {
                 .addEventListeners(new Test())
 
                 .addEventListeners(new GenericMessageReceived())
-                .addEventListeners(new UpdateRole())
+//                .addEventListeners(new UpdateRole())
                 .addEventListeners(new GuildMemberRoleManager())
                 .addEventListeners(new FilterWord())
 //              .addEventListeners(new VoiceDetector())
@@ -56,8 +57,12 @@ public class DumbledoreMain {
                 .addEventListeners(new RevProjGestioneRole())*/
                 .addEventListeners(new RevProjPersonalCMD())
                 .addEventListeners(new RevProjPersScript())
-                .addEventListeners(new RevProjGuildJoined())
-                .addEventListeners(new AssistenzaReactionScript())
+//                .addEventListeners(new RevProjGuildJoined())
+//                .addEventListeners(new AssistenzaReactionScript())
+
+                //DB CONDIVISO
+                .addEventListeners(new AnnunciCondivisi())
+                .addEventListeners(new DatabaseCondivisoRP())
 
 
                 // BalbettanteBamboccionaBandaDiBabbuini

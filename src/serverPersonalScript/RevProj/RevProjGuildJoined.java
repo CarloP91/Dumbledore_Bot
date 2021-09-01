@@ -13,13 +13,14 @@ public class RevProjGuildJoined extends ListenerAdapter {
         super.onGuildMemberJoin(event);
 
 
-        if (event.getGuild().getId().equals(MainRevengeProject.revengeProjectID)) {
+        if (event.getGuild().getId().equals("877536162414207066")) {
             try {
                 Member member = event.getMember();
   /*           Role role =  event.getJDA().getRoleById("866609806788526090");
             event.getGuild().addRoleToMember(member, role).queue();*/
 
-                Role role2 = event.getJDA().getRoleById(MainRevengeProject.rpAllowlistatoRole);
+                Role role2 = event.getJDA().getRoleById("874322195994804356");
+
                 event.getGuild().addRoleToMember(member, role2).queue();
 
                 System.out.println("ho aggiunto 1 ruolo a " + event.getMember().getEffectiveName());

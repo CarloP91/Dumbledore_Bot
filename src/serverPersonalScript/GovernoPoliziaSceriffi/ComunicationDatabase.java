@@ -1,3 +1,4 @@
+/*
 
 package serverPersonalScript.GovernoPoliziaSceriffi;
 
@@ -6,35 +7,15 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import static serverPersonalScript.GovernoPoliziaSceriffi.MainDatabaseInfo.*;
-
 public class ComunicationDatabase extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
 
-        String[] args = event.getMessage().getContentRaw().split("\\s+");
+//        String[] args = event.getMessage().getContentRaw().split("\\s+");
 
-        if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "sendIC")) {
-            event.getJDA().getGuildById("869328725727137833").getTextChannelById(wolfsAssaultAnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60CertMedici).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(armeria60ID).getTextChannelById(armeria60testBall).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(conc682ID).getTextChannelById(conc682AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("855854902185951234").getTextChannelById("868538815118209024").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("865697610042703882").getTextChannelById("866953627020427294").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(armeria200ID).getTextChannelById(armeria200AnnunciIC).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("872543651962703934").getTextChannelById("873240458334203935").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("857329585057038417").getTextChannelById("868161438416515222").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("857329585057038417").getTextChannelById("868161438416515222").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById("853530009624903700").getTextChannelById("854879006208950272").sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-            event.getJDA().getGuildById(lspdID).getTextChannelById(lspdAnnunciCondivisi).sendMessage("https://discord.gg/VJcpGmVQ \n" + "Ragazzi come sapete Stranger's Life è chiuso, e tutti i suoi membri ci stiamo spostando su questa nuova città, chiunque volesse ritrovare i vecchi amici potrà seguire il link! Vi aspettiamo ❤️|| @everyone ||").queue();
-        }
-
-    }
-}
-
+*/
 /*
         if (event.getAuthor().isBot()) {
             //
@@ -546,3 +527,4 @@ public class ComunicationDatabase extends ListenerAdapter {
 }
 
 */
+

@@ -1,7 +1,7 @@
 package commands;
 
 import db.*;
-import main.DumbledoreMain;
+import main.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
-import utility.Utility;
+import utility.*;
 
 import java.awt.*;
 import java.sql.*;

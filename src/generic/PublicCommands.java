@@ -1,7 +1,7 @@
     package generic;
 
 import commands.*;
-import db.DbCredentials;
+import db.*;
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import utility.Utility;
+
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -55,18 +56,18 @@ import static main.DumbledoreMain.prefix;
             String[] args = event.getMessage().getContentRaw().split("\\s+");
 
             baseCMD.add(PublicCmdList.cmdVersione); explainCMD.add(": Show the actual BOT version");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdVersione)) {
+            if (args[0].equalsIgnoreCase(prefix + PublicCmdList.cmdVersione)) {
                 event.getChannel().sendMessage("Versione attuale: " + cVersion).queue();
             }
 
             baseCMD.add(PublicCmdList.cmdDeleteMsgByID); explainCMD.add("*msgID:* Delete a message by ID (if you have Role Permissions)");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdDeleteMsgByID)) { // cancella un messaggio tramite id
+            if (args[0].equalsIgnoreCase(prefix + PublicCmdList.cmdDeleteMsgByID)) { // cancella un messaggio tramite id
                 event.getChannel().deleteMessageById(args[1]).queue();
                 event.getMessage().delete().queue();
             }
 
             baseCMD.add(PublicCmdList.cmdWho); explainCMD.add("*@role:* show all member of mentioned role");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "who")) {
+            if (args[0].equalsIgnoreCase(prefix + "who")) {
 
                 List<Role> roleList = guild.getRoles();
                 List<Role> mentRole = event.getMessage().getMentionedRoles();
@@ -107,14 +108,9 @@ import static main.DumbledoreMain.prefix;
                 event.getMessage().delete().queue();
             }
 
-            List<Role> roleList = guild.getRoles();
-            if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "role"  + event.getMessage().getMentionedRoles())
-                    && !event.getAuthor().isBot()) {
-                event.getChannel().sendMessage(event.getMessage().getContentRaw()).queue();
-            }
 
             baseCMD.add(PublicCmdList.cmdInfo); explainCMD.add("*@member:* Show the information about mentioned member");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "info")) {
+            if (args[0].equalsIgnoreCase(prefix + "info")) {
                 if (args.length > 1 && args.length < 3) {
                     try {
                         Member name = event.getMessage().getMentionedMembers().get(0);
@@ -146,7 +142,7 @@ import static main.DumbledoreMain.prefix;
             }*/
 
             baseCMD.add(PublicCmdList.cmdInvite); explainCMD.add("*link:* Print the Dumbledore's Invite Link");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "invite")
+            if (args[0].equalsIgnoreCase(prefix + "invite")
                     && args[1].equalsIgnoreCase("link")) {
 
                 EmbedBuilder botLink = new EmbedBuilder()
@@ -157,7 +153,7 @@ import static main.DumbledoreMain.prefix;
             }
 
             baseCMD.add(PublicCmdList.cmdAdd); explainCMD.add("*server:* Inizialize Dumbledore in your Discord Server");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + PublicCmdList.cmdAdd)
+            if (args[0].equalsIgnoreCase(prefix + PublicCmdList.cmdAdd)
                     && args[1].equalsIgnoreCase("server")) {
 
                 System.out.println(guild.getId() + " " + guild.getName());
@@ -195,11 +191,11 @@ import static main.DumbledoreMain.prefix;
 
                 event.getJDA().getGuildById(DumbledoreMain.botDiscordID).getTextChannelById("857557884003287111")
                         .sendMessage("Interazione con il Discord " + guild.getName() + " ID: "
-                                + guild.getId() + ". Fai **d-print guildchannel** " + guild.getId()).queue();
+                                + guild.getId() + ". Fai **d-print guildchannel** " + guild.getId() + " <@383035474807095296>. Proviene da: " + event.getChannel().getId()).queue();
             }
 
             baseCMD.add(PublicCmdList.cmdInit); explainCMD.add("*(chID):* Inizialize bot-channel-log Channel");
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "init")) {
+            if (args[0].equalsIgnoreCase(prefix + "init")) {
 
                 try {
                     Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test", username, password);
@@ -227,7 +223,7 @@ import static main.DumbledoreMain.prefix;
             }
 
             //baseCMD.add(PublicCmdList.cmdHelp);
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "help")) {
+            if (args[0].equalsIgnoreCase(prefix + "help")) {
 
                 event.getChannel().sendMessage
                         ("\uD83C\uDDEE\uD83C\uDDF9 Sono il bot di Dominy, sono attualmente in sviluppo \uD83D\uDC97 \n"
@@ -265,13 +261,13 @@ import static main.DumbledoreMain.prefix;
                 event.getChannel().sendMessage(activeCommand.build()).queue();
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "segnalation")
+            if (args[0].equalsIgnoreCase(prefix + "segnalation")
                     && args[1].equalsIgnoreCase("bug")) {
                 event.getChannel().sendMessage(disabledCommand.build()).queue();
             }
 
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "add") //ancora non funge
+            if (args[0].equalsIgnoreCase(prefix + "add") //ancora non funge
                     && args[1].equalsIgnoreCase("role")) { //ancora non funge correttamente
 
                 String guildID = args[2];
@@ -283,7 +279,7 @@ import static main.DumbledoreMain.prefix;
                 //  System.out.println(event.getJDA().getGuildById(guildID).getRoles());
             }
 
-            if (args[0].equalsIgnoreCase(DumbledoreMain.prefix + "consiglio")) {
+            if (args[0].equalsIgnoreCase(prefix + "consiglio")) {
 
                 EmbedBuilder consSended = new EmbedBuilder()
                         .setColor(Color.green)

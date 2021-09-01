@@ -2,6 +2,7 @@ package serverPersonalScript.RevProj;
 
 import main.DumbledoreMain;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +18,8 @@ public class RevProjPersScript extends ListenerAdapter {
 
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
+
+        Role revengeStaff = event.getJDA().getRoleById(MainRevengeProject.rpRevengeStaff);
 
         if (event.getGuild().getId().equals(MainRevengeProject.revengeProjectID)) {
 
@@ -68,6 +71,13 @@ public class RevProjPersScript extends ListenerAdapter {
                 event.getMessage().addReaction("\uD83C\uDF81").complete();
                 event.getMessage().addReaction("\uD83D\uDCE6").complete();
                 event.getMessage().addReaction("\uD83D\uDC8C").complete();
+            }
+
+            if (event.getChannel().getId().equals(MainRevengeProject.rpChatCriptata)
+                    && !event.getAuthor().isBot()
+                    && !event.getMember().getRoles().contains(revengeStaff)) {
+                event.getMessage().delete().queue();
+                event.getChannel().sendMessage("**Anonimo ha scritto:** " + event.getMessage().getContentRaw()).queue();
             }
 
         }

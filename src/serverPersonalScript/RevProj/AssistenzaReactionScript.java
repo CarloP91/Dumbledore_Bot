@@ -1,3 +1,4 @@
+/*
 package serverPersonalScript.RevProj;
 
 import net.dv8tion.jda.api.entities.Member;
@@ -42,11 +43,13 @@ public class AssistenzaReactionScript extends ListenerAdapter {
 
                         event.getGuild().addRoleToMember(member, tecnicaVarie).queue();
 
+*/
 /*                        if (event.getMember().getRoles().contains(tecnicaVarie)) {
                             System.out.println("Ho il ruolo");
                         } else if (!event.getMember().getRoles().contains(tecnicaVarie)) {
                             System.out.println("Non ho ruolo");
-                        }*/
+                        }*//*
+
 
 
                     } else if (event.getReactionEmote().getName().equals("\uD83C\uDD98")) {
@@ -123,3 +126,4 @@ public class AssistenzaReactionScript extends ListenerAdapter {
         }
     }
 }
+*/

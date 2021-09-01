@@ -7,8 +7,6 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-
 import static main.DumbledoreMain.botDiscordID;
 
 public class Test extends ListenerAdapter {
@@ -46,31 +44,6 @@ public class Test extends ListenerAdapter {
                         "In vitae ipsum vel urna fermentum malesuada. Suspendisse mollis diam et leo porttitor tempor. In eu arcu dapibus, faucibus libero a, pretium quam. Nullam a arcu ante. Nulla facilisi. Duis mi ligula, molestie non eleifend vitae, venenatis id ex. Donec dictum varius ornare. Curabitur suscipit vehicula nisl in volutpat. Integer vitae porta eros. Vestibulum elementum, neque ac venenatis lacinia, massa turpis efficitur ipsum, quis blandit justo elit quis nulla. Cras posuere nibh tellus, vitae accumsan enim feugiat eu. Phasellus et viverra est. Nulla et neque eget diam efficitur sagittis.\n" +
                         "\n" +
                         "In quis tincidunt purus. Phasellus velit urna, rutrum ut sapien id, scelerisque tempor justo. Nunc varius felis ornare metus suscipit pulvinar. Donec mi purus, iaculis quis nisi ut, faucibus eleifend ligula. Fusce venenatis orci ex, id finibus justo aliquet in. Fusce accumsan lacus eu dui vehicula, eu interdum sem convallis. In volutpat orci a euismod aliquam. Donec gravida erat at risus interdum, eu bibendum ante suscipit. Aliquam accumsan nulla justo, a rutrum tortor accumsan at. Suspendisse pharetra eros eget euismod elementum. Vestibulum ac velit facilisis, malesuada dui eget, tempus ipsum.\n" +
-                        "\n" +
-                        "Proin commodo turpis sed orci ultricies, vitae aliquet magna elementum. Praesent vehicula a metus eget euismod. Donec tincidunt libero quis ante pellentesque, tincidunt bibendum elit vulputate. Integer tincidunt, eros et ornare pharetra, enim justo lobortis nisl, vel feugiat elit elit semper diam. In ornare, augue quis vulputate scelerisque, velit tortor imperdiet nulla, ac volutpat nibh justo ut justo. Mauris pulvinar a nisl quis pellentesque. Morbi a purus massa. Aliquam erat volutpat. Sed dictum tempor vestibulum. In hac habitasse platea dictumst.\n" +
-                        "\n" +
-                        "Sed interdum magna pulvinar ligula tempus interdum. Phasellus pharetra fermentum tristique. Nullam ex dui, commodo eu sem placerat, vulputate vulputate augue. Phasellus ac interdum felis. Praesent aliquet fringilla quam, in placerat nibh mollis ut. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis lacinia arcu tellus, nec sodales mauris pretium eget. Vivamus ut metus vel massa laoreet pulvinar. Duis nec urna turpis. Suspendisse ultricies sapien ut lacus pulvinar, a molestie est tempor.\n" +
-                        "\n" +
-                        "Aliquam posuere lorem metus, ullamcorper malesuada lectus aliquet ac. Cras eget metus sed lectus rhoncus suscipit eu sed tortor. Etiam non tellus vulputate, bibendum metus vitae, fermentum neque. Nulla dignissim sit amet ex a semper. Quisque eget pulvinar augue, sed lobortis nisl. Ut convallis purus magna, id rhoncus nisl posuere eu. Sed molestie euismod elit ac gravida. Praesent porttitor ornare mi, sit amet tincidunt urna sagittis non. Ut nisi nulla, auctor at lacus nec, tincidunt consectetur lectus. Maecenas nec porta est.\n" +
-                        "\n" +
-                        "Maecenas ultricies leo porttitor felis porttitor luctus. Vivamus tempus turpis ut eros placerat, vel lobortis velit blandit. Nullam sed nunc nisi. Maecenas tristique gravida erat. Nulla blandit, tortor non viverra ullamcorper, nunc leo ornare lectus, sit amet egestas turpis mi quis tortor. Mauris placerat, dolor non imperdiet eleifend, risus lectus tincidunt velit, sed blandit leo felis sit amet ante. Donec dolor mauris, iaculis nec purus sed, tempus malesuada augue. Praesent pretium nulla ex, malesuada volutpat velit condimentum non. Vivamus rhoncus dictum tempus. Vivamus in faucibus quam, ut interdum libero. Aenean varius metus leo, non laoreet odio fermentum id.\n" +
-                        "\n" +
-                        "Nulla tincidunt, mauris volutpat pellentesque dignissim, elit tortor egestas ipsum, ut luctus nibh odio maximus odio. Fusce cursus urna ut sapien vehicula, non molestie felis luctus. Vivamus condimentum nulla lectus, ut lobortis enim laoreet in. Proin condimentum nec mauris ut laoreet. Nulla vulputate nunc libero. Pellentesque eget justo ac ligula tincidunt lacinia. Nunc tempus ultricies dapibus. Sed suscipit ullamcorper lorem, vitae volutpat lacus vulputate non. Vestibulum faucibus turpis lorem.\n" +
-                        "\n" +
-                        "Sed faucibus ac augue vitae efficitur. Nam luctus nisl quis quam tempor, et condimentum augue vehicula. Sed sit amet feugiat tortor, at pretium dui. Duis sollicitudin mi id interdum tempus. Maecenas et facilisis mauris, quis molestie velit. Praesent id mi enim. Praesent dapibus mattis maximus.\n" +
-                        "\n" +
-                        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla magna felis, bibendum non ipsum eu, pulvinar molestie nibh. Nunc vitae diam vel elit malesuada tristique. Nulla malesuada fermentum dolor quis aliquam. Duis id posuere quam. Vivamus vehicula accumsan turpis, eu mollis enim sagittis accumsan. Vestibulum posuere tempus diam. Sed vel finibus tellus, sed volutpat tellus. Nulla dignissim sem eu sapien luctus, vitae sollicitudin enim tincidunt. Nam pharetra lobortis porttitor. Morbi gravida elementum dapibus. Phasellus condimentum dui et ornare sollicitudin. Suspendisse auctor accumsan enim et sagittis.\n" +
-                        "\n" +
-                        "Etiam dictum, nisl eu vehicula faucibus, lectus nulla vestibulum ante, vel posuere elit lacus in massa. Maecenas eu efficitur ipsum. Pellentesque nibh diam, ultrices eu risus id, porta faucibus odio. Nam blandit vulputate neque, ut elementum enim interdum at. Nam tempus nisi non efficitur blandit. Cras elementum auctor sapien non vehicula. Integer ornare rutrum sapien eu lobortis. Sed sodales arcu et ipsum lobortis, non vestibulum odio lacinia. Aliquam quis turpis porta, feugiat mauris eget, molestie enim.\n" +
-                        "\n" +
-                        "Vestibulum et mi eget ipsum laoreet commodo. Aenean ut eros quis justo rhoncus tristique quis et odio. Donec vitae nunc at lacus pellentesque fermentum ac id ex. Integer quis eleifend ex, ut vehicula magna. Duis vel purus neque. Ut consequat felis sodales massa pulvinar molestie. Praesent vulputate tellus a ante dapibus facilisis.\n" +
-                        "\n" +
-                        "Quisque tincidunt diam sit amet tempor consectetur. Ut ac porttitor ligula, vitae bibendum leo. Sed suscipit non tortor ac porttitor. Nullam tincidunt diam arcu, et convallis nibh rhoncus quis. Aliquam odio purus, cursus sit amet lectus et, efficitur dapibus diam. Nunc in faucibus libero, quis ornare enim. Integer lacinia nisi non malesuada eleifend. Ut pellentesque risus quam.\n" +
-                        "\n" +
-                        "Praesent placerat porta risus. Aliquam suscipit diam quis purus mattis, auctor scelerisque massa sagittis. Sed feugiat ac lorem ut lacinia. Duis faucibus tortor vel euismod molestie. Pellentesque placerat est non tempus porttitor. Fusce vel ante non augue feugiat porta. Duis ac erat eget odio euismod varius.\n" +
-                        "\n" +
-                        "Fusce maximus, lorem at vulputate malesuada, orci arcu porttitor nibh, sed rhoncus nisi nisi sed nisl. Fusce ornare, nibh in tristique scelerisque, lectus nisl ullamcorper leo, interdum scelerisque enim mi ac libero. Duis ac rutrum lectus, at interdum elit. Quisque sollicitudin id leo nec condimentum. Suspendisse egestas ipsum lectus, vitae pretium sem mattis eget. Suspendisse et blandit massa. Duis dolor massa, tempus non dapibus eget, tincidunt pellentesque neque. Vestibulum non elementum ante. Nulla facilisi.\n" +
-                        "\n" +
                         "Phasellus orci turpis, dignissim quis molestie tincidunt, sodales eu mi. Quisque luctus erat ac massa fermentum, sit amet faucibus sem vehicula. Nam tincidunt pellentesque augue in iaculis. Nunc eu dictum elit. Quisque imperdiet massa at enim euismod tristique. Aenean commodo erat a suscipit dictum. Donec eu euismod nulla. Morbi nibh lacus, molestie a lorem et, mollis pretium turpis. Suspendisse sollicitudin ac urna a porttitor. Proin nec nulla nulla.";
                 //                String parti[] = msgTxt.split("Sed");
                 msgTxt.substring(0, 1999);
@@ -79,28 +52,37 @@ public class Test extends ListenerAdapter {
                     event.getChannel().sendMessage(parti[i]).queue();
                 }*/
 
-                if(msgTxt.length() > 1999) {
-                    event.getChannel().sendMessage(msgTxt.substring(0, 1999)).queue();
-//                    event.getChannel().sendMessage(msgTxt.substring(1999, 3998)).queue();
-//                    event.getChannel().sendMessage(msgTxt.substring(3999, 5998)).queue();
-//
-//                    event.getChannel().sendMessage(msgTxt.length()).queue();
+                if(msgTxt.length() > 0) {
+
+                    if (msgTxt.length() > 0 && msgTxt.length() < 2000) {
+                        event.getChannel().sendMessage(msgTxt.substring(0, 1999)).queue();
+                    }
+
+                    if(msgTxt.length() > 2000 && msgTxt.length() < 4000) {
+                        event.getChannel().sendMessage(msgTxt.substring(2000, 3999)).queue();
+                    }
+
+                    event.getChannel().sendMessage(msgTxt.substring(1999, 3998)).queue();
+                   event.getChannel().sendMessage(msgTxt.substring(3999, 5998)).queue();
+                   event.getChannel().sendMessage(msgTxt.substring(5999, 7998)).queue();
+
+
                 }
 
-                if (msgTxt.length() > 3999) {
+               /* if (msgTxt.length() > 1999) {
                     event.getChannel().sendMessage(msgTxt.substring(1999, 3998)).queue();
                 }
 
-                if (msgTxt.length() > 5999) {
+                if (msgTxt.length() > 3999 && msgTxt.length() < 5998) {
                     event.getChannel().sendMessage(msgTxt.substring(3999, 5998)).queue();
                 }
-                if (msgTxt.length() > 5999) {
+                if (msgTxt.length() > 5999 && msgTxt.length() < 7999) {
                     event.getChannel().sendMessage(msgTxt.substring(5999, 7998)).queue();
                 }
                 if (msgTxt.length() > 7999) {
                    event.getChannel().sendMessage(" \n \n ```il messaggio è troppo lungo, non posso mica far esplodere il discord ❤️```").queue();
                 }
-
+*/
 
             } catch (IndexOutOfBoundsException exception) {
 
