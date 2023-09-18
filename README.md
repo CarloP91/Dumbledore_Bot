@@ -5,5 +5,6 @@ Dumbledore Bot v.1 è disponibile per chiunque voglia sviluppare un Bot Discord 
 Sono riportate nel codice i vari Listener di Canali Discord ormai in disuso. La versione v.1 vanta una presenza attiva in ancora + 70 server contemporanei, mentre la v.2 è in continuo aumento.
 
 Chiunque può prendere stralci interi o parziali di codice senza alcun problema. Questa versione è stata resa pubblica appositamente.
+I vari collegamenti a terze parti, come db o canali vari sono fittizzi.
 
 CP.
